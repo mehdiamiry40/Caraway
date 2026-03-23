@@ -24,30 +24,30 @@
 }
 
 :root {
-  /* Bold red & black — high energy, urgent, grabs attention */
-  --background: 0 0% 98%;          /* #FAFAFA near-white */
-  --foreground: 0 0% 8%;           /* #141414 near-black */
+  /* Charcoal & bright orange — modern, industrial, bold */
+  --background: 210 11% 96%;       /* #F3F4F6 cool light grey */
+  --foreground: 210 12% 14%;       /* #1F2329 deep charcoal */
 
-  --primary: 0 85% 38%;            /* #B71C1C deep bold red */
+  --primary: 215 16% 24%;          /* #323C4D dark charcoal blue */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 0 0% 92%;           /* #EBEBEB light grey */
-  --secondary-foreground: 0 0% 8%;
+  --secondary: 210 10% 88%;        /* #DDE0E4 mid grey */
+  --secondary-foreground: 210 12% 14%;
 
-  --muted: 0 0% 95%;               /* #F2F2F2 subtle grey */
-  --muted-foreground: 0 0% 42%;    /* #6B6B6B mid grey */
+  --muted: 210 10% 92%;            /* #E8EAED light grey */
+  --muted-foreground: 210 8% 46%;  /* #6E7580 medium grey */
 
-  --accent: 0 0% 10%;              /* #1A1A1A near-black accent */
+  --accent: 24 100% 52%;           /* #FF6A00 bright orange */
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 0 0% 87%;              /* #DEDEDE */
-  --ring: 0 85% 38%;
+  --border: 210 10% 84%;           /* #D2D6DB */
+  --ring: 24 100% 52%;
 
   --card: 0 0% 100%;               /* #FFFFFF */
-  --card-foreground: 0 0% 8%;
+  --card-foreground: 210 12% 14%;
 }
 
 @layer base {
