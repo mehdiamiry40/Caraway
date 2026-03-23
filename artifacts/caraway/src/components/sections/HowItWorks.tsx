@@ -23,8 +23,8 @@ export function HowItWorks() {
     <section id="how-it-works" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm font-semibold text-accent tracking-widest uppercase mb-3">Simple Process</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-foreground">How Caraway Works</h3>
+          <span className="text-sm font-semibold text-accent tracking-widest uppercase mb-3 block">Simple Process</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground">How Caraway Works</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Selling your car shouldn't be a headache. Our streamlined 3-step process guarantees you get paid today without any stress.
           </p>

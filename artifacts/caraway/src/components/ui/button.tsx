@@ -1,6 +1,5 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "secondary" | "outline" | "ghost" | "link";
@@ -26,13 +25,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon: "h-12 w-12",
     };
 
+    const hoverTransform = variant === 'link' || variant === 'ghost' ? '' : 'hover:-translate-y-0.5 active:scale-[0.98]';
+
     return (
-      <motion.button
+      <button
         ref={ref}
-        whileHover={{ y: variant === 'link' || variant === 'ghost' ? 0 : -2 }}
-        whileTap={{ scale: 0.98 }}
         className={cn(
-          "inline-flex items-center justify-center whitespace-nowrap rounded-xl font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center whitespace-nowrap rounded-xl font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          hoverTransform,
           variants[variant],
           sizes[size],
           className
@@ -44,7 +44,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <span className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
         ) : null}
         {children}
-      </motion.button>
+      </button>
     );
   }
 );

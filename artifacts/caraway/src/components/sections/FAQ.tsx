@@ -48,8 +48,8 @@ export function FAQ() {
     <section id="faq" className="py-24 bg-background" aria-label="Frequently asked questions about cash for cars Brisbane">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-sm font-semibold text-accent tracking-widest uppercase mb-3">Got Questions?</h2>
-          <h3 className="text-4xl font-bold text-foreground">Frequently Asked Questions</h3>
+          <span className="text-sm font-semibold text-accent tracking-widest uppercase mb-3 block">Got Questions?</span>
+          <h2 className="text-4xl font-bold text-foreground">Frequently Asked Questions</h2>
           <p className="mt-4 text-muted-foreground">
             Everything you need to know about selling your car for cash in Brisbane.
           </p>

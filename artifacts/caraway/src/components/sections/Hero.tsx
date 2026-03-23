@@ -69,12 +69,22 @@ export function Hero() {
         </div>
 
         <div className="relative flex-1 min-h-[320px] lg:min-h-0">
-          <img
-            src={`${import.meta.env.BASE_URL}images/tow-truck-hero.png`}
-            alt="Tow truck towing a car — free car removal Brisbane"
-            className="w-full h-full object-cover"
-            style={{ minHeight: "320px" }}
-          />
+          <picture>
+            <source
+              srcSet={`${import.meta.env.BASE_URL}images/tow-truck-hero-sm.webp 600w, ${import.meta.env.BASE_URL}images/tow-truck-hero.webp 1200w`}
+              sizes="(max-width: 1024px) 100vw, 54vw"
+              type="image/webp"
+            />
+            <img
+              src={`${import.meta.env.BASE_URL}images/tow-truck-hero.png`}
+              alt="Tow truck carrying a car for free removal across Brisbane"
+              className="w-full h-full object-cover"
+              style={{ minHeight: "320px" }}
+              width={1200}
+              height={800}
+              fetchPriority="high"
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent pointer-events-none" />
 
           <div className="absolute bottom-6 right-6 bg-white rounded-2xl px-5 py-4 shadow-xl flex items-center gap-4">

@@ -30,10 +30,10 @@ export function WhyUs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
           <div className="lg:col-span-5">
-            <h2 className="text-sm font-semibold text-accent tracking-widest uppercase mb-3">Why Choose Us</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6 leading-tight">
+            <span className="text-sm font-semibold text-accent tracking-widest uppercase mb-3 block">Why Choose Us</span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6 leading-tight">
               The Smarter Way to Sell Your Car.
-            </h3>
+            </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               We've built our reputation on transparency, speed, and paying top dollar. Forget dealing with private buyers, lowball dealership trade-ins, or expensive ads.
             </p>

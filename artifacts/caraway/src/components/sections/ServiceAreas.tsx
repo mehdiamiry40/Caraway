@@ -20,10 +20,10 @@ export function ServiceAreas() {
     <section className="py-24 bg-white" aria-label="Cash for cars service areas Brisbane">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-sm font-semibold text-accent tracking-widest uppercase mb-3">Service Areas</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-foreground">
+          <span className="text-sm font-semibold text-accent tracking-widest uppercase mb-3 block">Service Areas</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
             Cash for Cars Across Greater Brisbane
-          </h3>
+          </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             We offer free car removal and instant cash for cars throughout Brisbane, Ipswich, Logan, Redland Bay, Moreton Bay, and all surrounding suburbs.
           </p>

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -28,32 +27,32 @@ export function Accordion({ items, className }: AccordionProps) {
             <button
               onClick={() => setActiveIndex(isActive ? null : index)}
               className="flex w-full items-center justify-between p-6 text-left focus:outline-none"
+              aria-expanded={isActive}
             >
               <span className="font-display text-lg font-medium text-foreground">
                 {item.question}
               </span>
-              <motion.div
-                animate={{ rotate: isActive ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="flex-shrink-0 ml-4 flex items-center justify-center h-8 w-8 rounded-full bg-muted/50 text-primary"
+              <div
+                className={cn(
+                  "flex-shrink-0 ml-4 flex items-center justify-center h-8 w-8 rounded-full bg-muted/50 text-primary transition-transform duration-300",
+                  isActive && "rotate-180"
+                )}
               >
                 <ChevronDown className="h-5 w-5" />
-              </motion.div>
+              </div>
             </button>
-            <AnimatePresence initial={false}>
-              {isActive && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                >
-                  <div className="px-6 pb-6 pt-0 text-muted-foreground leading-relaxed">
-                    {item.answer}
-                  </div>
-                </motion.div>
+            <div
+              className={cn(
+                "grid transition-all duration-300 ease-in-out",
+                isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
               )}
-            </AnimatePresence>
+            >
+              <div className="overflow-hidden">
+                <div className="px-6 pb-6 pt-0 text-muted-foreground leading-relaxed">
+                  {item.answer}
+                </div>
+              </div>
+            </div>
           </div>
         );
       })}
