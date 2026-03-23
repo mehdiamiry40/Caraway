@@ -85,8 +85,8 @@ export function Hero() {
           className="relative flex-1 min-h-[320px] lg:min-h-0"
         >
           <img
-            src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1600&h=900&fit=crop&q=80"
-            alt="Sell your car for cash in Brisbane"
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&h=900&fit=crop&q=80"
+            alt="Tow truck towing a car — free car removal Brisbane"
             className="w-full h-full object-cover"
             style={{ minHeight: "320px" }}
           />
