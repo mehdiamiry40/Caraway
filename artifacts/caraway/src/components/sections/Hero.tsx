@@ -8,9 +8,9 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden mt-[64px]" style={{ minHeight: "520px" }}>
+    <section className="relative w-full overflow-hidden mt-[64px]" style={{ minHeight: "520px" }}>
       {/* Full-bleed navy + photo layout */}
-      <div className="flex flex-col lg:flex-row min-h-[520px]">
+      <div className="w-full flex flex-col lg:flex-row min-h-[520px]">
 
         {/* Left — dark navy panel */}
         <motion.div
@@ -85,7 +85,7 @@ export function Hero() {
           className="relative flex-1 min-h-[320px] lg:min-h-0"
         >
           <img
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&h=900&fit=crop&q=80"
+            src={`${import.meta.env.BASE_URL}images/tow-truck-hero.png`}
             alt="Tow truck towing a car — free car removal Brisbane"
             className="w-full h-full object-cover"
             style={{ minHeight: "320px" }}
