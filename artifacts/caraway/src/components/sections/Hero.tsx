@@ -9,8 +9,8 @@ export function Hero() {
 
   return (
     <section className="relative w-full overflow-hidden mt-[64px]" style={{ minHeight: "520px" }}>
-      {/* Full-bleed navy + photo layout */}
-      <div className="w-full flex flex-col lg:flex-row min-h-[520px]">
+      {/* Constrained to max-w-7xl like other sections */}
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row min-h-[520px]">
 
         {/* Left — dark navy panel */}
         <motion.div
