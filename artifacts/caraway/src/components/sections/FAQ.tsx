@@ -2,37 +2,68 @@ import { Accordion } from "@/components/ui/accordion";
 
 const faqs = [
   {
-    question: "How much will I get for my car?",
-    answer: "Every car is unique. We calculate your offer based on the make, model, year, condition, and current scrap metal/parts market prices. We pay anywhere from $150 up to $9,999 depending on the vehicle."
+    question: "How much will I get for my car in Brisbane?",
+    answer: "Every car is different. We calculate your offer based on make, model, year, condition, mileage, and the current scrap metal and spare parts market. Brisbane sellers typically receive between $150 and $9,999. Old, non-running cars can still fetch several hundred dollars. We always aim to beat our competitors."
   },
   {
-    question: "Do you really tow for free?",
-    answer: "Yes! If you accept our offer and you are located in the Greater Brisbane area (or surrounding suburbs), towing is completely free. There are no hidden deductions from your quote."
+    question: "Do you really tow for free across Brisbane?",
+    answer: "Yes — 100% free towing anywhere in Greater Brisbane, including Ipswich, Logan, Redland Bay, and Moreton Bay. There are no hidden deductions from your agreed quote. The price we offer is the price you receive in cash."
   },
   {
-    question: "How fast do I get paid?",
-    answer: "You get paid instantly on the spot when our driver arrives to collect the vehicle. We handle the payment before the car goes on the truck."
+    question: "How fast do I get paid for my car?",
+    answer: "You get paid on the spot the moment our driver arrives to collect your vehicle — before the car goes on the truck. Most Brisbane sellers receive same-day payment within a few hours of accepting our offer."
   },
   {
-    question: "Do I need a Roadworthy Certificate (RWC)?",
-    answer: "No RWC is needed! We buy cars as-is, whether they are registered, unregistered, damaged, or completely wrecked."
+    question: "What types of cars do you buy in Brisbane?",
+    answer: "We buy all types of vehicles: old cars, damaged cars, scrap cars, accident write-offs, unregistered vehicles, flood-damaged cars, trucks, utes, 4WDs, SUVs, vans, and fleet vehicles. Running or not — if it has four wheels, we'll make you an offer."
   },
   {
-    question: "What paperwork do I need?",
-    answer: "Just your Photo ID (Driver's License) to prove ownership. If you have the registration papers, that's helpful, but we handle the transfer documents for you."
-  }
+    question: "Do I need a Roadworthy Certificate (RWC) to sell?",
+    answer: "No RWC is required at all. We buy cars as-is, in any condition. Whether your car is registered, unregistered, damaged, broken down, or completely written off — we don't require a roadworthy certificate."
+  },
+  {
+    question: "What paperwork do I need to sell my car?",
+    answer: "Just your photo ID (driver's licence) to prove ownership. If you have the registration papers, great — but they're not essential. We handle all the vehicle transfer documentation and paperwork on your behalf."
+  },
+  {
+    question: "Do you buy cars across all Brisbane suburbs?",
+    answer: "Yes. We cover all of Greater Brisbane including the inner city, north (Redcliffe, North Lakes, Strathpine), south (Logan, Beenleigh, Springwood), east (Capalaba, Cleveland, Wynnum), and west (Ipswich, Springfield, Forest Lake). If you're unsure, call us — we likely service your area."
+  },
+  {
+    question: "Can I sell a car that isn't registered or has no plates?",
+    answer: "Absolutely. Unregistered and de-registered vehicles are among the most common types we purchase. You do not need current registration to sell. We buy vehicles in all registration states across Queensland."
+  },
+  {
+    question: "Is there any obligation when I request a quote?",
+    answer: "None at all. Your quote is completely free and comes with zero obligation. If you're not happy with our offer, you're free to walk away — no fees, no pressure. We're confident our offers are competitive and our service will speak for itself."
+  },
+  {
+    question: "What happens to my car after you buy it?",
+    answer: "Depending on the vehicle's condition, we either resell it, part it out as spare parts, or responsibly recycle and scrap it at a licensed facility. We comply with all Queensland environmental regulations for vehicle recycling."
+  },
 ];
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-24 bg-background">
+    <section id="faq" className="py-24 bg-background" aria-label="Frequently asked questions about cash for cars Brisbane">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-sm font-semibold text-accent tracking-widest uppercase mb-3">Questions?</h2>
-          <h3 className="text-4xl font-display font-bold text-foreground">Frequently Asked Questions</h3>
+          <h2 className="text-sm font-semibold text-accent tracking-widest uppercase mb-3">Got Questions?</h2>
+          <h3 className="text-4xl font-bold text-foreground">Frequently Asked Questions</h3>
+          <p className="mt-4 text-muted-foreground">
+            Everything you need to know about selling your car for cash in Brisbane.
+          </p>
         </div>
-        
+
         <Accordion items={faqs} />
+
+        <div className="mt-10 text-center text-sm text-muted-foreground">
+          Still have questions?{" "}
+          <a href="tel:1800227293" className="text-primary font-semibold hover:underline">
+            Call us on 1800 CAR AWAY
+          </a>{" "}
+          — we're available 7 days a week.
+        </div>
       </div>
     </section>
   );
