@@ -1,0 +1,19 @@
+packages:
+  "framer-motion": "For premium scroll and entry animations essential to the minimalist design"
+  "react-hook-form": "For robust form state management in the Get a Quote section"
+  "@hookform/resolvers": "For Zod schema validation with react-hook-form"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility for merging Tailwind CSS classes without style conflicts"
+
+images:
+  - path: "artifacts/caraway/public/images/logo.png"
+    description: "Minimalist, luxury typographic logo for 'Caraway', deep olive green text on transparent background, no extra icons, highly refined"
+    aspect_ratio: "16:9"
+  - path: "artifacts/caraway/public/images/abstract-accent.png"
+    description: "Subtle, minimalist abstract geometric shape in warm amber and soft beige tones, very light and airy, isolated on transparent background"
+    aspect_ratio: "1:1"
+
+notes:
+  - Static marketing site with no backend requirements
+  - Quote form submissions will be simulated with a local delay and success state
+  - SEO meta tags will be dynamically injected into the document head

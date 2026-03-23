@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Caraway — Cash for Cars Brisbane"
+version = "1.0.0"
+id = "artifacts/caraway"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18669
+
+[services.development]
+run = "pnpm --filter @workspace/caraway run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/caraway", "run", "build" ]
+publicDir = "artifacts/caraway/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18669"
+BASE_PATH = "/"
