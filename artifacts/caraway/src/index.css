@@ -24,30 +24,30 @@
 }
 
 :root {
-  /* Charcoal & bright orange — modern, industrial, bold */
-  --background: 210 11% 96%;       /* #F3F4F6 cool light grey */
-  --foreground: 210 12% 14%;       /* #1F2329 deep charcoal */
+  /* Gulf-inspired: deep navy blue + vivid orange + white */
+  --background: 0 0% 100%;         /* #FFFFFF pure white */
+  --foreground: 221 45% 14%;       /* #101E3A near-black navy */
 
-  --primary: 215 16% 24%;          /* #323C4D dark charcoal blue */
+  --primary: 221 92% 27%;          /* #003087 Gulf deep navy */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 210 10% 88%;        /* #DDE0E4 mid grey */
-  --secondary-foreground: 210 12% 14%;
+  --secondary: 220 18% 93%;        /* #EBEef4 light blue-grey */
+  --secondary-foreground: 221 45% 14%;
 
-  --muted: 210 10% 92%;            /* #E8EAED light grey */
-  --muted-foreground: 210 8% 46%;  /* #6E7580 medium grey */
+  --muted: 220 16% 96%;            /* #F3F5FA very light blue tint */
+  --muted-foreground: 220 14% 48%; /* #6C788A slate mid */
 
-  --accent: 24 100% 52%;           /* #FF6A00 bright orange */
+  --accent: 21 92% 54%;            /* #F26522 Gulf orange */
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 210 10% 84%;           /* #D2D6DB */
-  --ring: 24 100% 52%;
+  --border: 220 18% 88%;           /* #D5DAE6 cool border */
+  --ring: 21 92% 54%;
 
   --card: 0 0% 100%;               /* #FFFFFF */
-  --card-foreground: 210 12% 14%;
+  --card-foreground: 221 45% 14%;
 }
 
 @layer base {

@@ -31,8 +31,8 @@ export function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out border-b border-transparent",
-          isScrolled ? "bg-white/80 backdrop-blur-md border-border/50 py-3 shadow-sm" : "bg-transparent py-5"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out border-b bg-white py-3",
+          isScrolled ? "border-border/60 shadow-sm" : "border-border/30"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -68,7 +68,7 @@ export function Header() {
               </div>
               1800 CAR AWAY
             </a>
-            <Button onClick={scrollToQuote} size="sm" className="rounded-full px-6">
+            <Button onClick={scrollToQuote} size="sm" className="rounded-full px-6 bg-accent hover:bg-accent/90 text-white border-0">
               Get a Quote
             </Button>
           </div>
