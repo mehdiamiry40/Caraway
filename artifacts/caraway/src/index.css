@@ -24,30 +24,30 @@
 }
 
 :root {
-  /* Super clean minimal palette: Off-white background, deep slate/olive primary, warm amber accent */
-  --background: 40 33% 98%;      /* #Faf9f6 Stone 50 */
-  --foreground: 0 0% 9%;         /* #171717 Neutral 900 */
-  
-  --primary: 153 13% 18%;        /* #28332E Deep slate olive */
-  --primary-foreground: 40 33% 98%;
-  
-  --secondary: 0 0% 90%;         /* #E5E5E5 Neutral 200 */
-  --secondary-foreground: 0 0% 9%;
-  
-  --muted: 0 0% 96%;             /* #F5F5F5 Neutral 100 */
-  --muted-foreground: 0 0% 40%;  /* #666666 Neutral 500 */
-  
-  --accent: 38 92% 50%;          /* #F59E0B Warm Amber */
-  --accent-foreground: 0 0% 9%;
-  
+  /* Navy blue & gold — professional, trustworthy, premium */
+  --background: 220 30% 98%;       /* #F5F7FB near-white with cool blue tint */
+  --foreground: 222 47% 11%;       /* #0F172A deep navy near-black */
+
+  --primary: 221 70% 25%;          /* #142D6E deep navy blue */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 220 20% 92%;        /* #E2E8F0 cool blue-grey */
+  --secondary-foreground: 222 47% 11%;
+
+  --muted: 220 20% 95%;            /* #EEF1F7 very light blue-grey */
+  --muted-foreground: 220 14% 46%; /* #6B7899 slate-blue mid */
+
+  --accent: 43 96% 50%;            /* #FBBD06 gold */
+  --accent-foreground: 222 47% 11%;
+
   --destructive: 0 84% 60%;
-  --destructive-foreground: 210 40% 98%;
-  
-  --border: 0 0% 88%;            /* #E0E0E0 */
-  --ring: 153 13% 18%;
-  
-  --card: 0 0% 100%;             /* #FFFFFF */
-  --card-foreground: 0 0% 9%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 220 20% 88%;           /* #D3DAE8 cool border */
+  --ring: 221 70% 25%;
+
+  --card: 0 0% 100%;               /* #FFFFFF */
+  --card-foreground: 222 47% 11%;
 }
 
 @layer base {
