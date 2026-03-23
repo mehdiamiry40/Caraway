@@ -1,22 +1,18 @@
-import { MapPin } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
+import { suburbs } from "@/data/suburbs";
 
-const areas = [
-  // Inner Brisbane
-  "Brisbane CBD", "Fortitude Valley", "South Brisbane", "West End", "Paddington",
-  "Kelvin Grove", "Newstead", "Teneriffe", "New Farm", "Kangaroo Point",
-  // North
-  "Chermside", "Aspley", "Stafford", "Kedron", "Nundah", "Clayfield",
-  "Sandgate", "Brighton", "Bracken Ridge", "North Lakes", "Kallangur",
-  "Redcliffe", "Petrie", "Strathpine", "Warner",
-  // South
-  "Mount Gravatt", "Holland Park", "Sunnybank", "Calamvale", "Runcorn",
-  "Springwood", "Loganholme", "Logan Central", "Beenleigh", "Browns Plains",
-  // East
-  "Carindale", "Tingalpa", "Wynnum", "Manly", "Cleveland",
+const additionalAreas = [
+  "Brisbane CBD", "Fortitude Valley", "West End", "Paddington",
+  "Kelvin Grove", "Newstead", "New Farm", "Kangaroo Point",
+  "Aspley", "Stafford", "Kedron", "Nundah", "Clayfield",
+  "Sandgate", "Brighton", "Bracken Ridge", "North Lakes",
+  "Holland Park", "Calamvale", "Runcorn",
+  "Loganholme", "Beenleigh",
+  "Tingalpa", "Wynnum", "Manly", "Cleveland",
   "Redland Bay", "Victoria Point", "Capalaba",
-  // West
-  "Ipswich", "Toowoomba", "Inala", "Forest Lake", "Richlands",
-  "Oxley", "Darra", "Wacol", "Goodna", "Springfield",
+  "Inala", "Forest Lake", "Richlands",
+  "Oxley", "Darra", "Goodna", "Springfield",
 ];
 
 export function ServiceAreas() {
@@ -29,20 +25,43 @@ export function ServiceAreas() {
             Cash for Cars Across Greater Brisbane
           </h3>
           <p className="mt-4 text-lg text-muted-foreground">
-            We offer free car removal and instant cash for cars throughout Brisbane, Ipswich, Logan, Redland Bay, Moreton Bay, and all surrounding suburbs. If you're not sure if we cover your area — just call us.
+            We offer free car removal and instant cash for cars throughout Brisbane, Ipswich, Logan, Redland Bay, Moreton Bay, and all surrounding suburbs.
           </p>
         </div>
 
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
+          {suburbs.map((suburb) => (
+            <Link
+              key={suburb.slug}
+              href={`/locations/${suburb.slug}`}
+              className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-primary/5 border border-primary/10 text-sm font-medium text-foreground hover:bg-primary hover:text-white transition-colors group"
+            >
+              <MapPin className="w-3.5 h-3.5 shrink-0 text-accent group-hover:text-white/80" />
+              {suburb.h1.replace("Cash for Cars ", "")}
+            </Link>
+          ))}
+        </div>
+
         <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {areas.map((area) => (
+          {additionalAreas.map((area) => (
             <span
               key={area}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted text-sm text-foreground/70 border border-border/50 hover:border-primary/30 hover:text-primary transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted text-sm text-foreground/70 border border-border/50"
             >
               <MapPin className="w-3 h-3 shrink-0" />
               {area}
             </span>
           ))}
+        </div>
+
+        <div className="flex justify-center mb-8">
+          <Link
+            href="/locations"
+            className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors group"
+          >
+            View all service locations
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
         <div className="bg-primary/5 border border-primary/10 rounded-3xl p-8 md:p-10 text-center max-w-2xl mx-auto">

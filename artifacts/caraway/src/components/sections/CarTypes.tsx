@@ -1,10 +1,21 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 
-const types = [
-  "Old Cars", "Damaged Cars", "Scrap Cars", "Used Cars",
-  "Unwanted Cars", "Fleet Vehicles", "Utes & 4x4s", "SUVs",
-  "Vans & Trucks", "Accident Write-offs", "Flood-Damaged Cars",
-  "Unregistered Cars", "Non-Running Cars", "Classic Cars",
+const linkedTypes = [
+  { label: "Old Cars", href: "/old-cars-brisbane" },
+  { label: "Damaged Cars", href: "/damaged-cars-brisbane" },
+  { label: "Scrap Cars", href: "/scrap-car-removal-brisbane" },
+  { label: "Used Cars", href: "/used-cars-brisbane" },
+  { label: "Unwanted Cars", href: "/unwanted-cars-brisbane" },
+  { label: "Accident Write-offs", href: "/accident-cars-brisbane" },
+  { label: "Junk Cars", href: "/junk-cars-brisbane" },
+  { label: "Unregistered Cars", href: "/unregistered-cars-brisbane" },
+];
+
+const plainTypes = [
+  "Fleet Vehicles", "Utes & 4x4s", "SUVs",
+  "Vans & Trucks", "Flood-Damaged Cars",
+  "Non-Running Cars", "Classic Cars",
 ];
 
 export function CarTypes() {
@@ -15,19 +26,35 @@ export function CarTypes() {
           <div className="md:w-1/3 shrink-0">
             <h2 className="text-2xl font-bold mb-3">What Cars We Buy in Brisbane</h2>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              We purchase all vehicle types across Greater Brisbane — regardless of age, condition, or registration status. No car is too old, too damaged, or too far gone for us to make an offer.
+              We purchase all vehicle types across Greater Brisbane — regardless of age, condition, or registration status. Click any vehicle type to learn more about our buying service.
             </p>
           </div>
 
           <div className="w-full flex flex-wrap gap-3">
-            {types.map((type, i) => (
+            {linkedTypes.map((type, i) => (
+              <motion.div
+                key={type.label}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.04 }}
+              >
+                <Link
+                  href={type.href}
+                  className="inline-block px-4 py-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors"
+                >
+                  {type.label}
+                </Link>
+              </motion.div>
+            ))}
+            {plainTypes.map((type, i) => (
               <motion.span
                 key={type}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.04 }}
-                className="px-4 py-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors cursor-default"
+                transition={{ duration: 0.3, delay: (linkedTypes.length + i) * 0.04 }}
+                className="px-4 py-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm text-sm font-medium cursor-default"
               >
                 {type}
               </motion.span>

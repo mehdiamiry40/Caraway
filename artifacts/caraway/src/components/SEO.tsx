@@ -3,9 +3,11 @@ import { useEffect } from 'react';
 interface SEOProps {
   title: string;
   description: string;
+  canonical?: string;
+  schema?: Record<string, unknown>[];
 }
 
-export function SEO({ title, description }: SEOProps) {
+export function SEO({ title, description, canonical, schema }: SEOProps) {
   useEffect(() => {
     document.title = title;
 
@@ -24,15 +26,19 @@ export function SEO({ title, description }: SEOProps) {
     setMeta('meta[property="og:title"]', 'content', title);
     setMeta('meta[property="og:description"]', 'content', description);
 
-    // LocalBusiness + AggregateRating structured data
-    let scriptTag = document.querySelector('script[type="application/ld+json"]');
-    if (!scriptTag) {
-      scriptTag = document.createElement('script');
-      scriptTag.setAttribute('type', 'application/ld+json');
-      document.head.appendChild(scriptTag);
+    let canonicalEl = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (canonical) {
+      if (!canonicalEl) {
+        canonicalEl = document.createElement('link');
+        canonicalEl.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonicalEl);
+      }
+      canonicalEl.setAttribute('href', canonical);
     }
 
-    const structuredData = {
+    document.querySelectorAll('script[data-seo-schema]').forEach(el => el.remove());
+
+    const localBusiness = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "@id": "https://caraway.com.au/",
@@ -63,14 +69,12 @@ export function SEO({ title, description }: SEOProps) {
         { "@type": "City", "name": "Redland Bay" },
         { "@type": "City", "name": "Moreton Bay" }
       ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-          "opens": "07:00",
-          "closes": "19:00"
-        }
-      ],
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "07:00",
+        "closes": "19:00"
+      }],
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
@@ -95,8 +99,24 @@ export function SEO({ title, description }: SEOProps) {
       ]
     };
 
-    scriptTag.textContent = JSON.stringify(structuredData, null, 2);
-  }, [title, description]);
+    const injectSchema = (data: Record<string, unknown>) => {
+      const script = document.createElement('script');
+      script.setAttribute('type', 'application/ld+json');
+      script.setAttribute('data-seo-schema', 'true');
+      script.textContent = JSON.stringify({ "@context": "https://schema.org", ...data });
+      document.head.appendChild(script);
+    };
+
+    const lbScript = document.createElement('script');
+    lbScript.setAttribute('type', 'application/ld+json');
+    lbScript.setAttribute('data-seo-schema', 'true');
+    lbScript.textContent = JSON.stringify(localBusiness);
+    document.head.appendChild(lbScript);
+
+    if (schema) {
+      schema.forEach(s => injectSchema(s));
+    }
+  }, [title, description, canonical, schema]);
 
   return null;
 }
