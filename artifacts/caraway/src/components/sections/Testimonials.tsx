@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
 const testimonials = [
@@ -72,12 +71,8 @@ export function Testimonials() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((review, i) => (
-            <motion.article
+            <article
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.4, delay: (i % 3) * 0.1 }}
               className="bg-white rounded-3xl p-8 border border-border/40 shadow-sm hover:shadow-md transition-shadow"
               itemScope
               itemType="https://schema.org/Review"
@@ -104,7 +99,7 @@ export function Testimonials() {
                   <div className="text-xs text-muted-foreground">{review.location}</div>
                 </div>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

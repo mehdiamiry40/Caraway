@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Zap, ShieldCheck, CarFront, FileText } from "lucide-react";
 
 const reasons = [
@@ -29,7 +28,7 @@ export function WhyUs() {
     <section id="why-us" className="py-24 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
+
           <div className="lg:col-span-5">
             <h2 className="text-sm font-semibold text-accent tracking-widest uppercase mb-3">Why Choose Us</h2>
             <h3 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6 leading-tight">
@@ -38,7 +37,7 @@ export function WhyUs() {
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               We've built our reputation on transparency, speed, and paying top dollar. Forget dealing with private buyers, lowball dealership trade-ins, or expensive ads.
             </p>
-            
+
             <ul className="space-y-4 mb-8">
               {[
                 "Licensed & Insured Auto Buyer",
@@ -57,12 +56,8 @@ export function WhyUs() {
 
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {reasons.map((reason, index) => (
-              <motion.div 
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="bg-white p-8 rounded-3xl border border-border/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-2xl bg-muted flex items-center justify-center text-primary mb-6">
@@ -70,7 +65,7 @@ export function WhyUs() {
                 </div>
                 <h4 className="text-xl font-display font-semibold mb-3">{reason.title}</h4>
                 <p className="text-muted-foreground text-sm leading-relaxed">{reason.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
 

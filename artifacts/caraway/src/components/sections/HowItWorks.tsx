@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { MessageSquare, DollarSign, Truck } from "lucide-react";
 
 const steps = [
@@ -32,16 +31,11 @@ export function HowItWorks() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          {/* Connecting line for desktop */}
           <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-border/60 z-0"></div>
 
           {steps.map((step, index) => (
-            <motion.div 
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
               className="relative z-10 flex flex-col items-center text-center group"
             >
               <div className="w-24 h-24 rounded-full bg-white border-8 border-background shadow-xl flex items-center justify-center text-primary mb-6 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
@@ -53,7 +47,7 @@ export function HowItWorks() {
               </div>
               <h4 className="text-xl font-display font-semibold mb-3">{step.title}</h4>
               <p className="text-muted-foreground leading-relaxed max-w-xs">{step.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

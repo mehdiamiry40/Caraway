@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
 import { Link, useLocation } from "wouter";
 
 export function Header() {
@@ -118,14 +117,9 @@ export function Header() {
         </div>
       </header>
 
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-50 bg-background lg:hidden flex flex-col"
-          >
+      {isMobileMenuOpen && (
+          <div className="fixed inset-0 z-50 bg-background lg:hidden flex flex-col">
+
             <div className="flex items-center justify-between p-4 border-b border-border/50">
               <span className="font-display font-bold text-2xl text-primary">Caraway.</span>
               <button onClick={() => setIsMobileMenuOpen(false)} className="p-2">
@@ -173,9 +167,8 @@ export function Header() {
                 </Button>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </>
   );
 }

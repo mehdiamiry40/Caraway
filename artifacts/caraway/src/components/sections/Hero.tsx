@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -9,16 +8,9 @@ export function Hero() {
 
   return (
     <section className="relative w-full overflow-hidden mt-[64px]" style={{ minHeight: "520px" }}>
-      {/* Constrained to max-w-7xl like other sections */}
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row min-h-[520px]">
 
-        {/* Left — dark navy panel */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="relative z-10 flex flex-col justify-center bg-primary px-10 py-16 lg:py-20 lg:pl-16 lg:pr-14 w-full lg:w-[46%] shrink-0"
-        >
+        <div className="relative z-10 flex flex-col justify-center bg-primary px-10 py-16 lg:py-20 lg:pl-16 lg:pr-14 w-full lg:w-[46%] shrink-0">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] tracking-tight text-white mb-4">
             Sell Your Car<br />in Brisbane.
           </h1>
@@ -70,20 +62,13 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Orange diagonal slice at bottom-right of the navy panel */}
           <div
             className="hidden lg:block absolute bottom-0 right-0 w-24 h-full bg-accent"
             style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
           />
-        </motion.div>
+        </div>
 
-        {/* Right — full-bleed car photo */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative flex-1 min-h-[320px] lg:min-h-0"
-        >
+        <div className="relative flex-1 min-h-[320px] lg:min-h-0">
           <img
             src={`${import.meta.env.BASE_URL}images/tow-truck-hero.png`}
             alt="Tow truck towing a car — free car removal Brisbane"
@@ -92,7 +77,6 @@ export function Hero() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent pointer-events-none" />
 
-          {/* Floating badge */}
           <div className="absolute bottom-6 right-6 bg-white rounded-2xl px-5 py-4 shadow-xl flex items-center gap-4">
             <div className="w-11 h-11 bg-accent rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0">
               $
@@ -102,7 +86,7 @@ export function Hero() {
               <div className="text-xs text-muted-foreground">Up to $9,999 cash today</div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>

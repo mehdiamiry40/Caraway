@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "wouter";
 
 const linkedTypes = [
@@ -31,33 +30,22 @@ export function CarTypes() {
           </div>
 
           <div className="w-full flex flex-wrap gap-3">
-            {linkedTypes.map((type, i) => (
-              <motion.div
+            {linkedTypes.map((type) => (
+              <Link
                 key={type.label}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.04 }}
+                href={type.href}
+                className="inline-block px-4 py-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors"
               >
-                <Link
-                  href={type.href}
-                  className="inline-block px-4 py-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm text-sm font-medium hover:bg-primary-foreground hover:text-primary transition-colors"
-                >
-                  {type.label}
-                </Link>
-              </motion.div>
+                {type.label}
+              </Link>
             ))}
-            {plainTypes.map((type, i) => (
-              <motion.span
+            {plainTypes.map((type) => (
+              <span
                 key={type}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: (linkedTypes.length + i) * 0.04 }}
                 className="px-4 py-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 backdrop-blur-sm text-sm font-medium cursor-default"
               >
                 {type}
-              </motion.span>
+              </span>
             ))}
           </div>
         </div>
