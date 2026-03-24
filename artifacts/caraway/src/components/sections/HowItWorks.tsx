@@ -2,17 +2,17 @@ import { MessageSquare, DollarSign, Truck } from "lucide-react";
 
 const steps = [
   {
-    icon: <MessageSquare className="w-8 h-8" />,
+    icon: <MessageSquare className="w-6 h-6" />,
     title: "Tell us about your car",
     description: "Fill out our quick online form or give us a call with your car's make, model, year, and condition.",
   },
   {
-    icon: <DollarSign className="w-8 h-8" />,
+    icon: <DollarSign className="w-6 h-6" />,
     title: "Get an instant offer",
     description: "We'll provide a highly competitive, no-obligation cash offer based on current market rates instantly.",
   },
   {
-    icon: <Truck className="w-8 h-8" />,
+    icon: <Truck className="w-6 h-6" />,
     title: "We tow, you get paid",
     description: "Accept the offer and we'll schedule a free pickup. We hand you the cash on the spot and handle the paperwork.",
   }
@@ -31,19 +31,18 @@ export function HowItWorks() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-border/60 z-0"></div>
+          <div className="hidden md:block absolute top-7 left-[20%] right-[20%] h-px bg-border z-0"></div>
 
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative z-10 flex flex-col items-center text-center group"
+              className="relative z-10 flex flex-col items-center text-center"
             >
-              <div className="w-24 h-24 rounded-full bg-white border-8 border-background shadow-xl flex items-center justify-center text-primary mb-6 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                <div className="absolute inset-0 bg-primary/5 scale-0 group-hover:scale-100 transition-transform duration-500 rounded-full"></div>
-                <div className="relative z-10">{step.icon}</div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold text-sm z-20">
+              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-5">
+                {step.icon}
+                <span className="absolute -top-1 -right-1 w-6 h-6 bg-accent text-white rounded-full flex items-center justify-center font-bold text-xs">
                   {index + 1}
-                </div>
+                </span>
               </div>
               <h4 className="text-xl font-display font-semibold mb-3">{step.title}</h4>
               <p className="text-muted-foreground leading-relaxed max-w-xs">{step.description}</p>
