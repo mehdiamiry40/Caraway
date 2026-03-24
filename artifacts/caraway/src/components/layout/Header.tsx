@@ -47,13 +47,14 @@ export function Header() {
 
   return (
     <>
+      <div className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-3">
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 bg-primary py-4 transition-shadow duration-300",
+          "max-w-7xl mx-auto bg-primary py-4 rounded-2xl transition-shadow duration-300",
           isScrolled ? "shadow-lg" : "shadow-md"
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="px-6 lg:px-8 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <span className="font-display font-bold text-2xl tracking-tight text-white">
               Caraway<span className="text-accent">.</span>
@@ -121,6 +122,7 @@ export function Header() {
           </button>
         </div>
       </header>
+      </div>
 
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-[100] bg-primary lg:hidden flex flex-col">
