@@ -38,9 +38,11 @@ export function HowItWorks() {
               key={index}
               className="relative z-10 flex flex-col items-center text-center"
             >
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-5">
-                {step.icon}
-                <span className="absolute -top-1 -right-1 w-6 h-6 bg-accent text-white rounded-full flex items-center justify-center font-bold text-xs">
+              <div className="relative mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                  {step.icon}
+                </div>
+                <span className="absolute -top-2 -right-2 w-7 h-7 bg-accent text-white rounded-full flex items-center justify-center font-bold text-xs shadow-sm">
                   {index + 1}
                 </span>
               </div>
