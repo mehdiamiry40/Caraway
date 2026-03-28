@@ -7,7 +7,7 @@ import { useSubmitQuote, quoteFormSchema, type QuoteFormValues } from "@/hooks/u
 import { CheckCircle2 } from "lucide-react";
 
 export function QuoteForm() {
-  const { mutate, isPending, isSuccess } = useSubmitQuote();
+  const { mutate, isPending, isSuccess, reset: resetMutation } = useSubmitQuote();
   
   const {
     register,
@@ -27,64 +27,62 @@ export function QuoteForm() {
   };
 
   return (
-    <section id="quote-section" className="py-24 bg-white relative">
+    <section id="quote-section" className="py-16 md:py-24 bg-muted relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-background rounded-[3rem] p-8 md:p-16 border border-border/60 shadow-xl relative overflow-hidden">
+        <div className="bg-white rounded-2xl p-5 sm:p-8 md:p-14 border border-border/60 shadow-sm relative overflow-hidden">
           
-          {/* Decoration */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 relative z-10">
             
             <div>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6">
                 Get Your Free Cash Offer
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Takes less than 60 seconds. Enter your details below and our valuation experts will get back to you with a guaranteed price.
               </p>
               
-              <div className="space-y-6 hidden lg:block">
+              <div className="space-y-5 hidden lg:block">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
-                    <span className="font-bold text-xl text-accent">1</span>
+                  <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
+                    <span className="font-bold text-lg text-white">1</span>
                   </div>
                   <div>
-                    <h4 className="font-bold">Provide Details</h4>
+                    <h4 className="font-display font-bold text-foreground">Provide Details</h4>
                     <p className="text-sm text-muted-foreground">Basic info about your vehicle</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
-                    <span className="font-bold text-xl text-accent">2</span>
+                  <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
+                    <span className="font-bold text-lg text-white">2</span>
                   </div>
                   <div>
-                    <h4 className="font-bold">Accept Offer</h4>
+                    <h4 className="font-display font-bold text-foreground">Accept Offer</h4>
                     <p className="text-sm text-muted-foreground">Review our cash price</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
-                    <span className="font-bold text-xl text-accent">3</span>
+                  <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
+                    <span className="font-bold text-lg text-white">3</span>
                   </div>
                   <div>
-                    <h4 className="font-bold">Get Paid</h4>
+                    <h4 className="font-display font-bold text-foreground">Get Paid</h4>
                     <p className="text-sm text-muted-foreground">We tow it away and pay you</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 shadow-sm border border-border/50">
+            <div className="bg-muted rounded-2xl p-8 border border-border/50">
               {isSuccess ? (
                 <div className="h-full flex flex-col items-center justify-center text-center py-12">
-
                   <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6">
                     <CheckCircle2 className="w-10 h-10 text-green-500" />
                   </div>
-                  <h3 className="text-2xl font-display font-bold mb-2">Quote Received!</h3>
+                  <h3 className="text-2xl font-display font-bold text-primary mb-2">Quote Received!</h3>
                   <p className="text-muted-foreground mb-8">Our team will contact you shortly with your guaranteed cash offer.</p>
-                  <Button onClick={() => window.location.reload()} variant="outline">Submit Another</Button>
+                  <Button onClick={() => resetMutation()} variant="outline">Submit Another</Button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">

@@ -1,0 +1,27 @@
+import { Stats } from "@/components/sections/Stats";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { WhyUs } from "@/components/sections/WhyUs";
+import { CarTypes } from "@/components/sections/CarTypes";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { ServiceAreas } from "@/components/sections/ServiceAreas";
+import { QuoteForm } from "@/components/sections/QuoteForm";
+import { FAQ } from "@/components/sections/FAQ";
+
+/**
+ * Deferred chunk: below-the-fold sections + quote form + FAQ.
+ * Keeps the initial Home bundle smaller (Hero + chrome load first).
+ */
+export default function HomeBelowFold() {
+  return (
+    <>
+      <Stats />
+      <HowItWorks />
+      <WhyUs />
+      <CarTypes />
+      <Testimonials />
+      <ServiceAreas />
+      <QuoteForm />
+      <FAQ />
+    </>
+  );
+}

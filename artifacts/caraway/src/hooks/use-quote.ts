@@ -14,9 +14,7 @@ export type QuoteFormValues = z.infer<typeof quoteFormSchema>;
 export function useSubmitQuote() {
   return useMutation({
     mutationFn: async (data: QuoteFormValues) => {
-      // Simulate network request for static site
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log("Quote submitted:", data);
       return { success: true, message: "Quote received successfully" };
     },
   });

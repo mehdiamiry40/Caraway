@@ -21,15 +21,16 @@ export function Accordion({ items, className }: AccordionProps) {
         const isActive = activeIndex === index;
         return (
           <div 
-            key={index} 
-            className="border border-border/60 bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30"
+            key={item.question} 
+            className="border border-border/60 bg-white rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/30"
           >
             <button
+              type="button"
               onClick={() => setActiveIndex(isActive ? null : index)}
-              className="flex w-full items-center justify-between p-6 text-left focus:outline-none"
+              className="flex w-full min-h-[3.25rem] items-center justify-between gap-3 p-4 sm:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 touch-manipulation"
               aria-expanded={isActive}
             >
-              <span className="font-display text-lg font-medium text-foreground">
+              <span className="font-display text-base sm:text-lg font-medium text-foreground">
                 {item.question}
               </span>
               <div
@@ -48,7 +49,7 @@ export function Accordion({ items, className }: AccordionProps) {
               )}
             >
               <div className="overflow-hidden">
-                <div className="px-6 pb-6 pt-0 text-muted-foreground leading-relaxed">
+                <div className="px-4 pb-4 pt-0 sm:px-6 sm:pb-6 text-muted-foreground text-sm sm:text-base leading-relaxed">
                   {item.answer}
                 </div>
               </div>

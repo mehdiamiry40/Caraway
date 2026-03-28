@@ -2,8 +2,8 @@ import express, { type Express, type Request, type Response } from "express";
 import cors from "cors";
 import * as pinoHttpModule from "pino-http";
 import type { HttpLogger, Options } from "pino-http";
-import router from "./routes";
-import { logger } from "./lib/logger";
+import router from "./routes/index.js";
+import { logger } from "./lib/logger.js";
 
 const app: Express = express();
 type PinoHttpFactory = (opts?: Options<Request, Response>) => HttpLogger<Request, Response>;
@@ -43,6 +43,19 @@ app.use(
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.get("/", (_req: Request, res: Response) => {
+  res.json({
+    status: "ok",
+    service: "caraway-api",
+    health: "/api/healthz",
+  });
+});
+
+app.get("/healthz", (_req: Request, res: Response) => {
+  res.json({ status: "ok" });
+});
+
 app.use("/api", router);
 
 export default app;

@@ -1,6 +1,10 @@
 import { Accordion } from "@/components/ui/accordion";
 
-const faqs = [
+export const faqs = [
+  {
+    question: "How does cash for cars work in Brisbane?",
+    answer: "Cash for cars means we pay you cash when we collect your vehicle — no waiting on bank transfers. You get a quote, we arrange free towing, and you are paid on the spot before the car leaves your property. Caraway services all of Greater Brisbane, 7 days a week."
+  },
   {
     question: "How much will I get for my car in Brisbane?",
     answer: "Every car is different. We calculate your offer based on make, model, year, condition, mileage, and the current scrap metal and spare parts market. Brisbane sellers typically receive between $150 and $9,999. Old, non-running cars can still fetch several hundred dollars. We always aim to beat our competitors."
@@ -45,11 +49,11 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-24 bg-background" aria-label="Frequently asked questions about cash for cars Brisbane">
+    <section id="faq" className="py-16 md:py-24 bg-white" aria-label="Frequently asked questions about cash for cars Brisbane">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <span className="text-sm font-semibold text-accent tracking-widest uppercase mb-3 block">Got Questions?</span>
-          <h2 className="text-4xl font-bold text-foreground">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">Frequently Asked Questions</h2>
           <p className="mt-4 text-muted-foreground">
             Everything you need to know about selling your car for cash in Brisbane.
           </p>

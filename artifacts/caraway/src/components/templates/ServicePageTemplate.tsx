@@ -72,7 +72,7 @@ export default function ServicePageTemplate() {
       />
       <Header />
 
-      <main className="flex-1 mt-[64px]">
+      <main className="flex-1 mt-14 lg:mt-[104px]">
         <section className="bg-primary text-white py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />

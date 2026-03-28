@@ -49,7 +49,7 @@ function Stars({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: count }).map((_, i) => (
-        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+        <Star key={i} className="w-4 h-4 fill-accent text-accent" />
       ))}
     </div>
   );
@@ -57,14 +57,14 @@ function Stars({ count }: { count: number }) {
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-background" aria-label="Customer reviews for Cash for Cars Brisbane">
+    <section className="py-16 md:py-24 bg-muted" aria-label="Customer reviews for Cash for Cars Brisbane">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
           <span className="text-sm font-semibold text-accent tracking-widest uppercase mb-3 block">Real Reviews</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-primary">
             Brisbane Sellers Love Caraway
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-3 md:mt-4 text-base md:text-lg text-muted-foreground">
             Over 8,500 Brisbane car owners have sold their vehicles through Caraway. Here's what some of them had to say.
           </p>
         </div>
@@ -72,14 +72,14 @@ export function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((review, i) => (
             <article
-              key={i}
-              className="bg-white rounded-3xl p-8 border border-border/40 shadow-sm hover:shadow-md transition-shadow"
+              key={review.name}
+              className="bg-white rounded-2xl p-7 border border-border/50 shadow-sm hover:shadow-md transition-shadow"
               itemScope
               itemType="https://schema.org/Review"
             >
               <div className="flex items-start justify-between mb-4">
                 <Stars count={review.rating} />
-                <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">{review.car}</span>
+                <span className="text-xs text-muted-foreground bg-muted px-2.5 py-1 rounded-full">{review.car}</span>
               </div>
               <blockquote
                 className="text-foreground/80 text-sm leading-relaxed mb-6"

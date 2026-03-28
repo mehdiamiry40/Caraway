@@ -4,16 +4,9 @@
     "outDir": "dist",
     "rootDir": "src",
     "types": ["node"],
+    "noEmitOnError": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src"],
-  "references": [
-    {
-      "path": "../../lib/db"
-    },
-    {
-      "path": "../../lib/api-zod"
-    }
-  ]
+  "include": ["src"]
 }

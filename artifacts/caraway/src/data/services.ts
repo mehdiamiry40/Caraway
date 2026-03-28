@@ -24,7 +24,7 @@ export const services: ServicePage[] = [
   {
     slug: "cash-for-cars-brisbane",
     title: "Cash for Cars Brisbane | Up to $9,999 | Same-Day Pickup — Caraway",
-    metaDescription: "Get top cash for cars in Brisbane today. Caraway pays up to $9,999 for any car, any condition. Free towing, instant payment, 7 days. Call 1800 227 293.",
+    metaDescription: "Cash for cars Brisbane: Caraway pays up to $9,999 for any car, any condition. Free towing, cash on pickup, Greater Brisbane. Call 1800 227 293.",
     h1: "Cash for Cars Brisbane — Get Paid Today",
     intro: "Looking to sell your car fast in Brisbane? Caraway is Brisbane's leading cash for cars buyer, paying up to $9,999 for vehicles in any condition. Whether your car is old, damaged, scrap, or running perfectly — we'll make you a fair cash offer and pick it up the same day, free of charge.",
     sections: [

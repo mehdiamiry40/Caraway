@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface SEOProps {
   title: string;
@@ -37,7 +37,7 @@ const localBusinessSchema = {
   "telephone": NAP.phone,
   "email": NAP.email,
   "priceRange": "$$",
-  "description": "Brisbane's most trusted cash for cars service. We buy all makes and models in any condition. Free towing, same-day payment across Greater Brisbane.",
+  "description": "Cash for cars Brisbane: Caraway pays cash on pickup for any make or condition — up to $9,999. Free towing and same-day service across Greater Brisbane. Call 1800 227 293.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": NAP.streetAddress,
@@ -122,8 +122,10 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${SITE_URL}/#website`,
-  "name": "Caraway",
+  "name": "Caraway — Cash for Cars Brisbane",
+  "alternateName": "Caraway Cash for Cars",
   "url": SITE_URL,
+  "description": "Cash for cars Brisbane: free quotes, free removal, and cash paid on pickup. Servicing Greater Brisbane 7 days a week.",
   "publisher": { "@id": `${SITE_URL}/#organization` },
   "potentialAction": {
     "@type": "SearchAction",
@@ -136,6 +138,12 @@ const websiteSchema = {
 };
 
 export function SEO({ title, description, canonical, ogImage, ogType, schema }: SEOProps) {
+  const schemaJson = schema ? JSON.stringify(schema) : undefined;
+  const stableSchema = useRef(schema);
+  if (schemaJson !== JSON.stringify(stableSchema.current)) {
+    stableSchema.current = schema;
+  }
+
   useEffect(() => {
     document.title = title;
 
@@ -151,12 +159,17 @@ export function SEO({ title, description, canonical, ogImage, ogType, schema }: 
     };
 
     setMeta('meta[name="description"]', 'content', description);
+    setMeta('meta[name="keywords"]', 'content', 'cash for cars Brisbane, car removal Brisbane, sell my car Brisbane, scrap car buyers Brisbane, cash for cars');
     setMeta('meta[property="og:title"]', 'content', title);
     setMeta('meta[property="og:description"]', 'content', description);
     setMeta('meta[property="og:type"]', 'content', ogType || 'website');
     setMeta('meta[property="og:image"]', 'content', ogImage || DEFAULT_OG_IMAGE);
+    setMeta('meta[property="og:url"]', 'content', canonical || SITE_URL);
     setMeta('meta[property="og:site_name"]', 'content', 'Caraway');
     setMeta('meta[property="og:locale"]', 'content', 'en_AU');
+    setMeta('meta[name="twitter:title"]', 'content', title);
+    setMeta('meta[name="twitter:description"]', 'content', description);
+    setMeta('meta[name="twitter:image"]', 'content', ogImage || DEFAULT_OG_IMAGE);
     setMeta('meta[name="geo.region"]', 'content', 'AU-QLD');
     setMeta('meta[name="geo.placename"]', 'content', 'Brisbane');
 
@@ -183,10 +196,10 @@ export function SEO({ title, description, canonical, ogImage, ogType, schema }: 
     injectSchema(organizationSchema);
     injectSchema(websiteSchema);
 
-    if (schema) {
-      schema.forEach(s => injectSchema(s));
+    if (stableSchema.current) {
+      stableSchema.current.forEach(s => injectSchema(s));
     }
-  }, [title, description, canonical, ogImage, ogType, schema]);
+  }, [title, description, canonical, ogImage, ogType, schemaJson]);
 
   return null;
 }

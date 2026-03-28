@@ -25,13 +25,13 @@ const reasons = [
 
 export function WhyUs() {
   return (
-    <section id="why-us" className="py-24 bg-background relative overflow-hidden">
+    <section id="why-us" className="py-16 md:py-24 bg-muted relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
           <div className="lg:col-span-5">
             <span className="text-sm font-semibold text-accent tracking-widest uppercase mb-3 block">Why Choose Us</span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-primary mb-5 md:mb-6 leading-tight">
               The Smarter Way to Sell Your Car.
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -45,7 +45,7 @@ export function WhyUs() {
                 "Thousands of Happy Customers",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-foreground font-medium">
-                  <span className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-full bg-accent/15 text-accent flex items-center justify-center">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
                   </span>
                   {item}
@@ -58,12 +58,12 @@ export function WhyUs() {
             {reasons.map((reason, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-3xl border border-border/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                className="bg-white p-8 rounded-2xl border border-border/60 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-2xl bg-muted flex items-center justify-center text-primary mb-6">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-5">
                   {reason.icon}
                 </div>
-                <h4 className="text-xl font-display font-semibold mb-3">{reason.title}</h4>
+                <h4 className="text-lg font-display font-bold text-primary mb-2">{reason.title}</h4>
                 <p className="text-muted-foreground text-sm leading-relaxed">{reason.description}</p>
               </div>
             ))}
