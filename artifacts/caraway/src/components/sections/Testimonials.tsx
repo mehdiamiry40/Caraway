@@ -3,53 +3,49 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     name: "Jason M.",
-    location: "Chermside, Brisbane",
+    location: "Chermside",
     rating: 5,
-    text: "Caraway gave me $2,800 cash for my old Holden Commodore that hadn't run in two years. They came to Chermside within a few hours of my call. Free towing and cash on the spot — couldn't have been easier.",
+    text: "Dead Commodore in the carport — they quoted over the phone and stuck to it at pickup. Cash before the truck left.",
     car: "2009 Holden Commodore",
   },
   {
     name: "Sarah K.",
-    location: "Ipswich, QLD",
+    location: "Ipswich",
     rating: 5,
-    text: "I needed to sell my car fast after an accident. Caraway picked it up from Ipswich the same day and paid me immediately. No hassle, no lowball offers — they were completely upfront about the price.",
-    car: "2014 Toyota Camry (damaged)",
+    text: "Written off in a bingle. Same-day pickup, no haggling on the day.",
+    car: "2014 Toyota Camry",
   },
   {
     name: "Derek T.",
-    location: "Capalaba, Brisbane",
-    rating: 5,
-    text: "Best cash for cars service in Brisbane. I'd tried two other companies but they kept changing the offer at pickup. Caraway honoured exactly what they quoted me over the phone. Will definitely use again.",
+    location: "Capalaba",
+    rating: 4,
+    text: "Other place tried to chip the price when they arrived. These guys matched what they said. Took a star off because traffic made them 20 min late — still solid.",
     car: "2006 Ford Falcon",
   },
   {
     name: "Priya S.",
-    location: "Sunnybank, Brisbane",
+    location: "Sunnybank",
     rating: 5,
-    text: "Sold my scrap Mazda 3 that had been sitting in my driveway for over a year. Got $950 cash and they were gone within 45 minutes. The team was professional and friendly. Highly recommend!",
-    car: "2005 Mazda 3 (scrap)",
+    text: "Scrap Mazda sitting a year. $950, gone in under an hour. Fine by me.",
+    car: "2005 Mazda 3",
   },
   {
     name: "Michael B.",
-    location: "North Lakes, Brisbane",
+    location: "North Lakes",
     rating: 5,
-    text: "Tried selling privately for months with no luck. Caraway came out to North Lakes, gave me a fair price and handled all the transfer paperwork. Got cash in hand before they even drove away.",
+    text: "Couldn’t move it privately. They did the transfer paperwork — I didn’t have to queue at Transport.",
     car: "2011 Nissan Dualis",
-  },
-  {
-    name: "Angela W.",
-    location: "Logan, QLD",
-    rating: 5,
-    text: "As a single mum I was nervous about getting ripped off. Caraway was transparent, professional and gave me a great price for my old SUV. The whole process took less than 2 hours from quote to cash.",
-    car: "2008 Hyundai Santa Fe",
   },
 ];
 
 function Stars({ count }: { count: number }) {
   return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: count }).map((_, i) => (
-        <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+    <div className="flex gap-0.5" aria-hidden>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          className={`w-4 h-4 ${i < count ? "fill-accent text-accent" : "fill-transparent text-border"}`}
+        />
       ))}
     </div>
   );
@@ -57,35 +53,35 @@ function Stars({ count }: { count: number }) {
 
 export function Testimonials() {
   return (
-    <section className="py-16 md:py-24 bg-muted" aria-label="Customer reviews for Cash for Cars Brisbane">
+    <section className="section-y bg-muted" aria-label="What sellers say">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
-          <span className="text-sm font-semibold text-accent tracking-widest uppercase mb-3 block">Real Reviews</span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-primary">
-            Brisbane Sellers Love Caraway
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+          <p className="section-label mb-3">Recent feedback</p>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary text-balance">
+            Word from Brisbane sellers
           </h2>
-          <p className="mt-3 md:mt-4 text-base md:text-lg text-muted-foreground">
-            Over 8,500 Brisbane car owners have sold their vehicles through Caraway. Here's what some of them had to say.
+          <p className="mt-3 md:mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+            Typical situations — old cars, damage, no rego. Your offer depends on your car; these are examples only.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((review, i) => (
+          {testimonials.map((review) => (
             <article
               key={review.name}
               className="bg-white rounded-2xl p-7 border border-border/50 shadow-sm hover:shadow-md transition-shadow"
-              itemScope
-              itemType="https://schema.org/Review"
             >
-              <div className="flex items-start justify-between mb-4">
-                <Stars count={review.rating} />
-                <span className="text-xs text-muted-foreground bg-muted px-2.5 py-1 rounded-full">{review.car}</span>
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="flex flex-col gap-1">
+                  <span className="sr-only">{review.rating} out of 5 stars</span>
+                  <Stars count={review.rating} />
+                </div>
+                <span className="text-xs text-muted-foreground bg-muted px-2.5 py-1 rounded-full shrink-0">
+                  {review.car}
+                </span>
               </div>
-              <blockquote
-                className="text-foreground/80 text-sm leading-relaxed mb-6"
-                itemProp="reviewBody"
-              >
-                "{review.text}"
+              <blockquote className="text-foreground/85 text-sm leading-relaxed mb-6">
+                {review.text}
               </blockquote>
               <div className="flex items-center gap-3 pt-4 border-t border-border/40">
                 <div
@@ -95,7 +91,9 @@ export function Testimonials() {
                   {review.name[0]}
                 </div>
                 <div>
-                  <div className="font-semibold text-sm text-foreground" itemProp="author">{review.name}</div>
+                  <div className="font-semibold text-sm text-foreground">
+                    {review.name}
+                  </div>
                   <div className="text-xs text-muted-foreground">{review.location}</div>
                 </div>
               </div>

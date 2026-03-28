@@ -19,7 +19,7 @@ const plainTypes = [
 
 export function CarTypes() {
   return (
-    <section className="py-14 md:py-20 bg-primary text-primary-foreground overflow-hidden" aria-label="Types of cars we buy in Brisbane">
+    <section className="section-y bg-primary text-primary-foreground overflow-hidden" aria-label="Types of cars we buy in Brisbane">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start gap-8 md:gap-10">
           <div className="md:w-1/3 shrink-0">

@@ -6,14 +6,22 @@ import { Button } from "@/components/ui/button";
 import { useSubmitQuote, quoteFormSchema, type QuoteFormValues } from "@/hooks/use-quote";
 import { CheckCircle2 } from "lucide-react";
 
+const fieldIds = {
+  name: "quote-name",
+  phone: "quote-phone",
+  make: "quote-make",
+  year: "quote-year",
+  condition: "quote-condition",
+} as const;
+
 export function QuoteForm() {
   const { mutate, isPending, isSuccess, reset: resetMutation } = useSubmitQuote();
-  
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm<QuoteFormValues>({
     resolver: zodResolver(quoteFormSchema),
   });
@@ -22,117 +30,170 @@ export function QuoteForm() {
     mutate(data, {
       onSuccess: () => {
         reset();
-      }
+      },
     });
   };
 
   return (
-    <section id="quote-section" className="py-16 md:py-24 bg-muted relative">
+    <section id="quote-section" className="section-y bg-muted relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-2xl p-5 sm:p-8 md:p-14 border border-border/60 shadow-sm relative overflow-hidden">
-          
-          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 relative z-10">
-            
             <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6">
-                Get Your Free Cash Offer
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6 text-balance">
+                Request a cash offer
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Takes less than 60 seconds. Enter your details below and our valuation experts will get back to you with a guaranteed price.
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Tell us about the car. We&apos;ll call or text back with a price range and next steps — usually within one business day. No obligation.
               </p>
-              
-              <div className="space-y-5 hidden lg:block">
-                <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                    <span className="font-bold text-lg text-white">1</span>
-                  </div>
-                  <div>
-                    <h4 className="font-display font-bold text-foreground">Provide Details</h4>
-                    <p className="text-sm text-muted-foreground">Basic info about your vehicle</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                    <span className="font-bold text-lg text-white">2</span>
-                  </div>
-                  <div>
-                    <h4 className="font-display font-bold text-foreground">Accept Offer</h4>
-                    <p className="text-sm text-muted-foreground">Review our cash price</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                    <span className="font-bold text-lg text-white">3</span>
-                  </div>
-                  <div>
-                    <h4 className="font-display font-bold text-foreground">Get Paid</h4>
-                    <p className="text-sm text-muted-foreground">We tow it away and pay you</p>
-                  </div>
+
+              <div className="space-y-5 hidden lg:block border-l-2 border-border pl-6">
+                <div>
+                  <h3 className="font-display font-bold text-foreground text-sm">What happens next</h3>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    We confirm details, agree a price before pickup, then pay you when we collect the vehicle.
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-muted rounded-2xl p-8 border border-border/50">
+            <div className="bg-muted rounded-2xl p-6 sm:p-8 border border-border/50">
               {isSuccess ? (
-                <div className="h-full flex flex-col items-center justify-center text-center py-12">
+                <div className="h-full flex flex-col items-center justify-center text-center py-10 sm:py-12">
                   <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6">
-                    <CheckCircle2 className="w-10 h-10 text-green-500" />
+                    <CheckCircle2 className="w-10 h-10 text-green-600" aria-hidden />
                   </div>
-                  <h3 className="text-2xl font-display font-bold text-primary mb-2">Quote Received!</h3>
-                  <p className="text-muted-foreground mb-8">Our team will contact you shortly with your guaranteed cash offer.</p>
-                  <Button onClick={() => resetMutation()} variant="outline">Submit Another</Button>
+                  <h3 className="text-2xl font-display font-bold text-primary mb-2">Thanks — we&apos;ve got your details</h3>
+                  <p className="text-muted-foreground mb-8 max-w-sm leading-relaxed">
+                    Our team will contact you using the number you provided. If you need someone sooner, call{" "}
+                    <a href="tel:1800227293" className="text-primary font-semibold underline underline-offset-2">
+                      1800 227 293
+                    </a>
+                    .
+                  </p>
+                  <Button onClick={() => resetMutation()} variant="outline">
+                    Submit another vehicle
+                  </Button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <Input placeholder="Your Name" {...register("name")} />
-                      {errors.name && <span className="text-destructive text-sm mt-1 block">{errors.name.message}</span>}
+                      <label htmlFor={fieldIds.name} className="block text-sm font-medium text-foreground mb-1.5">
+                        Your name
+                      </label>
+                      <Input
+                        autoComplete="name"
+                        placeholder="Jane Smith"
+                        aria-invalid={errors.name ? true : undefined}
+                        aria-describedby={errors.name ? `${fieldIds.name}-error` : undefined}
+                        {...register("name")}
+                        id={fieldIds.name}
+                      />
+                      {errors.name && (
+                        <p id={`${fieldIds.name}-error`} className="text-destructive text-sm mt-1.5" role="alert">
+                          {errors.name.message}
+                        </p>
+                      )}
                     </div>
                     <div>
-                      <Input placeholder="Phone Number" type="tel" {...register("phone")} />
-                      {errors.phone && <span className="text-destructive text-sm mt-1 block">{errors.phone.message}</span>}
+                      <label htmlFor={fieldIds.phone} className="block text-sm font-medium text-foreground mb-1.5">
+                        Phone
+                      </label>
+                      <Input
+                        type="tel"
+                        autoComplete="tel"
+                        placeholder="04xx xxx xxx"
+                        aria-invalid={errors.phone ? true : undefined}
+                        aria-describedby={errors.phone ? `${fieldIds.phone}-error` : undefined}
+                        {...register("phone")}
+                        id={fieldIds.phone}
+                      />
+                      {errors.phone && (
+                        <p id={`${fieldIds.phone}-error`} className="text-destructive text-sm mt-1.5" role="alert">
+                          {errors.phone.message}
+                        </p>
+                      )}
                     </div>
                   </div>
 
                   <div>
-                    <Input placeholder="Car Make & Model (e.g. Toyota Corolla)" {...register("make")} />
-                    {errors.make && <span className="text-destructive text-sm mt-1 block">{errors.make.message}</span>}
+                    <label htmlFor={fieldIds.make} className="block text-sm font-medium text-foreground mb-1.5">
+                      Make &amp; model
+                    </label>
+                    <Input
+                      autoComplete="off"
+                      placeholder="e.g. Toyota Corolla"
+                      aria-invalid={errors.make ? true : undefined}
+                      aria-describedby={errors.make ? `${fieldIds.make}-error` : undefined}
+                      {...register("make")}
+                      id={fieldIds.make}
+                    />
+                    {errors.make && (
+                      <p id={`${fieldIds.make}-error`} className="text-destructive text-sm mt-1.5" role="alert">
+                        {errors.make.message}
+                      </p>
+                    )}
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <Input placeholder="Year (e.g. 2010)" type="number" {...register("year")} />
-                      {errors.year && <span className="text-destructive text-sm mt-1 block">{errors.year.message}</span>}
+                      <label htmlFor={fieldIds.year} className="block text-sm font-medium text-foreground mb-1.5">
+                        Year
+                      </label>
+                      <Input
+                        inputMode="numeric"
+                        placeholder="e.g. 2012"
+                        aria-invalid={errors.year ? true : undefined}
+                        aria-describedby={errors.year ? `${fieldIds.year}-error` : undefined}
+                        {...register("year")}
+                        id={fieldIds.year}
+                      />
+                      {errors.year && (
+                        <p id={`${fieldIds.year}-error`} className="text-destructive text-sm mt-1.5" role="alert">
+                          {errors.year.message}
+                        </p>
+                      )}
                     </div>
                     <div>
-                      <Select 
-                        placeholder="Condition"
+                      <label htmlFor={fieldIds.condition} className="block text-sm font-medium text-foreground mb-1.5">
+                        Condition
+                      </label>
+                      <Select
+                        placeholder="Select condition"
                         options={[
                           { value: "running", label: "Running" },
-                          { value: "needs_work", label: "Needs Work" },
-                          { value: "not_running", label: "Not Running" },
-                          { value: "damaged", label: "Accident / Damaged" },
-                          { value: "scrap", label: "Scrap / Junk" },
+                          { value: "needs_work", label: "Needs work" },
+                          { value: "not_running", label: "Not running" },
+                          { value: "damaged", label: "Accident / damaged" },
+                          { value: "scrap", label: "Scrap / junk" },
                         ]}
-                        {...register("condition")} 
+                        aria-invalid={errors.condition ? true : undefined}
+                        aria-describedby={errors.condition ? `${fieldIds.condition}-error` : undefined}
+                        {...register("condition")}
+                        id={fieldIds.condition}
                       />
-                      {errors.condition && <span className="text-destructive text-sm mt-1 block">{errors.condition.message}</span>}
+                      {errors.condition && (
+                        <p id={`${fieldIds.condition}-error`} className="text-destructive text-sm mt-1.5" role="alert">
+                          {errors.condition.message}
+                        </p>
+                      )}
                     </div>
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full h-14 text-lg mt-4" isLoading={isPending}>
-                    Get My Free Quote
+                  <Button type="submit" size="lg" className="w-full h-14 text-base sm:text-lg mt-2" isLoading={isPending}>
+                    Send details
                   </Button>
-                  <p className="text-xs text-center text-muted-foreground mt-4">
-                    By submitting, you agree to receive a call regarding your quote. No obligation.
+                  <p className="text-xs text-center text-muted-foreground leading-relaxed">
+                    By submitting, you agree we may contact you about this enquiry. You can opt out anytime. See our{" "}
+                    <a href="/privacy" className="text-primary underline underline-offset-2">
+                      Privacy Policy
+                    </a>
+                    .
                   </p>
                 </form>
               )}
             </div>
-
           </div>
         </div>
       </div>

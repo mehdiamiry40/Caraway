@@ -61,9 +61,23 @@
   .glass-panel {
     @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
   }
-  
+
+  /** Vertical rhythm for major sections (one scale site-wide) */
+  .section-y {
+    @apply py-16 md:py-24;
+  }
+
+  /** Eyebrow label — use sparingly; not every block needs a kicker */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-accent;
+  }
+
   .text-balance {
     text-wrap: balance;
+  }
+
+  .prose-measure {
+    @apply max-w-prose;
   }
 }
 

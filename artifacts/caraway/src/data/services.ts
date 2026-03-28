@@ -34,7 +34,7 @@ export const services: ServicePage[] = [
       },
       {
         heading: "Why Brisbane Locals Choose Caraway",
-        content: "We've purchased over 8,500 vehicles across Greater Brisbane because we make selling easy. There's no need for a Roadworthy Certificate, no advertising costs, no tyre-kickers, and no waiting weeks for a private buyer. We handle all the paperwork, we pay you before the car leaves your property, and our towing is always free. We're a locally owned Brisbane business — not a faceless national call centre."
+        content: "We focus on making the sale straightforward: no Roadworthy Certificate required, no classified ads, and no strangers test-driving your car. We handle transfer paperwork, pay you before the vehicle leaves your property, and include towing when we buy. We're a Brisbane-based buyer — not a national lead broker."
       },
       {
         heading: "What Cars We Buy for Cash in Brisbane",
@@ -46,7 +46,7 @@ export const services: ServicePage[] = [
       },
       {
         heading: "How Much Cash Will I Get for My Car?",
-        content: "The amount we pay depends on your vehicle's make, model, year, condition, and the current market for parts and scrap metal. Most Brisbane sellers receive between $150 for older scrap cars and up to $9,999 for late-model vehicles in decent condition. We always aim to beat competing offers — so if you've received a quote elsewhere, let us know and we'll do our best to match or exceed it."
+        content: "The amount we pay depends on your vehicle's make, model, year, condition, and the current market for parts and scrap metal. Many sellers receive between $150 for older scrap cars and up to $9,999 for late-model vehicles in decent condition. If you have another written quote, mention it — we'll see what we can do."
       }
     ],
     faqs: [
@@ -338,7 +338,7 @@ export const services: ServicePage[] = [
       },
       {
         heading: "Fair Market Offers for Used Cars",
-        content: "We use real-time market data, recent sales, and condition assessments to offer fair prices for used cars in Brisbane. While we may not match private sale top-dollar prices, we compensate with speed, convenience, zero selling costs, and guaranteed payment. For many Brisbane sellers, the time and hassle savings make Caraway the better financial choice overall."
+        content: "We use real-time market data, recent sales, and condition assessments to offer fair prices for used cars in Brisbane. While we may not match private sale top-dollar prices, we compensate with speed, convenience, and zero listing costs — payment when we collect the car. For many Brisbane sellers, the time saved is worth the trade-off."
       },
       {
         heading: "All Makes and Models Accepted",

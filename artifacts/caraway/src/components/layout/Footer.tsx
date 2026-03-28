@@ -34,11 +34,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8">
 
           <div className="lg:col-span-2">
-            <Link href="/" className="font-display font-bold text-2xl tracking-tight text-primary mb-4 block">
-              Caraway<span className="text-accent">.</span>
+            <Link href="/" className="font-display font-bold text-2xl tracking-tight text-primary mb-4 block lowercase">
+              caraway<span className="text-accent">.</span>
             </Link>
             <p className="text-muted-foreground max-w-sm mt-3 leading-relaxed text-sm">
-              Brisbane's most trusted cash for cars service. Fast, fair, and hassle-free car removal. We buy any car, in any condition, today.
+              Brisbane cash for cars and pickup. We quote before we load — running, damaged, or unregistered. Call or send the form.
             </p>
             <div className="mt-5 space-y-2.5">
               <a href="tel:1800227293" className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors group text-sm">

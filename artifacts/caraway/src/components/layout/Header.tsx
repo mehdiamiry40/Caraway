@@ -73,8 +73,8 @@ export function Header() {
         <div className="bg-primary">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between min-h-14 h-14">
             <Link href="/" className="flex items-center gap-2 group">
-              <span className="font-display font-bold text-2xl tracking-tight text-white">
-                Caraway<span className="text-accent">.</span>
+              <span className="font-display font-bold text-2xl tracking-tight text-white lowercase">
+                caraway<span className="text-accent">.</span>
               </span>
             </Link>
 
@@ -151,8 +151,8 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-[100] bg-white lg:hidden flex flex-col pt-safe pb-safe">
           <div className="flex items-center justify-between min-h-14 px-4 border-b border-border bg-primary shrink-0">
-            <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-white">
-              Caraway<span className="text-accent">.</span>
+            <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-white lowercase">
+              caraway<span className="text-accent">.</span>
             </span>
             <button
               type="button"

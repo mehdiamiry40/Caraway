@@ -25,7 +25,7 @@ const additionalAreas = [
 export function ServiceAreas() {
   return (
     <section
-      className="relative py-14 lg:py-16 bg-white border-t border-border/50"
+      className="relative section-y bg-white border-t border-border/50"
       aria-label="Cash for cars service areas Brisbane"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" aria-hidden />
@@ -33,14 +33,12 @@ export function ServiceAreas() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Intro — readable measure */}
         <div className="max-w-2xl mb-6 lg:mb-7">
-          <span className="text-xs font-semibold text-accent tracking-[0.2em] uppercase mb-2 block">
-            Service Areas
-          </span>
+          <p className="section-label mb-2">Service areas</p>
           <h2 className="text-2xl sm:text-3xl font-display font-bold text-primary leading-tight text-balance">
-            Cash for Cars Across Greater Brisbane
+            Greater Brisbane &amp; surrounds
           </h2>
           <p className="mt-2.5 text-sm sm:text-base text-muted-foreground leading-snug">
-            We offer free car removal and instant cash for cars throughout Brisbane, Ipswich, Logan, Redland Bay, Moreton Bay, and all surrounding suburbs.
+            We collect from Brisbane, Ipswich, Logan, Redland Bay, Moreton Bay, and nearby areas. Remote or unusual access? Say so when you call — we&apos;ll be honest about trucks.
           </p>
         </div>
 

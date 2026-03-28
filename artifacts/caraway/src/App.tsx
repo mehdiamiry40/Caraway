@@ -1,6 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
@@ -10,6 +9,8 @@ const About = lazy(() => import("@/pages/About"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const FAQPage = lazy(() => import("@/pages/FAQPage"));
 const Locations = lazy(() => import("@/pages/Locations"));
+const Privacy = lazy(() => import("@/pages/Privacy"));
+const Terms = lazy(() => import("@/pages/Terms"));
 const ServicePageTemplate = lazy(
   () => import("@/components/templates/ServicePageTemplate"),
 );
@@ -33,14 +34,6 @@ function PageFallback() {
   );
 }
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    }
-  }
-});
-
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
@@ -60,6 +53,8 @@ function Router() {
           <Route path="/contact" component={Contact} />
           <Route path="/faq" component={FAQPage} />
           <Route path="/locations" component={Locations} />
+          <Route path="/privacy" component={Privacy} />
+          <Route path="/terms" component={Terms} />
           <Route path="/locations/:slug" component={SuburbPageTemplate} />
           <Route path="/:slug" component={ServicePageTemplate} />
           <Route component={NotFound} />
@@ -71,14 +66,12 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
-        </WouterRouter>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <TooltipProvider>
+      <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+        <Router />
+      </WouterRouter>
+      <Toaster />
+    </TooltipProvider>
   );
 }
 

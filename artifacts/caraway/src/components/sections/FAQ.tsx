@@ -7,7 +7,7 @@ export const faqs = [
   },
   {
     question: "How much will I get for my car in Brisbane?",
-    answer: "Every car is different. We calculate your offer based on make, model, year, condition, mileage, and the current scrap metal and spare parts market. Brisbane sellers typically receive between $150 and $9,999. Old, non-running cars can still fetch several hundred dollars. We always aim to beat our competitors."
+    answer: "Every car is different. We calculate your offer based on make, model, year, condition, mileage, and the current scrap metal and spare parts market. Brisbane sellers typically receive between $150 and $9,999. Old, non-running cars can still fetch several hundred dollars. If you have another written quote, tell us — we’ll see what we can do."
   },
   {
     question: "Do you really tow for free across Brisbane?",
@@ -49,13 +49,13 @@ export const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-16 md:py-24 bg-white" aria-label="Frequently asked questions about cash for cars Brisbane">
+    <section id="faq" className="section-y bg-white" aria-label="Frequently asked questions">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 md:mb-12">
-          <span className="text-sm font-semibold text-accent tracking-widest uppercase mb-3 block">Got Questions?</span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary">Frequently Asked Questions</h2>
-          <p className="mt-4 text-muted-foreground">
-            Everything you need to know about selling your car for cash in Brisbane.
+          <p className="section-label mb-3">FAQ</p>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary text-balance">Straight answers</h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Towing, rego, pricing — the stuff people actually ask before they book a pickup.
           </p>
         </div>
 

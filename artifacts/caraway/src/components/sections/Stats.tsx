@@ -1,22 +1,31 @@
+/** Service promises — not audited financial or volume statistics. */
 const stats = [
-  { value: "8,500+", label: "Cars Purchased in Brisbane" },
-  { value: "$4.2M+", label: "Paid Out to Brisbane Sellers" },
-  { value: "60 min", label: "Average Response Time" },
-  { value: "4.9★", label: "Average Customer Rating" },
+  { value: "7 days", label: "Phone & online quotes" },
+  { value: "Greater Brisbane", label: "Pickup we arrange with you" },
+  { value: "$0", label: "Towing when we buy" },
+  { value: "Cash", label: "Paid on collection" },
 ];
 
 export function Stats() {
   return (
-    <section className="py-10 sm:py-12 bg-muted border-y border-border/60">
+    <section
+      className="py-10 sm:py-12 bg-muted border-y border-border/60"
+      aria-label="What to expect"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <div key={i} className="text-center">
-              <div className="text-3xl md:text-4xl font-display font-bold text-primary mb-1">{stat.value}</div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary mb-1">
+                {stat.value}
+              </div>
+              <div className="text-sm text-muted-foreground leading-snug">{stat.label}</div>
             </div>
           ))}
         </div>
+        <p className="text-xs text-center text-muted-foreground mt-8 max-w-2xl mx-auto leading-relaxed">
+          We&apos;re a local buyer, not a marketplace. Final price is agreed before we load your car.
+        </p>
       </div>
     </section>
   );

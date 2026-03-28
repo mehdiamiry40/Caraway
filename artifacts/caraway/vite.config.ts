@@ -1,8 +1,49 @@
 import { defineConfig } from "vite";
+import type { Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+
+/** LCP hero images are rendered by React; preloads in initial HTML satisfy Lighthouse "discoverable in document". */
+function lcpImagePreload(): Plugin {
+  let base = "/";
+  return {
+    name: "lcp-image-preload",
+    configResolved(config) {
+      base = config.base.endsWith("/") ? config.base : `${config.base}/`;
+    },
+    transformIndexHtml() {
+      const href = (p: string) => `${base}${p}`.replace(/([^:]\/)\/+/g, "$1");
+      return {
+        tags: [
+          {
+            tag: "link",
+            attrs: {
+              rel: "preload",
+              as: "image",
+              href: href("images/tow-truck-hero-sm.webp"),
+              media: "(max-width: 1023px)",
+              fetchpriority: "high",
+            },
+            injectTo: "head-prepend",
+          },
+          {
+            tag: "link",
+            attrs: {
+              rel: "preload",
+              as: "image",
+              href: href("images/tow-truck-hero.webp"),
+              media: "(min-width: 1024px)",
+              fetchpriority: "high",
+            },
+            injectTo: "head-prepend",
+          },
+        ],
+      };
+    },
+  };
+}
 
 const rawPort = process.env.PORT ?? "5173";
 const port = Number(rawPort);
@@ -16,6 +57,7 @@ const basePath = process.env.BASE_PATH ?? "/";
 export default defineConfig(async ({ mode }) => ({
   base: basePath,
   plugins: [
+    lcpImagePreload(),
     react(),
     tailwindcss(),
     ...(mode === "development" ? [runtimeErrorOverlay()] : []),
@@ -49,7 +91,6 @@ export default defineConfig(async ({ mode }) => ({
       output: {
         manualChunks(id) {
           if (!id.includes("node_modules")) return;
-          if (id.includes("@tanstack/react-query")) return "query";
           if (id.includes("@radix-ui")) return "radix";
           if (id.includes("lucide-react")) return "icons";
           if (id.includes("wouter")) return "router";

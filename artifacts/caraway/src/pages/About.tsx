@@ -14,8 +14,8 @@ export default function About() {
   return (
     <div className="flex flex-col min-h-screen">
       <SEO
-        title="About Caraway | Brisbane's Trusted Cash for Cars Service"
-        description="Learn about Caraway — Brisbane's locally owned cash for cars service. Over 8,500 vehicles purchased. Free towing, same-day cash, 7 days a week."
+        title="About Caraway | Cash for Cars Brisbane"
+        description="Learn about Caraway — Brisbane cash for cars and removal. Local team, upfront pricing, 7-day phone support."
         canonical="https://caraway.com.au/about"
         schema={[{
           "@type": "BreadcrumbList",
@@ -45,7 +45,7 @@ export default function About() {
             <div>
               <h2 className="text-2xl font-display font-bold text-foreground mb-4">Who We Are</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Caraway is a Brisbane-based cash for cars service founded with a simple goal: make selling a car as easy as making a phone call. We've built our business on transparency, fair pricing, and reliable service — values that have earned us the trust of thousands of Brisbane car sellers.
+                Caraway is a Brisbane-based buyer — we pay cash for cars we want, and we organise pickup when we agree a price. No listings, no strangers at your door for test drives.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 We're not a faceless national franchise or an online broker who subcontracts the work. We're a local team who lives and works in Brisbane, knows the suburbs, and takes pride in providing a genuine, personal service to every customer.
@@ -53,22 +53,9 @@ export default function About() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-display font-bold text-foreground mb-4">Our Track Record</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 my-8">
-                {[
-                  { stat: "8,500+", label: "Cars Purchased" },
-                  { stat: "$4.2M+", label: "Cash Paid Out" },
-                  { stat: "4.9★", label: "Customer Rating" },
-                  { stat: "60 min", label: "Avg Response" }
-                ].map(item => (
-                  <div key={item.label} className="text-center">
-                    <div className="text-3xl font-display font-bold text-primary">{item.stat}</div>
-                    <div className="text-sm text-muted-foreground mt-1">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-muted-foreground leading-relaxed">
-                These numbers represent real vehicles purchased from real Brisbane sellers. Every car we buy strengthens our reputation and our commitment to fair dealing. We measure our success by the number of satisfied customers who recommend us to their friends, family, and neighbours.
+              <h2 className="text-2xl font-display font-bold text-foreground mb-4">How we work</h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                We’re not going to publish vanity metrics here — vehicle markets move weekly. What we will say: we show up when we say we will, we pay what we agreed before the car leaves, and we use licensed recyclers when a car is at end of life.
               </p>
             </div>
 

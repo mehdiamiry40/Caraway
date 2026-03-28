@@ -12,15 +12,14 @@ interface SEOProps {
 const SITE_URL = "https://caraway.com.au";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/images/tow-truck-hero.png`;
 
+/** Service-area business: no street in schema until a verified trading address is published. */
 const NAP = {
   name: "Caraway — Cash for Cars Brisbane",
   phone: "+611800227293",
   phoneDisplay: "1800 227 293",
   email: "info@caraway.com.au",
-  streetAddress: "123 Boundary Street",
   addressLocality: "Brisbane",
   addressRegion: "QLD",
-  postalCode: "4000",
   addressCountry: "AU",
   latitude: -27.4698,
   longitude: 153.0251,
@@ -40,10 +39,8 @@ const localBusinessSchema = {
   "description": "Cash for cars Brisbane: Caraway pays cash on pickup for any make or condition — up to $9,999. Free towing and same-day service across Greater Brisbane. Call 1800 227 293.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": NAP.streetAddress,
     "addressLocality": NAP.addressLocality,
     "addressRegion": NAP.addressRegion,
-    "postalCode": NAP.postalCode,
     "addressCountry": NAP.addressCountry
   },
   "geo": {
@@ -64,13 +61,6 @@ const localBusinessSchema = {
     "opens": "07:00",
     "closes": "19:00"
   }],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "1247",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Cash for Cars Services",
@@ -81,11 +71,7 @@ const localBusinessSchema = {
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Damaged Car Buyers Brisbane" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unwanted Car Removal Brisbane" } }
     ]
-  },
-  "sameAs": [
-    "https://www.facebook.com/carawaybrisbane",
-    "https://www.google.com/maps?q=Caraway+Cash+for+Cars+Brisbane"
-  ]
+  }
 };
 
 const organizationSchema = {
@@ -107,15 +93,10 @@ const organizationSchema = {
   },
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": NAP.streetAddress,
     "addressLocality": NAP.addressLocality,
     "addressRegion": NAP.addressRegion,
-    "postalCode": NAP.postalCode,
     "addressCountry": NAP.addressCountry
-  },
-  "sameAs": [
-    "https://www.facebook.com/carawaybrisbane"
-  ]
+  }
 };
 
 const websiteSchema = {

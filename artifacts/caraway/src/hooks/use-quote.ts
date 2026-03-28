@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useCallback, useState } from "react";
 import { z } from "zod";
 
 export const quoteFormSchema = z.object({
@@ -11,11 +11,28 @@ export const quoteFormSchema = z.object({
 
 export type QuoteFormValues = z.infer<typeof quoteFormSchema>;
 
+type MutateOptions = {
+  onSuccess?: () => void;
+};
+
 export function useSubmitQuote() {
-  return useMutation({
-    mutationFn: async (data: QuoteFormValues) => {
+  const [isPending, setIsPending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const mutate = useCallback(async (_data: QuoteFormValues, options?: MutateOptions) => {
+    setIsPending(true);
+    try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      return { success: true, message: "Quote received successfully" };
-    },
-  });
+      setIsSuccess(true);
+      options?.onSuccess?.();
+    } finally {
+      setIsPending(false);
+    }
+  }, []);
+
+  const resetMutation = useCallback(() => {
+    setIsSuccess(false);
+  }, []);
+
+  return { mutate, isPending, isSuccess, reset: resetMutation };
 }
