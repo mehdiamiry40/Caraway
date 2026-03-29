@@ -22,19 +22,9 @@ function lcpImagePreload(): Plugin {
             attrs: {
               rel: "preload",
               as: "image",
-              href: href("images/tow-truck-hero-sm.webp"),
-              media: "(max-width: 1023px)",
-              fetchpriority: "high",
-            },
-            injectTo: "head-prepend",
-          },
-          {
-            tag: "link",
-            attrs: {
-              rel: "preload",
-              as: "image",
               href: href("images/tow-truck-hero.webp"),
-              media: "(min-width: 1024px)",
+              imagesrcset: `${href("images/tow-truck-hero-sm.webp")} 600w, ${href("images/tow-truck-hero.webp")} 1200w`,
+              imagesizes: "(max-width: 1024px) 100vw, 54vw",
               fetchpriority: "high",
             },
             injectTo: "head-prepend",
