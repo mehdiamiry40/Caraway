@@ -63,6 +63,13 @@ export const localBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Unwanted Car Removal Brisbane" } },
     ],
   },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "5",
+    bestRating: "5",
+    worstRating: "1",
+  },
 };
 
 export const organizationSchema = {
@@ -88,6 +95,11 @@ export const organizationSchema = {
     addressRegion: NAP.addressRegion,
     addressCountry: NAP.addressCountry,
   },
+  sameAs: [
+    // Add your social / GMB profile URLs here as they become available
+    // "https://www.google.com/maps/place/...",
+    // "https://www.facebook.com/carawayau",
+  ],
 };
 
 export const websiteSchema = {

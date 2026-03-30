@@ -31,7 +31,7 @@ export function WhyUs() {
           <div className="lg:col-span-5">
             <p className="section-label mb-3">Why sell to us</p>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary mb-5 md:mb-6 leading-tight text-balance">
-              Skip the Gumtree circus
+              Why Brisbane Sellers Choose Caraway
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Private buyers flake. Dealers lowball trade-ins. We’re a buyer — you get one price, one pickup, done.

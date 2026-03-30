@@ -58,7 +58,7 @@ export function Testimonials() {
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
           <p className="section-label mb-3">Recent feedback</p>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary text-balance">
-            Word from Brisbane sellers
+            Cash for Cars Brisbane Reviews
           </h2>
           <p className="mt-3 md:mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
             Typical situations — old cars, damage, no rego. Your offer depends on your car; these are examples only.

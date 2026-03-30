@@ -35,7 +35,7 @@ export function ServiceAreas() {
         <div className="max-w-2xl mb-6 lg:mb-7">
           <p className="section-label mb-2">Service areas</p>
           <h2 className="text-2xl sm:text-3xl font-display font-bold text-primary leading-tight text-balance">
-            Greater Brisbane &amp; surrounds
+            Cash for Cars Brisbane Service Areas
           </h2>
           <p className="mt-2.5 text-sm sm:text-base text-muted-foreground leading-snug">
             We collect from Brisbane, Ipswich, Logan, Redland Bay, Moreton Bay, and nearby areas. Remote or unusual access? Say so when you call — we&apos;ll be honest about trucks.

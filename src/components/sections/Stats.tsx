@@ -23,9 +23,7 @@ export function Stats() {
             </div>
           ))}
         </div>
-        <p className="text-xs text-center text-muted-foreground mt-8 max-w-2xl mx-auto leading-relaxed">
-          We&apos;re a local buyer, not a marketplace. Final price is agreed before we load your car.
-        </p>
+
       </div>
     </section>
   );

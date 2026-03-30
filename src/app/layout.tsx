@@ -28,10 +28,18 @@ export const metadata: Metadata = {
     "Cash for cars Brisbane: fair quotes, free removal, and payment on pickup. Caraway buys any make or condition — up to $9,999. Greater Brisbane, 7 days. Call 1800 227 293 for a free quote.",
   keywords: [
     "cash for cars Brisbane",
+    "cash for cars brisbane today",
+    "sell car for cash Brisbane",
     "car removal Brisbane",
     "sell my car Brisbane",
     "scrap car buyers Brisbane",
     "cash for cars",
+    "car buyers Brisbane",
+    "junk car removal Brisbane",
+    "free car removal Brisbane",
+    "unwanted car removal Brisbane",
+    "cash for old cars Brisbane",
+    "cash for damaged cars Brisbane",
   ],
   openGraph: {
     type: "website",

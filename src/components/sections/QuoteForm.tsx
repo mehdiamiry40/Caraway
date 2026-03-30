@@ -44,7 +44,7 @@ export function QuoteForm() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 relative z-10">
             <div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6 text-balance">
-                Request a cash offer
+                Get Your Cash for Cars Brisbane Quote
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Tell us about the car. We&apos;ll call or text back with a price range and next steps — usually within one business day. No obligation.

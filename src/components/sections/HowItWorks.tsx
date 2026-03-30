@@ -25,7 +25,7 @@ export function HowItWorks() {
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
           <p className="section-label mb-3">How it works</p>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary text-balance">
-            Three steps — no auction, no listing
+            How Cash for Cars Works in Brisbane
           </h2>
           <p className="mt-3 md:mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
             We buy the car directly. If we&apos;re not the right fit, we&apos;ll say so — we&apos;d rather you know upfront than waste a day.
