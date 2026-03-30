@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
+import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import { CheckCircle2 } from "lucide-react";
 
@@ -17,13 +18,7 @@ export default function About() {
         title="About Caraway | Cash for Cars Brisbane"
         description="Learn about Caraway — Brisbane cash for cars and removal. Local team, upfront pricing, 7-day phone support."
         canonical="https://caraway.com.au/about"
-        schema={[{
-          "@type": "BreadcrumbList",
-          "itemListElement": breadcrumbs.map((bc, i) => ({
-            "@type": "ListItem", "position": i + 1, "name": bc.label,
-            "item": bc.href ? `https://caraway.com.au${bc.href}` : undefined
-          }))
-        }]}
+        schema={[breadcrumbListSchema(breadcrumbs, "https://caraway.com.au/about")]}
       />
       <Header />
 

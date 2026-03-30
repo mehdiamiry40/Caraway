@@ -5,6 +5,7 @@ import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { InternalLinks } from "@/components/sections/InternalLinks";
+import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
 import { getSuburbBySlug, suburbs } from "@/data/suburbs";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,7 @@ export default function SuburbPageTemplate() {
     .map(slug => suburbs.find(s => s.slug === slug))
     .filter(Boolean);
 
+  const canonicalUrl = `https://caraway.com.au/locations/${suburb.slug}`;
   const breadcrumbs = [
     { label: "Home", href: "/" },
     { label: "Locations", href: "/locations" },
@@ -41,7 +43,7 @@ export default function SuburbPageTemplate() {
       <SEO
         title={suburb.title}
         description={suburb.metaDescription}
-        canonical={`https://caraway.com.au/locations/${suburb.slug}`}
+        canonical={canonicalUrl}
         schema={[
           {
             "@type": "Service",
@@ -51,15 +53,7 @@ export default function SuburbPageTemplate() {
             "areaServed": { "@type": "Place", "name": suburb.h1.replace("Cash for Cars ", "") },
             "url": `https://caraway.com.au/locations/${suburb.slug}`
           },
-          {
-            "@type": "BreadcrumbList",
-            "itemListElement": breadcrumbs.map((bc, i) => ({
-              "@type": "ListItem",
-              "position": i + 1,
-              "name": bc.label,
-              "item": bc.href ? `https://caraway.com.au${bc.href}` : undefined
-            }))
-          }
+          breadcrumbListSchema(breadcrumbs, canonicalUrl)
         ]}
       />
       <Header />

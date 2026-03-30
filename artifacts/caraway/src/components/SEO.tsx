@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo } from 'react';
 
 interface SEOProps {
   title: string;
@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const SITE_URL = "https://caraway.com.au";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/images/tow-truck-hero.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/images/tow-truck-hero.webp`;
 
 /** Service-area business: no street in schema until a verified trading address is published. */
 const NAP = {
@@ -32,7 +32,7 @@ const localBusinessSchema = {
   "name": NAP.name,
   "url": SITE_URL,
   "logo": `${SITE_URL}/images/logo.png`,
-  "image": `${SITE_URL}/images/tow-truck-hero.png`,
+  "image": `${SITE_URL}/images/tow-truck-hero.webp`,
   "telephone": NAP.phone,
   "email": NAP.email,
   "priceRange": "$$",
@@ -107,23 +107,11 @@ const websiteSchema = {
   "alternateName": "Caraway Cash for Cars",
   "url": SITE_URL,
   "description": "Cash for cars Brisbane: free quotes, free removal, and cash paid on pickup. Servicing Greater Brisbane 7 days a week.",
-  "publisher": { "@id": `${SITE_URL}/#organization` },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": `${SITE_URL}/?s={search_term_string}`
-    },
-    "query-input": "required name=search_term_string"
-  }
+  "publisher": { "@id": `${SITE_URL}/#organization` }
 };
 
 export function SEO({ title, description, canonical, ogImage, ogType, schema }: SEOProps) {
-  const schemaJson = schema ? JSON.stringify(schema) : undefined;
-  const stableSchema = useRef(schema);
-  if (schemaJson !== JSON.stringify(stableSchema.current)) {
-    stableSchema.current = schema;
-  }
+  const schemaJson = useMemo(() => (schema ? JSON.stringify(schema) : ''), [schema]);
 
   useEffect(() => {
     document.title = title;
@@ -177,8 +165,19 @@ export function SEO({ title, description, canonical, ogImage, ogType, schema }: 
     injectSchema(organizationSchema);
     injectSchema(websiteSchema);
 
-    if (stableSchema.current) {
-      stableSchema.current.forEach(s => injectSchema(s));
+    if (schemaJson) {
+      let pageSchema: Record<string, unknown> | Record<string, unknown>[];
+      try {
+        pageSchema = JSON.parse(schemaJson) as Record<string, unknown> | Record<string, unknown>[];
+      } catch {
+        return;
+      }
+
+      if (Array.isArray(pageSchema)) {
+        pageSchema.forEach((s) => injectSchema(s));
+      } else {
+        injectSchema(pageSchema);
+      }
     }
   }, [title, description, canonical, ogImage, ogType, schemaJson]);
 

@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
+import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import { Accordion } from "@/components/ui/accordion";
 import { Link } from "wouter";
@@ -70,13 +71,7 @@ export default function FAQPage() {
               "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
             }))
           },
-          {
-            "@type": "BreadcrumbList",
-            "itemListElement": breadcrumbs.map((bc, i) => ({
-              "@type": "ListItem", "position": i + 1, "name": bc.label,
-              "item": bc.href ? `https://caraway.com.au${bc.href}` : undefined
-            }))
-          }
+          breadcrumbListSchema(breadcrumbs, "https://caraway.com.au/faq")
         ]}
       />
       <Header />

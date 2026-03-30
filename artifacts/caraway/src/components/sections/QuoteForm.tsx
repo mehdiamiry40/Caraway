@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Link } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
@@ -15,7 +16,7 @@ const fieldIds = {
 } as const;
 
 export function QuoteForm() {
-  const { mutate, isPending, isSuccess, reset: resetMutation } = useSubmitQuote();
+  const { mutate, isPending, isSuccess, errorMessage, reset: resetMutation } = useSubmitQuote();
 
   const {
     register,
@@ -184,11 +185,16 @@ export function QuoteForm() {
                   <Button type="submit" size="lg" className="w-full h-14 text-base sm:text-lg mt-2" isLoading={isPending}>
                     Send details
                   </Button>
+                  {errorMessage && (
+                    <p className="text-sm text-destructive text-center" role="alert">
+                      {errorMessage}
+                    </p>
+                  )}
                   <p className="text-xs text-center text-muted-foreground leading-relaxed">
                     By submitting, you agree we may contact you about this enquiry. You can opt out anytime. See our{" "}
-                    <a href="/privacy" className="text-primary underline underline-offset-2">
+                    <Link href={`${import.meta.env.BASE_URL}privacy`} className="text-primary underline underline-offset-2">
                       Privacy Policy
-                    </a>
+                    </Link>
                     .
                   </p>
                 </form>

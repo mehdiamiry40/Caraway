@@ -1,4 +1,9 @@
-import express, { type Express, type Request, type Response } from "express";
+import express, {
+  type Express,
+  type NextFunction,
+  type Request,
+  type Response,
+} from "express";
 import cors from "cors";
 import * as pinoHttpModule from "pino-http";
 import type { HttpLogger, Options } from "pino-http";
@@ -31,7 +36,7 @@ app.use(
     logger,
     serializers: {
       req(req: Request) {
-        return { id: req.id, method: req.method, url: req.url?.split("?")[0] }; 
+        return { id: req.id, method: req.method, url: req.url?.split("?")[0] };
       },
       res(res: Response) {
         return { statusCode: res.statusCode };
@@ -57,5 +62,20 @@ app.get("/healthz", (_req: Request, res: Response) => {
 });
 
 app.use("/api", router);
+
+app.use((_req: Request, res: Response) => {
+  res.status(404).json({
+    error: "not_found",
+    message: "No handler for this path",
+  });
+});
+
+app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
+  logger.error({ err }, "unhandled route error");
+  if (res.headersSent) {
+    return;
+  }
+  res.status(500).json({ error: "internal_error" });
+});
 
 export default app;

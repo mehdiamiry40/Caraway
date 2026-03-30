@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { InternalLinks } from "@/components/sections/InternalLinks";
+import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
 import { suburbs } from "@/data/suburbs";
 import { Link } from "wouter";
 import { MapPin, ArrowRight } from "lucide-react";
@@ -19,13 +20,7 @@ export default function Locations() {
         title="Cash for Cars Brisbane Locations | All Suburbs Serviced — Caraway"
         description="Caraway services all Brisbane suburbs. Find cash for cars in your area — North Brisbane, South Brisbane, Logan, Ipswich, Redcliffe & more. Free removal."
         canonical="https://caraway.com.au/locations"
-        schema={[{
-          "@type": "BreadcrumbList",
-          "itemListElement": breadcrumbs.map((bc, i) => ({
-            "@type": "ListItem", "position": i + 1, "name": bc.label,
-            "item": bc.href ? `https://caraway.com.au${bc.href}` : undefined
-          }))
-        }]}
+        schema={[breadcrumbListSchema(breadcrumbs, "https://caraway.com.au/locations")]}
       />
       <Header />
 

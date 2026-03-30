@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
+import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
@@ -18,13 +19,7 @@ export default function Contact() {
         title="Contact Caraway | Cash for Cars Brisbane | 1800 227 293"
         description="Contact Caraway for a free cash quote on your car. Call 1800 227 293 or fill out our form. Brisbane-wide service, 7 days a week, same-day pickup."
         canonical="https://caraway.com.au/contact"
-        schema={[{
-          "@type": "BreadcrumbList",
-          "itemListElement": breadcrumbs.map((bc, i) => ({
-            "@type": "ListItem", "position": i + 1, "name": bc.label,
-            "item": bc.href ? `https://caraway.com.au${bc.href}` : undefined
-          }))
-        }]}
+        schema={[breadcrumbListSchema(breadcrumbs, "https://caraway.com.au/contact")]}
       />
       <Header />
 

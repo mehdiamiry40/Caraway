@@ -5,6 +5,7 @@ import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { InternalLinks } from "@/components/sections/InternalLinks";
+import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
 import { getServiceBySlug, services } from "@/data/services";
 import { suburbs } from "@/data/suburbs";
 import { Button } from "@/components/ui/button";
@@ -27,6 +28,7 @@ export default function ServicePageTemplate() {
     .map(slug => suburbs.find(s => s.slug === slug))
     .filter(Boolean);
 
+  const canonicalUrl = `https://caraway.com.au/${service.slug}`;
   const breadcrumbs = [
     { label: "Home", href: "/" },
     { label: service.h1 }
@@ -41,7 +43,7 @@ export default function ServicePageTemplate() {
       <SEO
         title={service.title}
         description={service.metaDescription}
-        canonical={`https://caraway.com.au/${service.slug}`}
+        canonical={canonicalUrl}
         schema={[
           {
             "@type": "Service",
@@ -59,15 +61,7 @@ export default function ServicePageTemplate() {
               "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
             }))
           },
-          {
-            "@type": "BreadcrumbList",
-            "itemListElement": breadcrumbs.map((bc, i) => ({
-              "@type": "ListItem",
-              "position": i + 1,
-              "name": bc.label,
-              "item": bc.href ? `https://caraway.com.au${bc.href}` : undefined
-            }))
-          }
+          breadcrumbListSchema(breadcrumbs, canonicalUrl)
         ]}
       />
       <Header />
