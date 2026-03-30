@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -104,12 +106,12 @@ export function Hero() {
           />
           <picture className="relative z-[1] block h-full min-h-[320px]">
             <source
-              srcSet={`${import.meta.env.BASE_URL}images/tow-truck-hero-sm.webp 600w, ${import.meta.env.BASE_URL}images/tow-truck-hero.webp 1200w`}
+              srcSet="/images/tow-truck-hero-sm.webp 600w, /images/tow-truck-hero.webp 1200w"
               sizes="(max-width: 1024px) 100vw, 54vw"
               type="image/webp"
             />
             <img
-              src={`${import.meta.env.BASE_URL}images/tow-truck-hero.png`}
+              src="/images/tow-truck-hero.png"
               alt="Flatbed tow truck loaded with a vehicle — Caraway pickup in Brisbane"
               className="w-full h-full min-h-[320px] lg:min-h-full object-cover"
               width={1200}

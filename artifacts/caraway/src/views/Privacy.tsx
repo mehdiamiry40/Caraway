@@ -1,16 +1,10 @@
+import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { SEO } from "@/components/SEO";
-import { Link } from "wouter";
 
 export default function Privacy() {
   return (
     <div className="flex flex-col min-h-screen">
-      <SEO
-        title="Privacy Policy | Caraway"
-        description="How Caraway collects, uses, and protects your personal information when you use our website and services in Australia."
-        canonical="https://caraway.com.au/privacy"
-      />
       <Header />
 
       <main className="flex-1 mt-14 lg:mt-[104px]">

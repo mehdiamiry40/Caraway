@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: 'Source Sans 3', sans-serif;
-  --font-display: 'Nunito Sans', sans-serif;
+  /* Bound in app/layout.tsx via next/font (see --font-sans-body / --font-display-heading) */
+  --font-sans: var(--font-sans-body), sans-serif;
+  --font-display: var(--font-display-heading), sans-serif;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -62,12 +63,10 @@
     @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
   }
 
-  /** Vertical rhythm for major sections (one scale site-wide) */
   .section-y {
     @apply py-16 md:py-24;
   }
 
-  /** Eyebrow label — use sparingly; not every block needs a kicker */
   .section-label {
     @apply text-xs font-semibold uppercase tracking-[0.2em] text-accent;
   }
@@ -85,7 +84,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Safe-area padding for notched phones (header / fixed UI) */
 @utility pt-safe {
   padding-top: env(safe-area-inset-top, 0px);
 }

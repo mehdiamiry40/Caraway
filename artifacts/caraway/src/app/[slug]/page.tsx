@@ -1,0 +1,73 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/JsonLd";
+import ServicePageTemplate from "@/components/templates/ServicePageTemplate";
+import { getServiceBySlug, services } from "@/data/services";
+import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
+import { SITE_URL } from "@/lib/site";
+
+type Props = { params: Promise<{ slug: string }> };
+
+export function generateStaticParams() {
+  return services.map((s) => ({ slug: s.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
+  if (!service) {
+    return {
+      title: "Page not found | Caraway",
+      robots: { index: false, follow: false },
+    };
+  }
+  return {
+    title: service.title,
+    description: service.metaDescription,
+    alternates: { canonical: `/${service.slug}` },
+    openGraph: {
+      title: service.title,
+      description: service.metaDescription,
+      url: `/${service.slug}`,
+    },
+  };
+}
+
+export default async function ServiceSlugPage({ params }: Props) {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
+  if (!service) notFound();
+
+  const canonicalUrl = `${SITE_URL}/${service.slug}`;
+  const breadcrumbs = [
+    { label: "Home", href: "/" },
+    { label: service.h1 },
+  ];
+
+  const pageStructuredData = [
+    {
+      "@type": "Service",
+      name: service.h1,
+      description: service.metaDescription,
+      provider: { "@type": "LocalBusiness", name: "Caraway" },
+      areaServed: { "@type": "City", name: "Brisbane" },
+      url: `https://caraway.com.au/${service.slug}`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: service.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    },
+    breadcrumbListSchema(breadcrumbs, canonicalUrl),
+  ];
+
+  return (
+    <>
+      <JsonLd data={pageStructuredData} />
+      <ServicePageTemplate service={service} />
+    </>
+  );
+}

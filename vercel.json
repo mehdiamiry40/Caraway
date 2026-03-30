@@ -1,8 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": null,
+  "framework": "nextjs",
   "installCommand": "pnpm install",
-  "buildCommand": "pnpm --filter @workspace/caraway run build",
-  "outputDirectory": "artifacts/caraway/dist/public",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "buildCommand": "pnpm --filter @workspace/caraway run build"
 }

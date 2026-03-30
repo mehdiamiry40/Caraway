@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { MapPin, ArrowRight, Phone } from "lucide-react";
-import { Link } from "wouter";
 import { suburbs } from "@/data/suburbs";
 
 /** Shared styles so every area row looks and behaves the same */

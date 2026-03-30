@@ -1,6 +1,8 @@
+"use client";
+
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from "wouter";
+import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
@@ -192,7 +194,7 @@ export function QuoteForm() {
                   )}
                   <p className="text-xs text-center text-muted-foreground leading-relaxed">
                     By submitting, you agree we may contact you about this enquiry. You can opt out anytime. See our{" "}
-                    <Link href={`${import.meta.env.BASE_URL}privacy`} className="text-primary underline underline-offset-2">
+                    <Link href="/privacy" className="text-primary underline underline-offset-2">
                       Privacy Policy
                     </Link>
                     .

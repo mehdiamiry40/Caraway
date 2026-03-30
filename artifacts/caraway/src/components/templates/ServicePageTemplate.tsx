@@ -1,25 +1,23 @@
-import { useParams } from "wouter";
+"use client";
+
+import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { InternalLinks } from "@/components/sections/InternalLinks";
-import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
-import { getServiceBySlug, services } from "@/data/services";
+import type { ServicePage } from "@/data/services";
+import { services } from "@/data/services";
 import { suburbs } from "@/data/suburbs";
 import { Button } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion";
 import { ArrowRight, Phone, CheckCircle2 } from "lucide-react";
-import { Link } from "wouter";
-import NotFound from "@/pages/not-found";
 
-export default function ServicePageTemplate() {
-  const params = useParams<{ slug: string }>();
-  const service = getServiceBySlug(params.slug);
-
-  if (!service) return <NotFound />;
-
+export default function ServicePageTemplate({
+  service,
+}: {
+  service: ServicePage;
+}) {
   const relatedServiceData = service.relatedServices
     .map(slug => services.find(s => s.slug === slug))
     .filter(Boolean);
@@ -28,7 +26,6 @@ export default function ServicePageTemplate() {
     .map(slug => suburbs.find(s => s.slug === slug))
     .filter(Boolean);
 
-  const canonicalUrl = `https://caraway.com.au/${service.slug}`;
   const breadcrumbs = [
     { label: "Home", href: "/" },
     { label: service.h1 }
@@ -40,30 +37,6 @@ export default function ServicePageTemplate() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <SEO
-        title={service.title}
-        description={service.metaDescription}
-        canonical={canonicalUrl}
-        schema={[
-          {
-            "@type": "Service",
-            "name": service.h1,
-            "description": service.metaDescription,
-            "provider": { "@type": "LocalBusiness", "name": "Caraway" },
-            "areaServed": { "@type": "City", "name": "Brisbane" },
-            "url": `https://caraway.com.au/${service.slug}`
-          },
-          {
-            "@type": "FAQPage",
-            "mainEntity": service.faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-            }))
-          },
-          breadcrumbListSchema(breadcrumbs, canonicalUrl)
-        ]}
-      />
       <Header />
 
       <main className="flex-1 mt-14 lg:mt-[104px]">

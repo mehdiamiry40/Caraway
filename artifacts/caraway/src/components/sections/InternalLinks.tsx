@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import Link from "next/link";
 import { services } from "@/data/services";
 import { suburbs } from "@/data/suburbs";
 

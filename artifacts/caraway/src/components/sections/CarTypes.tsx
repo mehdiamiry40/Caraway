@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import Link from "next/link";
 
 const linkedTypes = [
   { label: "Old Cars", href: "/old-cars-brisbane" },

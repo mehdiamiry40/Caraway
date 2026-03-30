@@ -1,8 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
-import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import { CheckCircle2 } from "lucide-react";
 
@@ -14,12 +12,6 @@ const breadcrumbs = [
 export default function About() {
   return (
     <div className="flex flex-col min-h-screen">
-      <SEO
-        title="About Caraway | Cash for Cars Brisbane"
-        description="Learn about Caraway — Brisbane cash for cars and removal. Local team, upfront pricing, 7-day phone support."
-        canonical="https://caraway.com.au/about"
-        schema={[breadcrumbListSchema(breadcrumbs, "https://caraway.com.au/about")]}
-      />
       <Header />
 
       <main className="flex-1 mt-14 lg:mt-[104px]">

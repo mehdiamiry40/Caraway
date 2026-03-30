@@ -1,16 +1,10 @@
+import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { SEO } from "@/components/SEO";
-import { Link } from "wouter";
 
 export default function Terms() {
   return (
     <div className="flex flex-col min-h-screen">
-      <SEO
-        title="Terms of Service | Caraway"
-        description="Terms governing use of the Caraway website and our vehicle purchase and removal services in Queensland."
-        canonical="https://caraway.com.au/terms"
-      />
       <Header />
 
       <main className="flex-1 mt-14 lg:mt-[104px]">

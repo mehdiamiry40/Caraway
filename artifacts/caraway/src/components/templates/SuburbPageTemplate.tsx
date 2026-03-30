@@ -1,24 +1,18 @@
-import { useParams } from "wouter";
+"use client";
+
+import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { InternalLinks } from "@/components/sections/InternalLinks";
-import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
-import { getSuburbBySlug, suburbs } from "@/data/suburbs";
+import type { SuburbPage } from "@/data/suburbs";
+import { suburbs } from "@/data/suburbs";
 import { services } from "@/data/services";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, CheckCircle2, MapPin } from "lucide-react";
-import { Link } from "wouter";
-import NotFound from "@/pages/not-found";
 
-export default function SuburbPageTemplate() {
-  const params = useParams<{ slug: string }>();
-  const suburb = getSuburbBySlug(params.slug);
-
-  if (!suburb) return <NotFound />;
-
+export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
   const relatedServiceData = suburb.relatedServices
     .map(slug => services.find(s => s.slug === slug))
     .filter(Boolean);
@@ -27,7 +21,6 @@ export default function SuburbPageTemplate() {
     .map(slug => suburbs.find(s => s.slug === slug))
     .filter(Boolean);
 
-  const canonicalUrl = `https://caraway.com.au/locations/${suburb.slug}`;
   const breadcrumbs = [
     { label: "Home", href: "/" },
     { label: "Locations", href: "/locations" },
@@ -40,22 +33,6 @@ export default function SuburbPageTemplate() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <SEO
-        title={suburb.title}
-        description={suburb.metaDescription}
-        canonical={canonicalUrl}
-        schema={[
-          {
-            "@type": "Service",
-            "name": `Cash for Cars ${suburb.h1.replace("Cash for Cars ", "")}`,
-            "description": suburb.metaDescription,
-            "provider": { "@type": "LocalBusiness", "name": "Caraway" },
-            "areaServed": { "@type": "Place", "name": suburb.h1.replace("Cash for Cars ", "") },
-            "url": `https://caraway.com.au/locations/${suburb.slug}`
-          },
-          breadcrumbListSchema(breadcrumbs, canonicalUrl)
-        ]}
-      />
       <Header />
 
       <main className="flex-1 mt-14 lg:mt-[104px]">

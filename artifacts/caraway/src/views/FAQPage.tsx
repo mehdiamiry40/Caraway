@@ -1,11 +1,9 @@
+import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
-import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import { Accordion } from "@/components/ui/accordion";
-import { Link } from "wouter";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -53,27 +51,11 @@ const faqCategories = [
   }
 ];
 
-const allFaqs = faqCategories.flatMap(c => c.faqs);
+export const allFaqs = faqCategories.flatMap(c => c.faqs);
 
 export default function FAQPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <SEO
-        title="FAQ | Cash for Cars Brisbane Questions Answered — Caraway"
-        description="Frequently asked questions about selling your car for cash in Brisbane. Learn about our process, pricing, towing, paperwork, and service areas."
-        canonical="https://caraway.com.au/faq"
-        schema={[
-          {
-            "@type": "FAQPage",
-            "mainEntity": allFaqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-            }))
-          },
-          breadcrumbListSchema(breadcrumbs, "https://caraway.com.au/faq")
-        ]}
-      />
       <Header />
 
       <main className="flex-1 mt-14 lg:mt-[104px]">

@@ -1,15 +1,19 @@
+"use client";
+
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Link, useLocation } from "wouter";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [location, setLocation] = useLocation();
-  const isHome = location === "/" || location === "";
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHome = pathname === "/" || pathname === "";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,16 +36,7 @@ export function Header() {
     if (isHome) {
       document.getElementById("quote-section")?.scrollIntoView({ behavior: "smooth" });
     } else {
-      setLocation("/");
-      const scrollWhenReady = () => {
-        const el = document.getElementById("quote-section");
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-        } else {
-          requestAnimationFrame(scrollWhenReady);
-        }
-      };
-      requestAnimationFrame(scrollWhenReady);
+      router.push("/#quote-section");
     }
     setIsMobileMenuOpen(false);
   };

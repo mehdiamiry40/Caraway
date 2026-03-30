@@ -22,8 +22,8 @@ export function useSubmitQuote() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const mutate = useCallback(async (data: QuoteFormValues, options?: MutateOptions) => {
-    const endpoint = (import.meta.env.VITE_QUOTE_ENDPOINT as string | undefined)?.trim();
-    const isMockMode = import.meta.env.DEV && !endpoint;
+    const endpoint = process.env.NEXT_PUBLIC_QUOTE_ENDPOINT?.trim();
+    const isMockMode = process.env.NODE_ENV === "development" && !endpoint;
 
     setIsPending(true);
     setErrorMessage(null);

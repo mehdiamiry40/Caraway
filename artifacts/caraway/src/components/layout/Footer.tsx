@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { Link } from "wouter";
 
 const serviceLinks = [
   { label: "Cash for Cars Brisbane", href: "/cash-for-cars-brisbane" },
