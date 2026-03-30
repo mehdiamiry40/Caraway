@@ -1,4 +1,4 @@
-const SITE = "https://caraway.com.au";
+import { SITE_URL } from "@/lib/site";
 
 export type BreadcrumbItem = { label: string; href?: string };
 
@@ -10,7 +10,7 @@ export function breadcrumbListSchema(items: BreadcrumbItem[], currentPageUrl: st
       "@type": "ListItem" as const,
       position: i + 1,
       name: bc.label,
-      item: bc.href ? `${SITE}${bc.href}` : currentPageUrl,
+      item: bc.href ? `${SITE_URL}${bc.href}` : currentPageUrl,
     })),
   };
 }

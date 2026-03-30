@@ -1,6 +1,6 @@
 /** Site-wide JSON-LD objects (same semantics as former SEO.tsx global injection). */
 
-const SITE_URL = "https://caraway.com.au";
+import { SITE_URL } from "@/lib/site";
 
 const NAP = {
   name: "Caraway — Cash for Cars Brisbane",

@@ -1,16 +1,14 @@
-"use client";
-
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { QuoteForm } from "@/components/sections/QuoteForm";
 import { InternalLinks } from "@/components/sections/InternalLinks";
+import { ScrollToQuoteCTA } from "@/components/sections/ScrollToQuoteCTA";
 import type { SuburbPage } from "@/data/suburbs";
 import { suburbs } from "@/data/suburbs";
 import { services } from "@/data/services";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, CheckCircle2, MapPin } from "lucide-react";
+import { CheckCircle2, MapPin } from "lucide-react";
 
 export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
   const relatedServiceData = suburb.relatedServices
@@ -26,10 +24,6 @@ export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
     { label: "Locations", href: "/locations" },
     { label: suburb.h1 }
   ];
-
-  const scrollToQuote = () => {
-    document.getElementById("quote-section")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -49,24 +43,7 @@ export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
             <p className="text-white/80 text-lg leading-relaxed max-w-3xl mb-8">
               {suburb.intro}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                onClick={scrollToQuote}
-                className="bg-accent hover:bg-accent/90 text-white rounded-full h-13 px-8 text-base font-semibold shadow-lg group border-0"
-              >
-                Get My Free Quote
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <a
-                href="tel:1800227293"
-                className="inline-flex items-center justify-center rounded-full h-13 px-8 text-base font-semibold border-2 border-white/30 text-white hover:bg-white/10 transition-colors"
-                style={{ height: "52px" }}
-              >
-                <Phone className="mr-2 h-4 w-4" />
-                1800 CAR AWAY
-              </a>
-            </div>
+            <ScrollToQuoteCTA />
           </div>
         </section>
 
@@ -142,7 +119,6 @@ export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
                   href="tel:1800227293"
                   className="flex items-center justify-center gap-2 bg-accent text-white rounded-full py-3 px-6 font-semibold hover:bg-accent/90 transition-colors"
                 >
-                  <Phone className="h-4 w-4" />
                   1800 227 293
                 </a>
               </div>

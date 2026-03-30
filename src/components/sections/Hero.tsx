@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 export function Hero() {
   const scrollToQuote = () => {
@@ -58,36 +59,12 @@ export function Hero() {
             </div>
 
             <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-white/60 font-medium">
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-accent shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Paid on pickup
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-accent shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Towing when we buy
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-accent shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                No roadworthy required
-              </div>
+              {["Paid on pickup", "Towing when we buy", "No roadworthy required"].map((text) => (
+                <div key={text} className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} aria-hidden />
+                  {text}
+                </div>
+              ))}
             </div>
           </div>
 
@@ -104,21 +81,16 @@ export function Hero() {
             className="absolute inset-y-0 z-0 bg-primary"
             style={{ left: 0, right: "calc(50% - 50vw)" }}
           />
-          <picture className="relative z-[1] block h-full min-h-[320px]">
-            <source
-              srcSet="/images/tow-truck-hero-sm.webp 600w, /images/tow-truck-hero.webp 1200w"
-              sizes="(max-width: 1024px) 100vw, 54vw"
-              type="image/webp"
-            />
-            <img
-              src="/images/tow-truck-hero.png"
+          <div className="relative z-[1] block h-full min-h-[320px]">
+            <Image
+              src="/images/tow-truck-hero.webp"
               alt="Flatbed tow truck loaded with a vehicle — Caraway pickup in Brisbane"
-              className="w-full h-full min-h-[320px] lg:min-h-full object-cover"
-              width={1200}
-              height={800}
-              fetchPriority="high"
+              fill
+              sizes="(max-width: 1024px) 100vw, 54vw"
+              className="object-cover"
+              priority
             />
-          </picture>
+          </div>
           <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/15 to-transparent pointer-events-none" />
 
           <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-auto sm:right-6 sm:max-w-sm z-[3] bg-white rounded-2xl px-4 py-3 sm:px-5 sm:py-4 shadow-lg border border-border/40 flex items-center gap-3 sm:gap-4">

@@ -104,9 +104,10 @@ const Carousel = React.forwardRef<
       setApi(api)
     }, [api, setApi])
 
+
     React.useEffect(() => {
       if (!api) {
-        return
+        return undefined
       }
 
       onSelect(api)

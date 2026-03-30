@@ -1,9 +1,7 @@
-import { lazy, Suspense } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-
-const HomeBelowFold = lazy(() => import("@/views/HomeBelowFold"));
+import HomeBelowFold from "@/views/HomeBelowFold";
 
 export default function Home() {
   return (
@@ -12,18 +10,7 @@ export default function Home() {
 
       <main className="flex-1">
         <Hero />
-        <Suspense
-          fallback={
-            <div
-              className="min-h-[32rem] w-full bg-muted/30"
-              role="status"
-              aria-live="polite"
-              aria-label="Loading page content"
-            />
-          }
-        >
-          <HomeBelowFold />
-        </Suspense>
+        <HomeBelowFold />
       </main>
 
       <Footer />
