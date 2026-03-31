@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MapPin, ArrowRight, Phone } from "lucide-react";
 import { suburbs } from "@/data/suburbs";
+import { BUSINESS } from "@/lib/site";
 
 /** Shared styles so every area row looks and behaves the same */
 const areaRowClassName =
@@ -62,11 +63,11 @@ export function ServiceAreas() {
               </div>
             </div>
             <a
-              href="tel:1800227293"
+              href={BUSINESS.phoneHref}
               className="mt-3 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-[0_4px_14px_0_rgba(27,58,104,0.2)] transition hover:bg-primary/90"
             >
               <Phone className="h-3.5 w-3.5 shrink-0" />
-              1800 CAR AWAY (1800 227 293)
+              {BUSINESS.phoneFriendly} ({BUSINESS.phone})
             </a>
           </div>
 
@@ -126,10 +127,10 @@ export function ServiceAreas() {
             <strong className="text-foreground font-semibold">We likely still service your area.</strong>{" "}
             Call{" "}
             <a
-              href="tel:1800227293"
+              href={BUSINESS.phoneHref}
               className="font-semibold text-primary underline-offset-2 hover:underline"
             >
-              1800 CAR AWAY (1800 227 293)
+              {BUSINESS.phoneFriendly} ({BUSINESS.phone})
             </a>{" "}
             to confirm same-day availability at your location.
           </p>

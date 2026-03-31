@@ -2,6 +2,7 @@ import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Check } from "lucide-react";
+import { BUSINESS } from "@/lib/site";
 
 export function Hero() {
 
@@ -49,10 +50,10 @@ export function Hero() {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden />
               </a>
               <a
-                href="tel:1800227293"
+                href={BUSINESS.phoneHref}
                 className="inline-flex items-center justify-center rounded-full h-13 px-8 text-base font-semibold border-2 border-white/30 text-white hover:bg-white/10 transition-colors min-h-[52px]"
               >
-                1800 CAR AWAY
+                {BUSINESS.phoneFriendly}
               </a>
             </div>
 
@@ -80,11 +81,16 @@ export function Hero() {
             style={{ left: 0, right: "calc(50% - 50vw)" }}
           />
           <div className="relative z-[1] block h-full min-h-[320px]">
+            <picture>
+              <source media="(max-width: 640px)" srcSet="/images/tow-truck-hero-sm.webp" />
+              <source media="(min-width: 641px)" srcSet="/images/tow-truck-hero.webp" />
+              {/* Next/Image handles optimisation; picture element adds responsive source selection */}
+            </picture>
             <Image
               src="/images/tow-truck-hero.webp"
               alt="Flatbed tow truck loaded with a vehicle — Caraway pickup in Brisbane"
               fill
-              sizes="(max-width: 1024px) 100vw, 54vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 54vw"
               className="object-cover"
               priority
             />
