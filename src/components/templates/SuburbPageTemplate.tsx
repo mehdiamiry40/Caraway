@@ -11,6 +11,7 @@ import type { SuburbPage } from "@/data/suburbs";
 import { suburbs } from "@/data/suburbs";
 import { services } from "@/data/services";
 import { CheckCircle2, MapPin } from "lucide-react";
+import { BUSINESS } from "@/lib/site";
 
 export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
   const relatedServiceData = suburb.relatedServices
@@ -31,7 +32,7 @@ export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main className="flex-1 mt-14 lg:mt-[104px]">
+      <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
         <section className="bg-primary text-white py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
@@ -85,7 +86,7 @@ export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   {[
-                    { step: "1", title: "Get Your Quote", desc: "Call 1800 227 293 or fill out our form with your car details." },
+                    { step: "1", title: "Get Your Quote", desc: `Call ${BUSINESS.phone} or fill out our form with your car details.` },
                     { step: "2", title: "Accept Your Offer", desc: "We'll make a fair cash offer. No obligation if you decline." },
                     { step: "3", title: "Get Paid Today", desc: "We pick up your car free and pay you cash on the spot." }
                   ].map(item => (
@@ -118,10 +119,10 @@ export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
                 <h3 className="font-display font-bold text-lg mb-2">Call for an Instant Quote</h3>
                 <p className="text-sm text-muted-foreground mb-4">Speak to our Brisbane team now</p>
                 <a
-                  href="tel:1800227293"
+                  href={BUSINESS.phoneHref}
                   className="flex items-center justify-center gap-2 bg-accent text-white rounded-full py-3 px-6 font-semibold hover:bg-accent/90 transition-colors"
                 >
-                  1800 227 293
+                  {BUSINESS.phone}
                 </a>
               </div>
 

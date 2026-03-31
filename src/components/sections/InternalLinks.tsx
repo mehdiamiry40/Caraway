@@ -21,7 +21,7 @@ export function InternalLinks({ currentSlug }: InternalLinksProps) {
                 <li key={s.slug}>
                   <Link
                     href={`/${s.slug}`}
-                    className="text-sm text-primary hover:text-accent transition-colors hover:underline"
+                    className="text-sm text-primary hover:text-accent transition-colors hover:underline rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                   >
                     {s.h1}
                   </Link>
@@ -36,7 +36,7 @@ export function InternalLinks({ currentSlug }: InternalLinksProps) {
                 <li key={s.slug}>
                   <Link
                     href={`/locations/${s.slug}`}
-                    className="text-sm text-primary hover:text-accent transition-colors hover:underline"
+                    className="text-sm text-primary hover:text-accent transition-colors hover:underline rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                   >
                     {s.h1}
                   </Link>
@@ -45,7 +45,7 @@ export function InternalLinks({ currentSlug }: InternalLinksProps) {
               <li>
                 <Link
                   href="/locations"
-                  className="text-sm text-accent font-semibold hover:underline"
+                  className="text-sm text-accent font-semibold hover:underline rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                 >
                   View all locations →
                 </Link>

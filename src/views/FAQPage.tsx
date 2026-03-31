@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import { Accordion } from "@/components/ui/accordion";
+import { BUSINESS } from "@/lib/site";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -58,7 +59,7 @@ export default function FAQPage() {
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main className="flex-1 mt-14 lg:mt-[104px]">
+      <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
         <section className="bg-primary text-white py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
@@ -66,7 +67,7 @@ export default function FAQPage() {
               Frequently Asked Questions
             </h1>
             <p className="text-white/80 text-lg leading-relaxed max-w-3xl">
-              Everything you need to know about selling your car for cash in Brisbane. Can't find your answer? Call us on <a href="tel:1800227293" className="text-accent hover:underline font-semibold">1800 227 293</a>.
+              Everything you need to know about selling your car for cash in Brisbane. Can&apos;t find your answer? Call us on <a href={BUSINESS.phoneHref} className="text-accent hover:underline font-semibold">{BUSINESS.phone}</a>.
             </p>
           </div>
         </section>
@@ -88,10 +89,10 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:1800227293"
+                href={BUSINESS.phoneHref}
                 className="inline-flex items-center justify-center bg-accent text-white rounded-full py-3 px-6 font-semibold hover:bg-accent/90 transition-colors"
               >
-                Call 1800 227 293
+                Call {BUSINESS.phone}
               </a>
               <Link
                 href="/contact"

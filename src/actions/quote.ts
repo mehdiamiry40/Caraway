@@ -1,6 +1,7 @@
 "use server";
 
 import { QuoteFormValues, quoteFormSchema } from "@/lib/quote-schema";
+import { BUSINESS } from "@/lib/site";
 
 export async function submitQuote(data: QuoteFormValues) {
   // Validate data server-side
@@ -36,7 +37,7 @@ export async function submitQuote(data: QuoteFormValues) {
     console.error("Quote Submission Error:", error);
     return { 
       success: false, 
-      message: "We couldn't send your request right now. Please call 1800 227 293." 
+      message: `We couldn't send your request right now. Please call ${BUSINESS.phone}.`
     };
   }
 }

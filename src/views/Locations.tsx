@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import { suburbs } from "@/data/suburbs";
 import { MapPin, ArrowRight } from "lucide-react";
+import { BUSINESS } from "@/lib/site";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -16,7 +17,7 @@ export default function Locations() {
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main className="flex-1 mt-14 lg:mt-[104px]">
+      <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
         <section className="bg-primary text-white py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
@@ -24,7 +25,7 @@ export default function Locations() {
               Cash for Cars — Brisbane Locations
             </h1>
             <p className="text-white/80 text-lg leading-relaxed max-w-3xl">
-              We buy cars for cash across all of Greater Brisbane. Find your local area below for suburb-specific service information, or call us on <a href="tel:1800227293" className="text-accent hover:underline font-semibold">1800 227 293</a> to get started.
+              We buy cars for cash across all of Greater Brisbane. Find your local area below for suburb-specific service information, or call us on <a href={BUSINESS.phoneHref} className="text-accent hover:underline font-semibold">{BUSINESS.phone}</a> to get started.
             </p>
           </div>
         </section>
@@ -59,10 +60,10 @@ export default function Locations() {
               We service all of Greater Brisbane — even if your specific suburb isn't shown above. Call us to confirm availability and get a free quote.
             </p>
             <a
-              href="tel:1800227293"
+              href={BUSINESS.phoneHref}
               className="inline-flex items-center justify-center bg-accent text-white rounded-full py-3 px-6 font-semibold hover:bg-accent/90 transition-colors"
             >
-              Call 1800 227 293
+              Call {BUSINESS.phone}
             </a>
           </div>
         </div>

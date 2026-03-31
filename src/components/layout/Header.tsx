@@ -123,20 +123,39 @@ export function Header() {
                   <Link
                     href={link.href}
                     className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors flex items-center gap-1 group relative"
+                    {...(link.hasDropdown ? {
+                      "aria-expanded": isServicesOpen,
+                      "aria-haspopup": "true" as const,
+                      onKeyDown: (e: React.KeyboardEvent) => {
+                        if (e.key === "Escape" && isServicesOpen) {
+                          setIsServicesOpen(false);
+                        } else if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          setIsServicesOpen((prev) => !prev);
+                        }
+                      },
+                    } : {})}
                   >
                     {link.label}
                     {link.hasDropdown && (
-                      <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", isServicesOpen ? "rotate-180" : "")} />
+                      <ChevronDown aria-hidden="true" className={cn("h-3.5 w-3.5 transition-transform duration-200", isServicesOpen ? "rotate-180" : "")} />
                     )}
                   </Link>
 
                   {link.hasDropdown && isServicesOpen && (
-                    <div className="absolute top-full left-0 mt-0 w-64 bg-white rounded-b-lg shadow-lg border border-border/60 py-2 z-50">
+                    <div
+                      role="menu"
+                      className="absolute top-full left-0 mt-0 w-64 bg-white rounded-b-lg shadow-lg border border-border/60 py-2 z-50"
+                      onKeyDown={(e) => {
+                        if (e.key === "Escape") setIsServicesOpen(false);
+                      }}
+                    >
                       {serviceDropdown.map(item => (
                         <Link
                           key={item.href}
                           href={item.href}
-                          className="block px-5 py-2.5 text-sm font-medium text-foreground hover:text-primary hover:bg-muted/60 transition-colors"
+                          role="menuitem"
+                          className="block px-5 py-2.5 text-sm font-medium text-foreground hover:text-primary hover:bg-muted/60 transition-colors focus-visible:bg-muted/60 focus-visible:text-primary focus-visible:outline-none"
                         >
                           {item.label}
                         </Link>
@@ -152,7 +171,7 @@ export function Header() {
 
       {/* Mobile drawer */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] bg-white lg:hidden flex flex-col pt-safe pb-safe">
+        <div role="dialog" aria-label="Main menu" className="fixed inset-0 z-[100] bg-white lg:hidden flex flex-col pt-safe pb-safe">
           <div className="flex items-center justify-between min-h-14 px-4 border-b border-border bg-primary shrink-0">
             <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-white lowercase">
               caraway<span className="text-accent">.</span>

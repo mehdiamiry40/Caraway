@@ -1,26 +1,26 @@
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
+import { InternalLinks } from "@/components/sections/InternalLinks";
+import { BUSINESS } from "@/lib/site";
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Terms of Service" },
+];
 
 export default function Terms() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main className="flex-1 mt-14 lg:mt-[104px]">
-        <section className="bg-primary text-white py-12 lg:py-16">
+      <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
+        <section className="bg-primary text-white py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-white/70 text-sm mb-3">
-              <Link href="/" className="hover:text-white underline underline-offset-2">
-                Home
-              </Link>
-              <span className="mx-2" aria-hidden>
-                /
-              </span>
-              Terms
-            </p>
-            <h1 className="text-3xl sm:text-4xl font-display font-bold">Terms of Service</h1>
-            <p className="text-white/80 mt-4 text-sm">
+            <Breadcrumbs items={breadcrumbs} light />
+            <h1 className="text-3xl sm:text-4xl font-display font-bold mt-4 mb-4">Terms of Service</h1>
+            <p className="text-white/80 text-sm">
               Last updated: March 2026. These terms apply to use of this website and our services in Queensland, Australia.
             </p>
           </div>
@@ -69,14 +69,16 @@ export default function Terms() {
                   contact page
                 </Link>{" "}
                 or call{" "}
-                <a href="tel:1800227293" className="text-primary underline underline-offset-2">
-                  1800 227 293
+                <a href={BUSINESS.phoneHref} className="text-primary underline underline-offset-2">
+                  {BUSINESS.phone}
                 </a>
                 .
               </p>
             </section>
           </div>
         </div>
+
+        <InternalLinks />
       </main>
 
       <Footer />

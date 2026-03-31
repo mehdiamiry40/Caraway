@@ -19,13 +19,13 @@ export function Breadcrumbs({ items, light }: BreadcrumbsProps) {
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-1">
             {i > 0 && (
-              <ChevronRight className={cn("h-3 w-3", light ? "text-white/40" : "text-muted-foreground/50")} />
+              <ChevronRight aria-hidden="true" className={cn("h-3 w-3", light ? "text-white/40" : "text-muted-foreground/50")} />
             )}
             {item.href ? (
               <Link
                 href={item.href}
                 className={cn(
-                  "hover:underline transition-colors",
+                  "hover:underline transition-colors rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none",
                   light ? "text-white/60 hover:text-white" : "text-muted-foreground hover:text-foreground"
                 )}
               >

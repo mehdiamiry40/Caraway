@@ -1,6 +1,7 @@
 "use server";
 
 import { contactFormSchema, type ContactFormValues } from "@/lib/quote-schema";
+import { BUSINESS } from "@/lib/site";
 
 export async function submitContact(data: ContactFormValues) {
   const parsed = contactFormSchema.safeParse(data);
@@ -35,7 +36,7 @@ export async function submitContact(data: ContactFormValues) {
     console.error("Contact Submission Error:", error);
     return {
       success: false,
-      message: "We couldn't send your message right now. Please call 1800 227 293.",
+      message: `We couldn't send your message right now. Please call ${BUSINESS.phone}.`,
     };
   }
 }

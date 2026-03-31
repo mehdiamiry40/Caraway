@@ -44,7 +44,7 @@ export function ContactForm() {
   if (isSuccess) {
     return (
       <div className="bg-white rounded-2xl p-8 border border-border shadow-sm">
-        <div className="flex flex-col items-center justify-center text-center py-6">
+        <div role="status" className="flex flex-col items-center justify-center text-center py-6">
           <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-4">
             <CheckCircle2 className="w-8 h-8 text-green-600" aria-hidden />
           </div>
