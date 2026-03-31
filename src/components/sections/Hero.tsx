@@ -1,13 +1,9 @@
-"use client";
-
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { ArrowRight, Check } from "lucide-react";
 
 export function Hero() {
-  const scrollToQuote = () => {
-    document.getElementById("quote-section")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section
@@ -42,14 +38,16 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                size="lg"
-                onClick={scrollToQuote}
-                className="bg-accent hover:bg-accent/90 text-white rounded-full h-13 px-8 text-base font-semibold shadow-lg group border-0"
+              <a
+                href="#quote-section"
+                className={cn(
+                  buttonVariants({ size: "lg" }), 
+                  "bg-accent hover:bg-accent/90 text-white rounded-full h-13 px-8 text-base font-semibold shadow-lg group border-0"
+                )}
               >
                 Get a quote
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden />
-              </Button>
+              </a>
               <a
                 href="tel:1800227293"
                 className="inline-flex items-center justify-center rounded-full h-13 px-8 text-base font-semibold border-2 border-white/30 text-white hover:bg-white/10 transition-colors min-h-[52px]"

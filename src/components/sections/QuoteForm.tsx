@@ -1,12 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { useSubmitQuote, quoteFormSchema, type QuoteFormValues } from "@/hooks/use-quote";
+import { quoteFormSchema, type QuoteFormValues } from "@/lib/quote-schema";
+import { submitQuote } from "@/actions/quote";
 import { CheckCircle2 } from "lucide-react";
 
 const fieldIds = {
@@ -18,23 +20,33 @@ const fieldIds = {
 } as const;
 
 export function QuoteForm() {
-  const { mutate, isPending, isSuccess, errorMessage, reset: resetMutation } = useSubmitQuote();
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     reset,
   } = useForm<QuoteFormValues>({
     resolver: zodResolver(quoteFormSchema),
   });
 
-  const onSubmit = (data: QuoteFormValues) => {
-    mutate(data, {
-      onSuccess: () => {
-        reset();
-      },
-    });
+  const onSubmit = async (data: QuoteFormValues) => {
+    setErrorMessage(null);
+    const result = await submitQuote(data);
+    
+    if (result.success) {
+      setIsSuccess(true);
+      reset();
+    } else {
+      setErrorMessage(result.message || "An error occurred.");
+    }
+  };
+
+  const resetMutation = () => {
+    setIsSuccess(false);
+    setErrorMessage(null);
   };
 
   return (
@@ -184,7 +196,7 @@ export function QuoteForm() {
                     </div>
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full h-14 text-base sm:text-lg mt-2" isLoading={isPending}>
+                  <Button type="submit" size="lg" className="w-full h-14 text-base sm:text-lg mt-2" isLoading={isSubmitting}>
                     Send details
                   </Button>
                   {errorMessage && (
