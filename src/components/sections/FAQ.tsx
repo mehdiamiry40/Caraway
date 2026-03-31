@@ -1,5 +1,6 @@
 import { Accordion } from "@/components/ui/accordion";
 import { faqs } from "@/data/home-faqs";
+import { BUSINESS } from "@/lib/site";
 
 export { faqs } from "@/data/home-faqs";
 
@@ -19,8 +20,8 @@ export function FAQ() {
 
         <div className="mt-10 text-center text-sm text-muted-foreground">
           Still have questions?{" "}
-          <a href="tel:1800227293" className="text-primary font-semibold hover:underline">
-            Call us on 1800 CAR AWAY
+          <a href={BUSINESS.phoneHref} className="text-primary font-semibold hover:underline">
+            Call us on {BUSINESS.phoneFriendly}
           </a>{" "}
           — we're available 7 days a week.
         </div>

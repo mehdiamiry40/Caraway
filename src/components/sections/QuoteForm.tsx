@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { quoteFormSchema, type QuoteFormValues } from "@/lib/quote-schema";
 import { submitQuote } from "@/actions/quote";
 import { CheckCircle2 } from "lucide-react";
+import { BUSINESS } from "@/lib/site";
 
 const fieldIds = {
   name: "quote-name",
@@ -81,8 +82,8 @@ export function QuoteForm() {
                   <h3 className="text-2xl font-display font-bold text-primary mb-2">Thanks — we&apos;ve got your details</h3>
                   <p className="text-muted-foreground mb-8 max-w-sm leading-relaxed">
                     Our team will contact you using the number you provided. If you need someone sooner, call{" "}
-                    <a href="tel:1800227293" className="text-primary font-semibold underline underline-offset-2">
-                      1800 227 293
+                    <a href={BUSINESS.phoneHref} className="text-primary font-semibold underline underline-offset-2">
+                      {BUSINESS.phone}
                     </a>
                     .
                   </p>

@@ -3,8 +3,10 @@ import { Footer } from "@/components/layout/Footer";
 import dynamic from "next/dynamic";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { InternalLinks } from "@/components/sections/InternalLinks";
+import { BUSINESS } from "@/lib/site";
 
 const QuoteForm = dynamic(() => import("@/components/sections/QuoteForm").then((mod) => mod.QuoteForm));
+const ContactForm = dynamic(() => import("@/components/sections/ContactForm").then((mod) => mod.ContactForm));
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const breadcrumbs = [
@@ -41,24 +43,24 @@ export default function Contact() {
               </div>
 
               <div className="space-y-6">
-                <a href="tel:1800227293" className="flex items-start gap-4 group">
+                <a href={BUSINESS.phoneHref} className="flex items-start gap-4 group">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
                     <Phone className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">Phone</h3>
-                    <p className="text-lg font-bold text-primary">1800 227 293</p>
-                    <p className="text-sm text-muted-foreground">1800 CAR AWAY — Free call</p>
+                    <p className="text-lg font-bold text-primary">{BUSINESS.phone}</p>
+                    <p className="text-sm text-muted-foreground">{BUSINESS.phoneFriendly} — Free call</p>
                   </div>
                 </a>
 
-                <a href="mailto:info@caraway.au" className="flex items-start gap-4 group">
+                <a href={BUSINESS.emailHref} className="flex items-start gap-4 group">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
                     <Mail className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">Email</h3>
-                    <p className="text-primary">info@caraway.au</p>
+                    <p className="text-primary">{BUSINESS.email}</p>
                     <p className="text-sm text-muted-foreground">We respond within 1 hour during business hours</p>
                   </div>
                 </a>
@@ -69,8 +71,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Service Area</h3>
-                    <p className="text-muted-foreground">All of Greater Brisbane, QLD</p>
-                    <p className="text-sm text-muted-foreground">Including Logan, Ipswich, Moreton Bay & Redlands</p>
+                    <p className="text-muted-foreground">All of Greater {BUSINESS.location}</p>
+                    <p className="text-sm text-muted-foreground">{BUSINESS.locationDetail}</p>
                   </div>
                 </div>
 
@@ -80,32 +82,36 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Operating Hours</h3>
-                    <p className="text-muted-foreground">7:00 AM – 7:00 PM</p>
-                    <p className="text-sm text-muted-foreground">Monday to Sunday, 7 days a week</p>
+                    <p className="text-muted-foreground">{BUSINESS.hours}</p>
+                    <p className="text-sm text-muted-foreground">{BUSINESS.hoursDetail}</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-muted/50 rounded-2xl p-8 border border-border">
-              <h2 className="text-xl font-display font-bold text-foreground mb-2">Quick Reference</h2>
-              <p className="text-sm text-muted-foreground mb-6">Everything you need to know before calling</p>
-              <div className="space-y-4 text-sm">
-                <div className="border-b border-border pb-3">
-                  <strong className="text-foreground">What to have ready:</strong>
-                  <p className="text-muted-foreground mt-1">Your car's make, model, year, approximate kilometres, and a brief description of its condition.</p>
-                </div>
-                <div className="border-b border-border pb-3">
-                  <strong className="text-foreground">What you'll need at pickup:</strong>
-                  <p className="text-muted-foreground mt-1">Photo ID (driver's licence). Registration papers if available, but not essential.</p>
-                </div>
-                <div className="border-b border-border pb-3">
-                  <strong className="text-foreground">Payment method:</strong>
-                  <p className="text-muted-foreground mt-1">Cash on the spot. Paid before the car leaves your property.</p>
-                </div>
-                <div>
-                  <strong className="text-foreground">Towing cost:</strong>
-                  <p className="text-muted-foreground mt-1">Free. Always. No exceptions.</p>
+            <div className="space-y-8">
+              <ContactForm />
+
+              <div className="bg-muted/50 rounded-2xl p-8 border border-border">
+                <h2 className="text-xl font-display font-bold text-foreground mb-2">Quick Reference</h2>
+                <p className="text-sm text-muted-foreground mb-6">Everything you need to know before calling</p>
+                <div className="space-y-4 text-sm">
+                  <div className="border-b border-border pb-3">
+                    <strong className="text-foreground">What to have ready:</strong>
+                    <p className="text-muted-foreground mt-1">Your car&apos;s make, model, year, approximate kilometres, and a brief description of its condition.</p>
+                  </div>
+                  <div className="border-b border-border pb-3">
+                    <strong className="text-foreground">What you&apos;ll need at pickup:</strong>
+                    <p className="text-muted-foreground mt-1">Photo ID (driver&apos;s licence). Registration papers if available, but not essential.</p>
+                  </div>
+                  <div className="border-b border-border pb-3">
+                    <strong className="text-foreground">Payment method:</strong>
+                    <p className="text-muted-foreground mt-1">Cash on the spot. Paid before the car leaves your property.</p>
+                  </div>
+                  <div>
+                    <strong className="text-foreground">Towing cost:</strong>
+                    <p className="text-muted-foreground mt-1">Free. Always. No exceptions.</p>
+                  </div>
                 </div>
               </div>
             </div>

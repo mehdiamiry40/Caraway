@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { BUSINESS } from "@/lib/site";
 
 const serviceLinks = [
   { label: "Cash for Cars Brisbane", href: "/cash-for-cars-brisbane" },
@@ -41,23 +42,23 @@ export function Footer() {
               Brisbane cash for cars and pickup. We quote before we load — running, damaged, or unregistered. Call or send the form.
             </p>
             <div className="mt-5 space-y-2.5">
-              <a href="tel:1800227293" className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors group text-sm">
+              <a href={BUSINESS.phoneHref} className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors group text-sm">
                 <span className="flex h-8 w-8 rounded-full bg-primary/8 items-center justify-center group-hover:bg-primary/15 transition-colors">
                   <Phone className="h-3.5 w-3.5 text-primary" />
                 </span>
-                1800 227 293
+                {BUSINESS.phone}
               </a>
-              <a href="mailto:info@caraway.au" className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors group text-sm">
+              <a href={BUSINESS.emailHref} className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors group text-sm">
                 <span className="flex h-8 w-8 rounded-full bg-primary/8 items-center justify-center group-hover:bg-primary/15 transition-colors">
                   <Mail className="h-3.5 w-3.5 text-primary" />
                 </span>
-                info@caraway.au
+                {BUSINESS.email}
               </a>
               <div className="flex items-center gap-3 text-foreground/70 text-sm">
                 <span className="flex h-8 w-8 rounded-full bg-primary/8 items-center justify-center">
                   <MapPin className="h-3.5 w-3.5 text-primary" />
                 </span>
-                Brisbane, QLD
+                {BUSINESS.location}
               </div>
             </div>
           </div>

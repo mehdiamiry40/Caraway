@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito_Sans, Source_Sans_3 } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import {
   localBusinessSchema,
   organizationSchema,
@@ -74,10 +75,18 @@ export default function RootLayout({
       className={`${sourceSans.variable} ${nunito.variable}`}
     >
       <body className="min-h-screen">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[200] focus:top-2 focus:left-2 focus:rounded-lg focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold"
+        >
+          Skip to main content
+        </a>
         <JsonLd
           data={[localBusinessSchema, organizationSchema, websiteSchema]}
         />
-        <Providers>{children}</Providers>
+        <ErrorBoundary>
+          <Providers>{children}</Providers>
+        </ErrorBoundary>
       </body>
     </html>
   );

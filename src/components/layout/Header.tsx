@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { BUSINESS } from "@/lib/site";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -82,11 +83,11 @@ export function Header() {
 
             <div className="hidden lg:flex items-center gap-5">
               <a
-                href="tel:1800227293"
+                href={BUSINESS.phoneHref}
                 className="flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white transition-colors"
               >
                 <Phone className="h-3.5 w-3.5" />
-                1800 CAR AWAY
+                {BUSINESS.phoneFriendly}
               </a>
               <Button
                 onClick={scrollToQuote}
@@ -196,11 +197,11 @@ export function Header() {
             </nav>
             <div className="mt-auto flex flex-col gap-3 pt-4 pb-safe border-t border-border/40">
               <a
-                href="tel:1800227293"
+                href={BUSINESS.phoneHref}
                 className="flex items-center justify-center gap-2 min-h-14 rounded-xl bg-muted text-foreground font-semibold text-base sm:text-lg hover:bg-muted/80 transition-colors touch-manipulation"
               >
                 <Phone className="h-5 w-5 text-accent" />
-                1800 227 293
+                {BUSINESS.phone}
               </a>
               <Button
                 onClick={scrollToQuote}
