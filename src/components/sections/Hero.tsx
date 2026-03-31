@@ -57,9 +57,9 @@ export function Hero() {
               </a>
             </div>
 
-            <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-white/60 font-medium">
+            <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-white/60 font-medium">
               {["Paid on pickup", "Towing when we buy", "No roadworthy required"].map((text) => (
-                <div key={text} className="flex items-center gap-2">
+                <div key={text} className="flex items-center gap-2 whitespace-nowrap">
                   <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} aria-hidden />
                   {text}
                 </div>
