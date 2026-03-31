@@ -43,7 +43,7 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-white rounded-2xl p-8 border border-border shadow-sm">
+      <div className="bg-white rounded-2xl p-5 sm:p-8 border border-border shadow-sm">
         <div role="status" className="flex flex-col items-center justify-center text-center py-6">
           <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-4">
             <CheckCircle2 className="w-8 h-8 text-green-600" aria-hidden />
@@ -61,8 +61,8 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl p-8 border border-border shadow-sm">
-      <h2 className="text-xl font-display font-bold text-foreground mb-1">Send Us a Message</h2>
+    <div className="bg-white rounded-2xl p-5 sm:p-8 border border-border shadow-sm">
+      <h2 className="text-lg sm:text-xl font-display font-bold text-foreground mb-1">Send Us a Message</h2>
       <p className="text-sm text-muted-foreground mb-6">
         Have a question? Fill out the form and we&apos;ll get back to you.
       </p>
@@ -133,8 +133,8 @@ export function ContactForm() {
           </label>
           <textarea
             placeholder="Tell us how we can help..."
-            rows={4}
-            className="flex w-full rounded-lg border border-border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-y"
+            rows={5}
+            className="flex w-full rounded-xl border border-border bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-transparent disabled:cursor-not-allowed disabled:opacity-50 hover:border-primary/50 resize-y"
             aria-invalid={errors.message ? true : undefined}
             aria-describedby={errors.message ? `${fieldIds.message}-error` : undefined}
             {...register("message")}
@@ -147,7 +147,7 @@ export function ContactForm() {
           )}
         </div>
 
-        <Button type="submit" size="lg" className="w-full h-12 text-base mt-1" isLoading={isSubmitting}>
+        <Button type="submit" size="lg" className="w-full h-14 text-base sm:text-lg mt-1" isLoading={isSubmitting}>
           <Send className="h-4 w-4 mr-2" aria-hidden />
           Send message
         </Button>

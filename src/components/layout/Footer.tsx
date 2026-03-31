@@ -31,8 +31,8 @@ export function Footer() {
   return (
     <footer className="bg-muted border-t border-border">
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-8">
 
           <div className="lg:col-span-2">
             <Link href="/" className="font-display font-bold text-2xl tracking-tight text-primary mb-4 block lowercase">

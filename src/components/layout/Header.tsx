@@ -225,7 +225,7 @@ export function Header() {
               <Button
                 onClick={scrollToQuote}
                 size="lg"
-                className="w-full h-14 rounded-xl bg-accent hover:bg-accent/90 text-white border-0 font-bold text-lg"
+                className="w-full h-14 rounded-xl bg-accent hover:bg-accent/90 text-white border-0 font-bold text-base sm:text-lg"
               >
                 Get My Free Quote
               </Button>

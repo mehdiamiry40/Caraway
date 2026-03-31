@@ -32,7 +32,7 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 relative">
           <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-border z-0" aria-hidden />
 
           {steps.map((step, index) => (

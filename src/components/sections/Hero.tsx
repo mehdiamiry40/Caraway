@@ -23,7 +23,7 @@ export function Hero() {
             <p className="text-white/80 text-sm font-medium mb-2 tracking-wide">Cash for cars · Brisbane &amp; surrounds</p>
             <h1
               id="hero-heading"
-              className="text-3xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] tracking-tight text-white mb-3"
+              className="text-[1.75rem] sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] tracking-tight text-white mb-3"
             >
               Cash for Cars
               <br />
@@ -34,16 +34,16 @@ export function Hero() {
               We buy unwanted cars for cash — pickup included.
             </p>
 
-            <p className="text-white/75 text-base leading-relaxed mb-10 max-w-md">
+            <p className="text-white/75 text-sm sm:text-base leading-relaxed mb-8 sm:mb-10 max-w-md">
               Running or not, with or without rego. You get a price before we load the car — then payment when we collect it from your place.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a
                 href="#quote-section"
                 className={cn(
-                  buttonVariants({ size: "lg" }), 
-                  "bg-accent hover:bg-accent/90 text-white rounded-full h-13 px-8 text-base font-semibold shadow-lg group border-0"
+                  buttonVariants({ size: "lg" }),
+                  "bg-accent hover:bg-accent/90 text-white rounded-full h-12 sm:h-13 px-6 sm:px-8 text-sm sm:text-base font-semibold shadow-lg group border-0"
                 )}
               >
                 Get a quote
@@ -51,7 +51,7 @@ export function Hero() {
               </a>
               <a
                 href={BUSINESS.phoneHref}
-                className="inline-flex items-center justify-center rounded-full h-13 px-8 text-base font-semibold border-2 border-white/30 text-white hover:bg-white/10 transition-colors min-h-[52px]"
+                className="inline-flex items-center justify-center rounded-full h-12 sm:h-13 px-6 sm:px-8 text-sm sm:text-base font-semibold border-2 border-white/30 text-white hover:bg-white/10 transition-colors"
               >
                 {BUSINESS.phoneFriendly}
               </a>
@@ -74,13 +74,13 @@ export function Hero() {
           />
         </div>
 
-        <div className="relative flex-1 min-h-[320px] lg:min-h-0 bg-primary">
+        <div className="relative flex-1 min-h-[240px] sm:min-h-[320px] lg:min-h-0 bg-primary">
           <div
             aria-hidden
             className="absolute inset-y-0 z-0 bg-primary"
             style={{ left: 0, right: "calc(50% - 50vw)" }}
           />
-          <div className="relative z-[1] block h-full min-h-[320px]">
+          <div className="relative z-[1] block h-full min-h-[240px] sm:min-h-[320px]">
             <picture>
               <source media="(max-width: 640px)" srcSet="/images/tow-truck-hero-sm.webp" />
               <source media="(min-width: 641px)" srcSet="/images/tow-truck-hero.webp" />
