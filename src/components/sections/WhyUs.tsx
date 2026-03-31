@@ -55,7 +55,7 @@ export function WhyUs() {
             {reasons.map((reason) => (
               <div
                 key={reason.title}
-                className="bg-white p-7 sm:p-8 rounded-2xl border border-border/60 shadow-sm hover:shadow transition-shadow"
+                className="bg-white p-5 sm:p-7 md:p-8 rounded-2xl border border-border/60 shadow-sm hover:shadow transition-shadow"
               >
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-5">{reason.icon}</div>
                 <h3 className="text-lg font-display font-bold text-primary mb-2">{reason.title}</h3>

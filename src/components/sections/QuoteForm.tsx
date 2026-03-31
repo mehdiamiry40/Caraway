@@ -56,10 +56,10 @@ export function QuoteForm() {
         <div className="bg-white rounded-2xl p-5 sm:p-8 md:p-14 border border-border/60 shadow-sm relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 relative z-10">
             <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6 text-balance">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-4 md:mb-6 text-balance">
                 Get Your Cash for Cars Brisbane Quote
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                 Tell us about the car. We&apos;ll call or text back with a price range and next steps — usually within one business day. No obligation.
               </p>
 
