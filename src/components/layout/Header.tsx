@@ -92,7 +92,7 @@ export function Header() {
               <Button
                 onClick={scrollToQuote}
                 size="sm"
-                className="rounded-full px-6 bg-accent hover:bg-accent/90 text-white border-0 font-semibold shadow-[0_0_12px_rgba(212,144,14,0.3)] hover:shadow-[0_0_18px_rgba(212,144,14,0.45)]"
+                className="rounded-full px-6 bg-accent hover:bg-accent/90 text-white border-0 font-semibold shadow-[0_0_12px_rgba(210,72,65,0.3)] hover:shadow-[0_0_18px_rgba(210,72,65,0.45)]"
               >
                 Get a Quote
               </Button>

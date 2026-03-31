@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito_Sans, Source_Sans_3 } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import {
@@ -10,13 +10,13 @@ import {
 import { Providers } from "./providers";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans-body",
   display: "swap",
 });
 
-const nunito = Nunito_Sans({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-display-heading",
   display: "swap",
@@ -72,7 +72,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sourceSans.variable} ${nunito.variable}`}
+      className={`${inter.variable} ${plusJakarta.variable}`}
     >
       <body className="min-h-screen">
         <a
