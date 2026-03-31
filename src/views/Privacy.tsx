@@ -1,26 +1,25 @@
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
+import { InternalLinks } from "@/components/sections/InternalLinks";
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Privacy Policy" },
+];
 
 export default function Privacy() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main className="flex-1 mt-14 lg:mt-[104px]">
-        <section className="bg-primary text-white py-12 lg:py-16">
+      <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
+        <section className="bg-primary text-white py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-white/70 text-sm mb-3">
-              <Link href="/" className="hover:text-white underline underline-offset-2">
-                Home
-              </Link>
-              <span className="mx-2" aria-hidden>
-                /
-              </span>
-              Privacy
-            </p>
-            <h1 className="text-3xl sm:text-4xl font-display font-bold">Privacy Policy</h1>
-            <p className="text-white/80 mt-4 text-sm">
+            <Breadcrumbs items={breadcrumbs} light />
+            <h1 className="text-3xl sm:text-4xl font-display font-bold mt-4 mb-4">Privacy Policy</h1>
+            <p className="text-white/80 text-sm">
               Last updated: March 2026. This policy applies to caraway.au and our cash-for-cars services in Queensland.
             </p>
           </div>
@@ -85,6 +84,8 @@ export default function Privacy() {
             </section>
           </div>
         </div>
+
+        <InternalLinks />
       </main>
 
       <Footer />

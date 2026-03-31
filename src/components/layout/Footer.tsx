@@ -68,7 +68,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {serviceLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-foreground/60 hover:text-primary transition-colors text-sm">
+                  <Link href={link.href} className="text-foreground/60 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
                     {link.label}
                   </Link>
                 </li>
@@ -81,7 +81,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {locationLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-foreground/60 hover:text-primary transition-colors text-sm">
+                  <Link href={link.href} className="text-foreground/60 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
                     {link.label}
                   </Link>
                 </li>
@@ -94,7 +94,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {companyLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-foreground/60 hover:text-primary transition-colors text-sm">
+                  <Link href={link.href} className="text-foreground/60 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
                     {link.label}
                   </Link>
                 </li>
@@ -110,8 +110,8 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Caraway. All rights reserved.</p>
           <div className="flex items-center gap-5">
-            <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-primary transition-colors rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-primary transition-colors rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">Terms of Service</Link>
           </div>
         </div>
       </div>

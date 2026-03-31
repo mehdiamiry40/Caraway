@@ -24,12 +24,12 @@ export function Stats() {
             return (
               <div 
                 key={i} 
-                className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-border/60 shadow-sm hover:shadow-xl hover:border-accent/30 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
+                className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-border/60 shadow-sm hover:shadow-lg hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
               >
                 {/* Decorative corner accent */}
-                <div className="absolute -right-12 -top-12 w-32 h-32 bg-accent/5 rounded-full group-hover:bg-accent/10 group-hover:scale-150 transition-all duration-500 ease-out" />
+                <div className="absolute -right-12 -top-12 w-32 h-32 bg-accent/5 rounded-full group-hover:bg-accent/10 transition-all duration-500 ease-out" />
                 
-                <div className="relative w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mb-6 ring-4 ring-white group-hover:bg-primary group-hover:shadow-lg group-hover:-rotate-3 transition-all duration-300">
+                <div className="relative w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mb-6 ring-4 ring-white group-hover:bg-primary group-hover:shadow-lg transition-all duration-300">
                   <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
                 </div>
                 

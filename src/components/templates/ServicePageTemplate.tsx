@@ -12,6 +12,7 @@ import { services } from "@/data/services";
 import { suburbs } from "@/data/suburbs";
 import { Accordion } from "@/components/ui/accordion";
 import { CheckCircle2 } from "lucide-react";
+import { BUSINESS } from "@/lib/site";
 
 export default function ServicePageTemplate({
   service,
@@ -35,7 +36,7 @@ export default function ServicePageTemplate({
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main className="flex-1 mt-14 lg:mt-[104px]">
+      <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
         <section className="bg-primary text-white py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
@@ -90,10 +91,10 @@ export default function ServicePageTemplate({
                 <h3 className="font-display font-bold text-lg mb-2">Call for an Instant Quote</h3>
                 <p className="text-sm text-muted-foreground mb-4">Speak to our Brisbane team now</p>
                 <a
-                  href="tel:1800227293"
+                  href={BUSINESS.phoneHref}
                   className="flex items-center justify-center gap-2 bg-accent text-white rounded-full py-3 px-6 font-semibold hover:bg-accent/90 transition-colors"
                 >
-                  1800 227 293
+                  {BUSINESS.phone}
                 </a>
               </div>
 

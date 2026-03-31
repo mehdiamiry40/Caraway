@@ -21,16 +21,20 @@ export function Accordion({ items, className }: AccordionProps) {
     <div className={cn("w-full space-y-4", className)}>
       {items.map((item, index) => {
         const isActive = activeIndex === index;
+        const triggerId = `accordion-trigger-${index}`;
+        const panelId = `accordion-panel-${index}`;
         return (
-          <div 
-            key={item.question} 
+          <div
+            key={item.question}
             className="border border-border/60 bg-white rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/30"
           >
             <button
               type="button"
+              id={triggerId}
               onClick={() => setActiveIndex(isActive ? null : index)}
               className="flex w-full min-h-[3.25rem] items-center justify-between gap-3 p-4 sm:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 touch-manipulation"
               aria-expanded={isActive}
+              aria-controls={panelId}
             >
               <span className="font-display text-base sm:text-lg font-medium text-foreground">
                 {item.question}
@@ -41,10 +45,13 @@ export function Accordion({ items, className }: AccordionProps) {
                   isActive && "rotate-180"
                 )}
               >
-                <ChevronDown className="h-5 w-5" />
+                <ChevronDown className="h-5 w-5" aria-hidden="true" />
               </div>
             </button>
             <div
+              id={panelId}
+              role="region"
+              aria-labelledby={triggerId}
               className={cn(
                 "grid transition-all duration-300 ease-in-out",
                 isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
