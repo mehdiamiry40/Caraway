@@ -3,41 +3,40 @@ import { CalendarDays, MapPin, Truck, Banknote } from "lucide-react";
 /** Service promises — not audited financial or volume statistics. */
 const stats = [
   { value: "7 days", label: "Phone & online quotes", icon: CalendarDays },
-  { value: "Greater Brisbane", label: "Pickup we arrange with you", icon: MapPin },
+  { value: "Greater Brisbane", label: "Pickup arranged with you", icon: MapPin },
   { value: "$0", label: "Towing when we buy", icon: Truck },
   { value: "Cash", label: "Paid on collection", icon: Banknote },
 ];
 
 export function Stats() {
   return (
-    <section className="py-12 sm:py-16 bg-white relative overflow-hidden" aria-label="What to expect">
-      {/* Decorative subtle background gradient */}
-      <div 
-        className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" 
-        aria-hidden="true" 
-      />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+    <section className="relative bg-primary overflow-hidden" aria-label="What to expect">
+      {/* Decorative diagonal accent strip */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+      >
+        <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/[0.03] rounded-full" />
+        <div className="absolute -left-10 -bottom-10 w-60 h-60 bg-white/[0.03] rounded-full" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-10">
           {stats.map((stat, i) => {
             const Icon = stat.icon;
             return (
-              <div 
-                key={i} 
-                className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-border/60 shadow-sm hover:shadow-lg hover:border-accent/30 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+              <div
+                key={i}
+                className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-3 sm:gap-4"
               >
-                {/* Decorative corner accent */}
-                <div className="absolute -right-12 -top-12 w-32 h-32 bg-accent/5 rounded-full group-hover:bg-accent/10 transition-all duration-500 ease-out" />
-                
-                <div className="relative w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mb-6 ring-4 ring-white group-hover:bg-primary group-hover:shadow-lg transition-all duration-300">
-                  <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/15 ring-1 ring-accent/25">
+                  <Icon className="h-6 w-6 text-accent" strokeWidth={1.75} />
                 </div>
-                
-                <div className="relative z-10">
-                  <h3 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-2 tracking-tight group-hover:text-primary transition-colors">
+                <div className="min-w-0">
+                  <p className="text-xl sm:text-2xl font-display font-bold text-white leading-tight">
                     {stat.value}
-                  </h3>
-                  <p className="text-[15px] font-medium text-muted-foreground leading-relaxed">
+                  </p>
+                  <p className="text-sm text-white/60 font-medium mt-0.5 leading-snug">
                     {stat.label}
                   </p>
                 </div>
@@ -46,6 +45,9 @@ export function Stats() {
           })}
         </div>
       </div>
+
+      {/* Bottom accent line */}
+      <div className="h-1 bg-gradient-to-r from-accent via-accent/60 to-transparent" aria-hidden="true" />
     </section>
   );
 }
