@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
 import { suburbs } from "@/data/suburbs";
 
-const SITE_URL = "https://caraway.com.au";
+const SITE_URL = "https://caraway.au";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
+  const now = new Date().toISOString().split('T')[0];
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "weekly", priority: 1.0 },

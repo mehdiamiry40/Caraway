@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/api/",
       },
     ],
-    sitemap: "https://caraway.com.au/sitemap.xml",
+    sitemap: "https://caraway.au/sitemap.xml",
   };
 }

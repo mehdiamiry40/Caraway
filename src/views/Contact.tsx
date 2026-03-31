@@ -50,13 +50,13 @@ export default function Contact() {
                   </div>
                 </a>
 
-                <a href="mailto:info@caraway.com.au" className="flex items-start gap-4 group">
+                <a href="mailto:info@caraway.au" className="flex items-start gap-4 group">
                   <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
                     <Mail className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">Email</h3>
-                    <p className="text-primary">info@caraway.com.au</p>
+                    <p className="text-primary">info@caraway.au</p>
                     <p className="text-sm text-muted-foreground">We respond within 1 hour during business hours</p>
                   </div>
                 </a>

@@ -51,7 +51,7 @@ export default async function ServiceSlugPage({ params }: Props) {
       description: service.metaDescription,
       provider: { "@type": "LocalBusiness", name: "Caraway" },
       areaServed: { "@type": "City", name: "Brisbane" },
-      url: `https://caraway.com.au/${service.slug}`,
+      url: `https://caraway.au/${service.slug}`,
     },
     {
       "@type": "FAQPage",

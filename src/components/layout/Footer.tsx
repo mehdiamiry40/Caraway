@@ -47,11 +47,11 @@ export function Footer() {
                 </span>
                 1800 227 293
               </a>
-              <a href="mailto:info@caraway.com.au" className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors group text-sm">
+              <a href="mailto:info@caraway.au" className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors group text-sm">
                 <span className="flex h-8 w-8 rounded-full bg-primary/8 items-center justify-center group-hover:bg-primary/15 transition-colors">
                   <Mail className="h-3.5 w-3.5 text-primary" />
                 </span>
-                info@caraway.com.au
+                info@caraway.au
               </a>
               <div className="flex items-center gap-3 text-foreground/70 text-sm">
                 <span className="flex h-8 w-8 rounded-full bg-primary/8 items-center justify-center">

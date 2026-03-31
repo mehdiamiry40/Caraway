@@ -22,7 +22,7 @@ const nunito = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://caraway.com.au"),
+  metadataBase: new URL("https://caraway.au"),
   title: "Cash for Cars Brisbane | Caraway — Same-Day Cash & Free Towing",
   description:
     "Cash for cars Brisbane: fair quotes, free removal, and payment on pickup. Caraway buys any make or condition — up to $9,999. Greater Brisbane, 7 days. Call 1800 227 293 for a free quote.",

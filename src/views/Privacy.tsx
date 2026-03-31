@@ -21,7 +21,7 @@ export default function Privacy() {
             </p>
             <h1 className="text-3xl sm:text-4xl font-display font-bold">Privacy Policy</h1>
             <p className="text-white/80 mt-4 text-sm">
-              Last updated: March 2026. This policy applies to caraway.com.au and our cash-for-cars services in Queensland.
+              Last updated: March 2026. This policy applies to caraway.au and our cash-for-cars services in Queensland.
             </p>
           </div>
         </section>

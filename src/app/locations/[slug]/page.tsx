@@ -55,7 +55,7 @@ export default async function SuburbSlugPage({ params }: Props) {
         "@type": "Place",
         name: suburb.h1.replace("Cash for Cars ", ""),
       },
-      url: `https://caraway.com.au/locations/${suburb.slug}`,
+      url: `https://caraway.au/locations/${suburb.slug}`,
     },
     breadcrumbListSchema(breadcrumbs, canonicalUrl),
   ];

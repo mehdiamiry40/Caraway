@@ -31,12 +31,12 @@ export default function HomePage() {
   const homeStructuredData = [
     {
       "@type": "WebPage",
-      "@id": "https://caraway.com.au/#webpage",
-      url: "https://caraway.com.au/",
+      "@id": "https://caraway.au/#webpage",
+      url: "https://caraway.au/",
       name: "Cash for Cars Brisbane | Caraway",
       description:
         "Cash for cars Brisbane service: instant quotes, free towing, same-day cash payment. We buy damaged, old, scrap, and running vehicles across Greater Brisbane.",
-      isPartOf: { "@id": "https://caraway.com.au/#website" },
+      isPartOf: { "@id": "https://caraway.au/#website" },
       about: {
         "@type": "Service",
         name: "Cash for cars Brisbane",
@@ -62,7 +62,7 @@ export default function HomePage() {
       reviewBody: r.text,
       itemReviewed: {
         "@type": "LocalBusiness" as const,
-        "@id": "https://caraway.com.au/#business",
+        "@id": "https://caraway.au/#business",
         name: "Caraway — Cash for Cars Brisbane",
       },
     })),
