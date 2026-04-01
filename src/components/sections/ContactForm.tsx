@@ -30,8 +30,9 @@ export function ContactForm() {
     resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit = async (data: ContactFormValues) => {
+  const onSubmit = async (data: ContactFormValues & { honeypot?: string }) => {
     setErrorMessage(null);
+    if (data.honeypot) return; // Bot detected
     const result = await submitContact(data);
 
     if (result.success) {
@@ -68,6 +69,17 @@ export function ContactForm() {
         Have a question? Fill out the form and we&apos;ll get back to you.
       </p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+        {/* Honeypot — hidden from real users, traps bots */}
+        <div className="absolute -left-[9999px]" aria-hidden="true">
+          <label htmlFor="contact-website">Website</label>
+          <input
+            type="text"
+            id="contact-website"
+            tabIndex={-1}
+            autoComplete="off"
+            {...register("honeypot" as any)}
+          />
+        </div>
         <div>
           <label htmlFor={fieldIds.name} className="block text-sm font-medium text-foreground mb-1.5">
             Your name

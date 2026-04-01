@@ -1,10 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import { suburbs } from "@/data/suburbs";
-import { MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowRight, Search } from "lucide-react";
 import { BUSINESS } from "@/lib/site";
 
 const breadcrumbs = [
@@ -13,6 +16,14 @@ const breadcrumbs = [
 ];
 
 export default function Locations() {
+  const [query, setQuery] = useState("");
+  const filtered = query.trim()
+    ? suburbs.filter((s) =>
+        s.h1.toLowerCase().includes(query.toLowerCase()) ||
+        s.slug.toLowerCase().includes(query.toLowerCase())
+      )
+    : suburbs;
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -31,28 +42,51 @@ export default function Locations() {
         </section>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {suburbs.map(suburb => (
-              <Link
-                key={suburb.slug}
-                href={`/locations/${suburb.slug}`}
-                className="group border border-border rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all"
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <MapPin className="h-5 w-5 text-accent" />
-                  <h2 className="text-lg font-display font-bold text-foreground group-hover:text-primary transition-colors">
-                    {suburb.h1}
-                  </h2>
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4">
-                  {suburb.intro}
-                </p>
-                <span className="text-sm text-accent font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                  View details <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
-            ))}
+          {/* Search */}
+          <div className="relative max-w-md mb-8">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4.5 w-4.5 text-muted-foreground pointer-events-none" />
+            <input
+              type="search"
+              placeholder="Search suburbs..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="w-full h-12 rounded-xl border border-border bg-card pl-11 pr-4 text-base ring-offset-background transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-transparent hover:border-primary/50"
+              aria-label="Search suburbs"
+            />
           </div>
+
+          {filtered.length === 0 ? (
+            <p className="text-muted-foreground text-center py-12">
+              No suburbs match &ldquo;{query}&rdquo;. We likely still service your area — call{" "}
+              <a href={BUSINESS.phoneHref} className="text-primary font-semibold underline underline-offset-2">
+                {BUSINESS.phone}
+              </a>{" "}
+              to check.
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filtered.map(suburb => (
+                <Link
+                  key={suburb.slug}
+                  href={`/locations/${suburb.slug}`}
+                  className="group border border-border rounded-2xl p-6 hover:border-primary/30 hover:shadow-md transition-all"
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <MapPin className="h-5 w-5 text-accent" />
+                    <h2 className="text-lg font-display font-bold text-foreground group-hover:text-primary transition-colors">
+                      {suburb.h1}
+                    </h2>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-4">
+                    {suburb.intro}
+                  </p>
+                  <span className="text-sm text-accent font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                    View details <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
 
           <div className="mt-16 bg-primary/5 border border-primary/10 rounded-2xl p-8 md:p-10 text-center max-w-2xl mx-auto">
             <h2 className="text-xl font-display font-bold text-foreground mb-2">Your Suburb Not Listed?</h2>

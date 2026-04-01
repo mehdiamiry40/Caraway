@@ -29,6 +29,11 @@ export const metadata: Metadata = {
   title: "Cash for Cars Brisbane | Caraway — Same-Day Cash & Free Towing",
   description:
     "Cash for cars Brisbane: fair quotes, free removal, and payment on pickup. Caraway buys any make or condition — up to $9,999. Greater Brisbane, 7 days. Call 1800 227 293 for a free quote.",
+  manifest: "/site.webmanifest",
+  icons: [
+    { rel: "icon", url: "/favicon.svg", type: "image/svg+xml" },
+    { rel: "apple-touch-icon", url: "/icon-192.png" },
+  ],
   keywords: [
     "cash for cars Brisbane",
     "cash for cars brisbane today",

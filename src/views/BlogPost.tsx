@@ -4,7 +4,8 @@ import { Footer } from "@/components/layout/Footer";
 import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import type { BlogPost as BlogPostType } from "@/data/blog-posts";
-import { ArrowLeft, Clock, Tag, Phone } from "lucide-react";
+import { getRelatedPosts } from "@/data/blog-posts";
+import { ArrowLeft, ArrowRight, Clock, Tag, Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/site";
 
 export default function BlogPost({ post }: { post: BlogPostType }) {
@@ -81,6 +82,32 @@ export default function BlogPost({ post }: { post: BlogPostType }) {
               </Link>
             </div>
           </div>
+
+          {/* Related posts */}
+          {getRelatedPosts(post.slug).length > 0 && (
+            <div className="mt-12 border-t border-border pt-10">
+              <h2 className="font-display font-bold text-lg text-foreground mb-5">
+                Keep reading
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {getRelatedPosts(post.slug).map((related) => (
+                  <Link
+                    key={related.slug}
+                    href={`/blog/${related.slug}`}
+                    className="group rounded-xl border border-border/60 p-5 hover:border-primary/30 hover:shadow-sm transition-all"
+                  >
+                    <span className="text-xs text-muted-foreground">{related.category}</span>
+                    <h3 className="font-display font-bold text-sm text-foreground group-hover:text-primary transition-colors mt-1 leading-snug line-clamp-2">
+                      {related.title}
+                    </h3>
+                    <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                      Read <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="mt-8">
             <Link

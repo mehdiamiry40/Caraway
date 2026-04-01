@@ -33,10 +33,11 @@ export function QuoteForm() {
     resolver: zodResolver(quoteFormSchema),
   });
 
-  const onSubmit = async (data: QuoteFormValues) => {
+  const onSubmit = async (data: QuoteFormValues & { honeypot?: string }) => {
     setErrorMessage(null);
+    if (data.honeypot) return; // Bot detected
     const result = await submitQuote(data);
-    
+
     if (result.success) {
       setIsSuccess(true);
       reset();
@@ -93,6 +94,17 @@ export function QuoteForm() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+                  {/* Honeypot — hidden from real users, traps bots */}
+                  <div className="absolute -left-[9999px]" aria-hidden="true">
+                    <label htmlFor="quote-website">Website</label>
+                    <input
+                      type="text"
+                      id="quote-website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      {...register("honeypot" as any)}
+                    />
+                  </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor={fieldIds.name} className="block text-sm font-medium text-foreground mb-1.5">
