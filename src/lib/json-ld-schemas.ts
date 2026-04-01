@@ -4,7 +4,7 @@ import { SITE_URL } from "@/lib/site";
 
 const NAP = {
   name: "Caraway — Cash for Cars Brisbane",
-  phone: "+611800227293",
+  phone: "1800 227 293",
   email: "info@caraway.au",
   addressLocality: "Brisbane",
   addressRegion: "QLD",
