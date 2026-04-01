@@ -42,9 +42,9 @@ export function HowItWorks() {
                   {step.icon}
                 </div>
               </div>
-              <span className="text-5xl font-display font-bold text-primary/20 mb-2">{index + 1}</span>
+              <span className="text-5xl font-display font-bold text-primary/10 mb-2" aria-hidden="true">{index + 1}</span>
               <h3 className="text-xl font-display font-bold text-primary mb-3">{step.title}</h3>
-              <p className="text-muted-foreground leading-relaxed max-w-xs text-[15px]">{step.description}</p>
+              <p className="text-muted-foreground leading-relaxed max-w-xs text-sm">{step.description}</p>
             </div>
           ))}
         </div>

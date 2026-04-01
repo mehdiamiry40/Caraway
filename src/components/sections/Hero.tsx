@@ -43,7 +43,7 @@ export function Hero() {
                 href="#quote-section"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "bg-accent hover:bg-accent/90 text-white rounded-full h-12 sm:h-13 px-6 sm:px-8 text-sm sm:text-base font-semibold shadow-lg group border-0"
+                  "bg-accent hover:bg-accent/90 text-white rounded-full h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base font-semibold shadow-lg group border-0"
                 )}
               >
                 Get a quote
@@ -51,7 +51,7 @@ export function Hero() {
               </a>
               <a
                 href={BUSINESS.phoneHref}
-                className="inline-flex items-center justify-center rounded-full h-12 sm:h-13 px-6 sm:px-8 text-sm sm:text-base font-semibold border-2 border-white/30 text-white hover:bg-white/10 transition-colors"
+                className="inline-flex items-center justify-center rounded-full h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base font-semibold border-2 border-white/30 text-white hover:bg-white/10 transition-colors"
               >
                 {BUSINESS.phoneFriendly}
               </a>

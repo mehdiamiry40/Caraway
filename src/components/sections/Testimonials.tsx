@@ -40,7 +40,7 @@ const testimonials = [
 
 function Stars({ count }: { count: number }) {
   return (
-    <div className="flex gap-0.5" aria-hidden>
+    <div className="flex gap-0.5" aria-hidden="true">
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
@@ -73,7 +73,7 @@ export function Testimonials() {
             >
               <div className="flex items-start justify-between gap-2 sm:gap-3 mb-4">
                 <div className="flex flex-col gap-1">
-                  <span className="sr-only">{review.rating} out of 5 stars</span>
+                  <span className="sr-only">Rated {review.rating} out of 5 stars</span>
                   <Stars count={review.rating} />
                 </div>
                 <span className="text-[11px] sm:text-xs text-muted-foreground bg-muted px-2 sm:px-2.5 py-1 rounded-full shrink-0 leading-tight">

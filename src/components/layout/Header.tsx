@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
@@ -31,12 +31,36 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (!isMobileMenuOpen) return undefined;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
+    // Trap focus inside mobile menu
+    const menu = mobileMenuRef.current;
+    if (!menu) return () => { document.body.style.overflow = prev; };
+    const focusable = menu.querySelectorAll<HTMLElement>(
+      'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { setIsMobileMenuOpen(false); return; }
+      if (e.key !== "Tab") return;
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last?.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first?.focus(); }
+      }
+    };
+    menu.addEventListener("keydown", handleTab);
+    first?.focus();
+
     return () => {
       document.body.style.overflow = prev;
+      menu.removeEventListener("keydown", handleTab);
     };
   }, [isMobileMenuOpen]);
 
@@ -54,6 +78,7 @@ export function Header() {
     { label: "Locations", href: "/locations" },
     { label: "About", href: "/about" },
     { label: "FAQ", href: "/faq" },
+    { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -144,9 +169,8 @@ export function Header() {
 
                   {link.hasDropdown && isServicesOpen && (
                     <div
-                      role="menu"
                       aria-label="Services submenu"
-                      className="absolute top-full left-0 mt-0 w-64 bg-white rounded-b-lg shadow-lg border border-border/60 py-2 z-50"
+                      className="absolute top-full left-0 mt-0 w-64 bg-white rounded-b-lg shadow-lg border border-border/60 py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                       onKeyDown={(e) => {
                         if (e.key === "Escape") setIsServicesOpen(false);
                       }}
@@ -155,7 +179,6 @@ export function Header() {
                         <Link
                           key={item.href}
                           href={item.href}
-                          role="menuitem"
                           className="block px-5 py-2.5 text-sm font-medium text-foreground hover:text-primary hover:bg-muted/60 transition-colors focus-visible:bg-muted/60 focus-visible:text-primary focus-visible:outline-none"
                         >
                           {item.label}
@@ -172,7 +195,7 @@ export function Header() {
 
       {/* Mobile drawer */}
       {isMobileMenuOpen && (
-        <div role="dialog" aria-label="Main menu" className="fixed inset-0 z-[100] bg-white lg:hidden flex flex-col pt-safe pb-safe">
+        <div ref={mobileMenuRef} role="dialog" aria-modal="true" aria-label="Main menu" className="fixed inset-0 z-[100] bg-white lg:hidden flex flex-col pt-safe pb-safe">
           <div className="flex items-center justify-between min-h-14 px-4 border-b border-border bg-primary shrink-0">
             <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-white lowercase">
               caraway<span className="text-accent">.</span>

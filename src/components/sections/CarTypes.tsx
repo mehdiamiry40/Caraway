@@ -34,7 +34,7 @@ export function CarTypes() {
               <Link
                 key={type.label}
                 href={type.href}
-                className="inline-block px-3.5 sm:px-4 py-2 sm:py-2.5 min-h-10 sm:min-h-11 rounded-full border border-white/20 bg-white/5 text-[13px] sm:text-sm font-medium hover:bg-white hover:text-primary transition-colors touch-manipulation focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+                className="inline-block px-3.5 sm:px-4 py-2 sm:py-2.5 min-h-10 sm:min-h-11 rounded-full border border-white/20 bg-white/5 text-xs sm:text-sm font-medium hover:bg-white hover:text-primary transition-colors touch-manipulation focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
               >
                 {type.label}
               </Link>
@@ -42,7 +42,7 @@ export function CarTypes() {
             {plainTypes.map((type) => (
               <span
                 key={type}
-                className="inline-flex items-center px-3.5 sm:px-4 py-2 sm:py-2.5 min-h-10 sm:min-h-11 rounded-full border border-white/20 bg-white/5 text-[13px] sm:text-sm font-medium cursor-default"
+                className="inline-flex items-center px-3.5 sm:px-4 py-2 sm:py-2.5 min-h-10 sm:min-h-11 rounded-full border border-white/10 bg-transparent text-xs sm:text-sm font-medium text-primary-foreground/60 cursor-default"
               >
                 {type}
               </span>
