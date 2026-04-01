@@ -22,29 +22,35 @@ export function HowItWorks() {
   return (
     <section id="how-it-works" className="section-y bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <p className="section-label mb-3">How it works</p>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary text-balance">
             How Cash for Cars Works in Brisbane
           </h2>
-          <p className="mt-3 md:mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
             We buy the car directly. If we&apos;re not the right fit, we&apos;ll say so — we&apos;d rather you know upfront than waste a day.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 relative">
-          <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-border z-0" aria-hidden />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 relative">
+          {/* Connector line between steps (desktop) */}
+          <div className="hidden md:block absolute top-12 left-[calc(16.67%+28px)] right-[calc(16.67%+28px)] h-px z-0" aria-hidden>
+            <div className="w-full h-full bg-gradient-to-r from-accent/30 via-accent/50 to-accent/30" />
+          </div>
 
           {steps.map((step, index) => (
-            <div key={step.title} className="relative z-10 flex flex-col items-center text-center">
-              <div className="mb-2">
-                <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent">
+            <div key={step.title} className="relative z-10 flex flex-col items-center text-center group">
+              <div className="relative mb-6">
+                {/* Step number ring */}
+                <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center shadow-[0_2px_8px_rgba(232,119,34,0.3)] z-10">
+                  {index + 1}
+                </div>
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/[0.08] to-primary/[0.03] border border-primary/10 flex items-center justify-center text-accent group-hover:border-accent/30 group-hover:from-accent/10 group-hover:to-accent/5 transition-all">
                   {step.icon}
                 </div>
               </div>
-              <span className="text-5xl font-display font-bold text-primary/10 mb-2" aria-hidden="true">{index + 1}</span>
               <h3 className="text-xl font-display font-bold text-primary mb-3">{step.title}</h3>
-              <p className="text-muted-foreground leading-relaxed max-w-xs text-sm">{step.description}</p>
+              <p className="text-muted-foreground leading-relaxed max-w-[280px] text-sm">{step.description}</p>
             </div>
           ))}
         </div>

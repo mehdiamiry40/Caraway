@@ -9,7 +9,7 @@ const QuoteForm = dynamic(() => import("@/components/sections/QuoteForm").then((
 import { ScrollToQuoteCTA } from "@/components/sections/ScrollToQuoteCTA";
 import type { ServicePage } from "@/data/services";
 import { services } from "@/data/services";
-import { suburbs } from "@/data/suburbs";
+import { suburbs, type SuburbPage } from "@/data/suburbs";
 import { Accordion } from "@/components/ui/accordion";
 import { CheckCircle2 } from "lucide-react";
 import { BUSINESS } from "@/lib/site";
@@ -21,11 +21,11 @@ export default function ServicePageTemplate({
 }) {
   const relatedServiceData = service.relatedServices
     .map(slug => services.find(s => s.slug === slug))
-    .filter(Boolean);
+    .filter((s): s is ServicePage => s !== undefined);
 
   const relatedSuburbData = service.relatedSuburbs
     .map(slug => suburbs.find(s => s.slug === slug))
-    .filter(Boolean);
+    .filter((s): s is SuburbPage => s !== undefined);
 
   const breadcrumbs = [
     { label: "Home", href: "/" },
@@ -37,13 +37,14 @@ export default function ServicePageTemplate({
       <Header />
 
       <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
-        <section className="bg-primary text-white py-16 lg:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="bg-gradient-to-br from-primary via-primary to-[hsl(222,65%,14%)] text-white py-16 lg:py-20 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" aria-hidden style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "24px 24px" }} />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <Breadcrumbs items={breadcrumbs} light />
             <h1 className="text-4xl sm:text-5xl font-display font-bold leading-tight mt-4 mb-6">
               {service.h1}
             </h1>
-            <p className="text-white/80 text-lg leading-relaxed max-w-3xl mb-8">
+            <p className="text-white/70 text-lg leading-relaxed max-w-3xl mb-8">
               {service.intro}
             </p>
             <ScrollToQuoteCTA />
@@ -102,7 +103,7 @@ export default function ServicePageTemplate({
                 <div className="border border-border rounded-2xl p-6">
                   <h3 className="font-display font-bold text-lg mb-4">Related Services</h3>
                   <ul className="space-y-2">
-                    {relatedServiceData.map(s => s && (
+                    {relatedServiceData.map(s => (
                       <li key={s.slug}>
                         <Link
                           href={`/${s.slug}`}
@@ -120,7 +121,7 @@ export default function ServicePageTemplate({
                 <div className="border border-border rounded-2xl p-6">
                   <h3 className="font-display font-bold text-lg mb-4">Service Areas</h3>
                   <ul className="space-y-2">
-                    {relatedSuburbData.map(s => s && (
+                    {relatedSuburbData.map(s => (
                       <li key={s.slug}>
                         <Link
                           href={`/locations/${s.slug}`}

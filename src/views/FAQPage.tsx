@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/sections/Breadcrumbs";
 import { InternalLinks } from "@/components/sections/InternalLinks";
 import { Accordion } from "@/components/ui/accordion";
 import { BUSINESS } from "@/lib/site";
+import { Phone, MessageCircle } from "lucide-react";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -60,19 +61,20 @@ export default function FAQPage() {
       <Header />
 
       <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
-        <section className="bg-primary text-white py-16 lg:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="bg-gradient-to-br from-primary via-primary to-[hsl(222,65%,14%)] text-white py-16 lg:py-20 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" aria-hidden style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "24px 24px" }} />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <Breadcrumbs items={breadcrumbs} light />
             <h1 className="text-4xl sm:text-5xl font-display font-bold leading-tight mt-4 mb-6">
               Frequently Asked Questions
             </h1>
-            <p className="text-white/80 text-lg leading-relaxed max-w-3xl">
+            <p className="text-white/70 text-lg leading-relaxed max-w-3xl">
               Everything you need to know about selling your car for cash in Brisbane. Can&apos;t find your answer? Call us on <a href={BUSINESS.phoneHref} className="text-accent hover:underline font-semibold">{BUSINESS.phone}</a>.
             </p>
           </div>
         </section>
 
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18 space-y-12">
           {faqCategories.map(category => (
             <div key={category.category}>
               <h2 className="text-2xl font-display font-bold text-foreground mb-6">
@@ -82,22 +84,24 @@ export default function FAQPage() {
             </div>
           ))}
 
-          <div className="bg-primary/5 border border-primary/10 rounded-2xl p-8 text-center">
-            <h2 className="text-xl font-display font-bold text-foreground mb-2">Still Have Questions?</h2>
-            <p className="text-muted-foreground mb-4">
+          <div className="rounded-2xl border border-primary/10 bg-gradient-to-b from-primary/[0.04] to-transparent p-8 sm:p-10 text-center">
+            <h2 className="text-xl sm:text-2xl font-display font-bold text-primary mb-3">Still Have Questions?</h2>
+            <p className="text-muted-foreground mb-6 max-w-md mx-auto">
               Our Brisbane team is happy to help. Call us or visit our contact page.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href={BUSINESS.phoneHref}
-                className="inline-flex items-center justify-center bg-accent text-white rounded-full py-3 px-6 font-semibold hover:bg-accent/90 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-white rounded-full py-3 px-6 font-semibold hover:bg-accent/90 transition-colors shadow-[0_4px_14px_rgba(232,119,34,0.25)]"
               >
+                <Phone className="h-4 w-4" />
                 Call {BUSINESS.phone}
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center border-2 border-primary text-primary rounded-full py-3 px-6 font-semibold hover:bg-primary hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 border-2 border-primary/20 text-primary rounded-full py-3 px-6 font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all"
               >
+                <MessageCircle className="h-4 w-4" />
                 Contact Us
               </Link>
             </div>

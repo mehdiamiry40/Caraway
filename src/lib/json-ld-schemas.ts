@@ -13,6 +13,13 @@ const NAP = {
   longitude: 153.0251,
 };
 
+const openingHours = {
+  "@type": "OpeningHoursSpecification" as const,
+  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+  opens: "07:00",
+  closes: "19:00",
+};
+
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "AutoDealer"],
@@ -50,21 +57,9 @@ export const localBusinessSchema = {
     contactType: "customer service",
     areaServed: "AU",
     availableLanguage: "English",
-    hoursAvailable: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      opens: "07:00",
-      closes: "19:00",
-    },
+    hoursAvailable: openingHours,
   },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      opens: "07:00",
-      closes: "19:00",
-    },
-  ],
+  openingHoursSpecification: [openingHours],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Cash for Cars Services",

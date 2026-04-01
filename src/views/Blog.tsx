@@ -17,28 +17,29 @@ export default function Blog() {
       <Header />
 
       <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
-        <section className="bg-primary text-white py-16 lg:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="bg-gradient-to-br from-primary via-primary to-[hsl(222,65%,14%)] text-white py-16 lg:py-20 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" aria-hidden style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "24px 24px" }} />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <Breadcrumbs items={breadcrumbs} light />
             <h1 className="text-4xl sm:text-5xl font-display font-bold leading-tight mt-4 mb-6">
               Blog
             </h1>
-            <p className="text-white/80 text-lg leading-relaxed max-w-3xl">
+            <p className="text-white/70 text-lg leading-relaxed max-w-3xl">
               Tips, guides, and insights about selling your car for cash in Brisbane.
             </p>
           </div>
         </section>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {blogPosts.map((post) => (
               <article
                 key={post.slug}
-                className="group rounded-2xl border border-border/60 bg-card shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                className="group rounded-2xl border border-border/60 bg-white hover:border-primary/20 hover:shadow-md transition-all overflow-hidden"
               >
                 <div className="p-6 sm:p-8 flex flex-col h-full">
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-primary/8 px-2.5 py-1 font-medium text-primary">
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 font-semibold text-accent">
                       <Tag className="h-3 w-3" />
                       {post.category}
                     </span>
@@ -67,10 +68,10 @@ export default function Blog() {
 
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-accent transition-colors"
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent/80 transition-colors group-hover:gap-2.5"
                   >
                     Read more
-                    <ArrowRight className="h-3.5 w-3.5" />
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </Link>
                 </div>
               </article>
