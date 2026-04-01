@@ -137,7 +137,7 @@ export function Header() {
         {/* Navigation bar — white */}
         <div className="bg-white border-b border-border hidden lg:block">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-8 h-12">
+            <nav aria-label="Primary navigation" className="flex items-center gap-8 h-12">
               {navLinks.map((link) => (
                 <div
                   key={link.label}

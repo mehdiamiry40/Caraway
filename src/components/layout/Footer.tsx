@@ -69,7 +69,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {serviceLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-foreground/75 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
+                  <Link href={link.href} className="text-foreground/80 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
                     {link.label}
                   </Link>
                 </li>
@@ -82,7 +82,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {locationLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-foreground/75 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
+                  <Link href={link.href} className="text-foreground/80 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
                     {link.label}
                   </Link>
                 </li>
@@ -95,7 +95,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {companyLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-foreground/75 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
+                  <Link href={link.href} className="text-foreground/80 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
                     {link.label}
                   </Link>
                 </li>

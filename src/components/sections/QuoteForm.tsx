@@ -213,7 +213,7 @@ export function QuoteForm() {
                   </div>
 
                   <Button type="submit" size="lg" className="w-full h-14 text-base sm:text-lg mt-2" isLoading={isSubmitting}>
-                    Send details
+                    {isSubmitting ? "Sending…" : "Send details"}
                   </Button>
                   {errorMessage && (
                     <p className="text-sm text-destructive text-center" role="alert">

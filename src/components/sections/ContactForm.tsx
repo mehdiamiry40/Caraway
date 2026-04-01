@@ -48,16 +48,16 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-white rounded-2xl p-5 sm:p-8 border border-border/60 shadow-sm">
-        <div role="status" aria-live="polite" aria-atomic="true" className="flex flex-col items-center justify-center text-center py-6">
-          <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-            <CheckCircle2 className="w-8 h-8 text-accent" aria-hidden />
+      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-border/60 shadow-sm">
+        <div role="status" aria-live="polite" aria-atomic="true" className="flex flex-col items-center justify-center text-center py-8 sm:py-10">
+          <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+            <CheckCircle2 className="w-10 h-10 text-accent" aria-hidden />
           </div>
-          <h3 className="text-xl font-display font-bold text-primary mb-2">Message sent</h3>
-          <p className="text-muted-foreground text-sm mb-6 max-w-sm">
+          <h3 className="text-2xl font-display font-bold text-primary mb-2">Message sent</h3>
+          <p className="text-muted-foreground mb-8 max-w-sm leading-relaxed">
             We&apos;ll get back to you as soon as possible.
           </p>
-          <Button onClick={() => setIsSuccess(false)} variant="outline" size="sm">
+          <Button onClick={() => setIsSuccess(false)} variant="outline">
             Send another message
           </Button>
         </div>
@@ -66,12 +66,12 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl p-5 sm:p-8 border border-border/60 shadow-sm">
+    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-border/60 shadow-sm">
       <h2 className="text-lg sm:text-xl font-display font-bold text-foreground mb-1">Send Us a Message</h2>
       <p className="text-sm text-muted-foreground mb-6">
         Have a question? Fill out the form and we&apos;ll get back to you.
       </p>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
         {/* Honeypot — hidden from real users, traps bots */}
         <div className="absolute -left-[9999px]" aria-hidden="true">
           <label htmlFor="contact-website">Website</label>
@@ -102,7 +102,7 @@ export function ContactForm() {
           )}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label htmlFor={fieldIds.email} className="block text-sm font-medium text-foreground mb-1.5">
               Email
@@ -163,8 +163,14 @@ export function ContactForm() {
         </div>
 
         <Button type="submit" size="lg" className="w-full h-14 text-base sm:text-lg mt-1" isLoading={isSubmitting}>
-          <Send className="h-4 w-4 mr-2" aria-hidden />
-          Send message
+          {isSubmitting ? (
+            "Sending…"
+          ) : (
+            <>
+              <Send className="h-4 w-4 mr-2" aria-hidden />
+              Send message
+            </>
+          )}
         </Button>
         {errorMessage && (
           <p className="text-sm text-destructive text-center" role="alert">
