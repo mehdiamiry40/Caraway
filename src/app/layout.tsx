@@ -11,12 +11,14 @@ import { Providers } from "./providers";
 import "./globals.css";
 
 const inter = Inter({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-sans-body",
   display: "swap",
 });
 
 const plusJakarta = Plus_Jakarta_Sans({
+  weight: ["600", "700", "800"],
   subsets: ["latin"],
   variable: "--font-display-heading",
   display: "swap",
