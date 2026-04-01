@@ -28,7 +28,20 @@ export default function ContactPage() {
   const canonical = `${SITE_URL}/contact`;
   return (
     <>
-      <JsonLd data={breadcrumbListSchema(breadcrumbs, canonical)} />
+      <JsonLd
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            url: canonical,
+            name: "Contact Caraway",
+            description:
+              "Contact Caraway for a free cash quote on your car. Call 1800 227 293 or fill out our form.",
+            mainEntity: { "@id": `${SITE_URL}/#business` },
+          },
+          breadcrumbListSchema(breadcrumbs, canonical),
+        ]}
+      />
       <Contact />
     </>
   );
