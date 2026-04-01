@@ -9,7 +9,7 @@ const QuoteForm = dynamic(() => import("@/components/sections/QuoteForm").then((
 import { ScrollToQuoteCTA } from "@/components/sections/ScrollToQuoteCTA";
 import type { ServicePage } from "@/data/services";
 import { services } from "@/data/services";
-import { suburbs } from "@/data/suburbs";
+import { suburbs, type SuburbPage } from "@/data/suburbs";
 import { Accordion } from "@/components/ui/accordion";
 import { CheckCircle2 } from "lucide-react";
 import { BUSINESS } from "@/lib/site";
@@ -21,11 +21,11 @@ export default function ServicePageTemplate({
 }) {
   const relatedServiceData = service.relatedServices
     .map(slug => services.find(s => s.slug === slug))
-    .filter(Boolean);
+    .filter((s): s is ServicePage => s !== undefined);
 
   const relatedSuburbData = service.relatedSuburbs
     .map(slug => suburbs.find(s => s.slug === slug))
-    .filter(Boolean);
+    .filter((s): s is SuburbPage => s !== undefined);
 
   const breadcrumbs = [
     { label: "Home", href: "/" },
@@ -102,7 +102,7 @@ export default function ServicePageTemplate({
                 <div className="border border-border rounded-2xl p-6">
                   <h3 className="font-display font-bold text-lg mb-4">Related Services</h3>
                   <ul className="space-y-2">
-                    {relatedServiceData.map(s => s && (
+                    {relatedServiceData.map(s => (
                       <li key={s.slug}>
                         <Link
                           href={`/${s.slug}`}
@@ -120,7 +120,7 @@ export default function ServicePageTemplate({
                 <div className="border border-border rounded-2xl p-6">
                   <h3 className="font-display font-bold text-lg mb-4">Service Areas</h3>
                   <ul className="space-y-2">
-                    {relatedSuburbData.map(s => s && (
+                    {relatedSuburbData.map(s => (
                       <li key={s.slug}>
                         <Link
                           href={`/locations/${s.slug}`}

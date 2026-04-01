@@ -30,9 +30,12 @@ export function ContactForm() {
     resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit = async (data: ContactFormValues & { honeypot?: string }) => {
+  const onSubmit = async (data: ContactFormValues) => {
     setErrorMessage(null);
-    if (data.honeypot) return; // Bot detected
+    if (data.honeypot) {
+      setIsSuccess(true); // Fake success for bots
+      return;
+    }
     const result = await submitContact(data);
 
     if (result.success) {
@@ -77,7 +80,7 @@ export function ContactForm() {
             id="contact-website"
             tabIndex={-1}
             autoComplete="off"
-            {...register("honeypot" as any)}
+            {...register("honeypot")}
           />
         </div>
         <div>

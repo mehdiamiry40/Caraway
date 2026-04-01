@@ -9,18 +9,18 @@ const QuoteForm = dynamic(() => import("@/components/sections/QuoteForm").then((
 import { ScrollToQuoteCTA } from "@/components/sections/ScrollToQuoteCTA";
 import type { SuburbPage } from "@/data/suburbs";
 import { suburbs } from "@/data/suburbs";
-import { services } from "@/data/services";
+import { services, type ServicePage } from "@/data/services";
 import { CheckCircle2, MapPin } from "lucide-react";
 import { BUSINESS } from "@/lib/site";
 
 export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
   const relatedServiceData = suburb.relatedServices
     .map(slug => services.find(s => s.slug === slug))
-    .filter(Boolean);
+    .filter((s): s is ServicePage => s !== undefined);
 
   const nearbySuburbData = suburb.nearbySuburbs
     .map(slug => suburbs.find(s => s.slug === slug))
-    .filter(Boolean);
+    .filter((s): s is SuburbPage => s !== undefined);
 
   const breadcrumbs = [
     { label: "Home", href: "/" },
@@ -130,7 +130,7 @@ export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
                 <div className="border border-border rounded-2xl p-6">
                   <h3 className="font-display font-bold text-lg mb-4">Our Services</h3>
                   <ul className="space-y-2">
-                    {relatedServiceData.map(s => s && (
+                    {relatedServiceData.map(s => (
                       <li key={s.slug}>
                         <Link
                           href={`/${s.slug}`}
@@ -148,7 +148,7 @@ export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
                 <div className="border border-border rounded-2xl p-6">
                   <h3 className="font-display font-bold text-lg mb-4">Nearby Areas</h3>
                   <ul className="space-y-2">
-                    {nearbySuburbData.map(s => s && (
+                    {nearbySuburbData.map(s => (
                       <li key={s.slug}>
                         <Link
                           href={`/locations/${s.slug}`}

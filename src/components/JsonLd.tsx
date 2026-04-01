@@ -13,13 +13,17 @@ export function JsonLd({
   const items = Array.isArray(data) ? data : [data];
   return (
     <>
-      {items.map((item, i) => (
-        <script
-          key={(item["@type"] as string) || i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(normalizeSchema(item)) }}
-        />
-      ))}
+      {items.map((item, i) => {
+        const type = item["@type"];
+        const key = Array.isArray(type) ? type.join("-") : (type as string) || String(i);
+        return (
+          <script
+            key={key}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(normalizeSchema(item)) }}
+          />
+        );
+      })}
     </>
   );
 }

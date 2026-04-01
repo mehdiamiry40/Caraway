@@ -33,9 +33,12 @@ export function QuoteForm() {
     resolver: zodResolver(quoteFormSchema),
   });
 
-  const onSubmit = async (data: QuoteFormValues & { honeypot?: string }) => {
+  const onSubmit = async (data: QuoteFormValues) => {
     setErrorMessage(null);
-    if (data.honeypot) return; // Bot detected
+    if (data.honeypot) {
+      setIsSuccess(true); // Fake success for bots
+      return;
+    }
     const result = await submitQuote(data);
 
     if (result.success) {
@@ -102,7 +105,7 @@ export function QuoteForm() {
                       id="quote-website"
                       tabIndex={-1}
                       autoComplete="off"
-                      {...register("honeypot" as any)}
+                      {...register("honeypot")}
                     />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
