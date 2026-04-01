@@ -26,7 +26,7 @@ export function Accordion({ items, className }: AccordionProps) {
         return (
           <div
             key={item.question}
-            className="border border-border/60 bg-white rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/30"
+            className="border border-border/60 bg-white rounded-xl overflow-hidden transition-all duration-300 hover:border-accent/30 hover:shadow-sm"
           >
             <button
               type="button"
@@ -41,8 +41,8 @@ export function Accordion({ items, className }: AccordionProps) {
               </span>
               <div
                 className={cn(
-                  "flex-shrink-0 ml-4 flex items-center justify-center h-8 w-8 rounded-full bg-muted/50 text-primary transition-transform duration-300",
-                  isActive && "rotate-180"
+                  "flex-shrink-0 ml-4 flex items-center justify-center h-8 w-8 rounded-full bg-primary/[0.06] text-primary transition-all duration-300",
+                  isActive && "rotate-180 bg-accent/15 text-accent"
                 )}
               >
                 <ChevronDown className="h-5 w-5" aria-hidden="true" />
