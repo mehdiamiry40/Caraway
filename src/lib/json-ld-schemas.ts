@@ -44,6 +44,19 @@ export const localBusinessSchema = {
     { "@type": "City", name: "Redland Bay" },
     { "@type": "City", name: "Moreton Bay" },
   ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: NAP.phone,
+    contactType: "customer service",
+    areaServed: "AU",
+    availableLanguage: "English",
+    hoursAvailable: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "07:00",
+      closes: "19:00",
+    },
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

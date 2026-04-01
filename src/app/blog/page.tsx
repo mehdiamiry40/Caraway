@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import Blog from "@/views/Blog";
+import { blogPosts } from "@/data/blog-posts";
 import { breadcrumbListSchema } from "@/lib/breadcrumb-schema";
 import { SITE_URL } from "@/lib/site";
 
@@ -35,7 +36,26 @@ export default function BlogPage() {
   const canonical = `${SITE_URL}/blog`;
   return (
     <>
-      <JsonLd data={breadcrumbListSchema(breadcrumbs, canonical)} />
+      <JsonLd
+        data={[
+          breadcrumbListSchema(breadcrumbs, canonical),
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Caraway Blog",
+            description:
+              "Tips, guides, and insights about selling your car for cash in Brisbane.",
+            url: canonical,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            hasPart: blogPosts.map((post) => ({
+              "@type": "BlogPosting",
+              headline: post.title,
+              url: `${SITE_URL}/blog/${post.slug}`,
+              datePublished: post.date,
+            })),
+          },
+        ]}
+      />
       <Blog />
     </>
   );

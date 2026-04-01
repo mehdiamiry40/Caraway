@@ -9,7 +9,28 @@ export interface BlogPost {
   category: string;
 }
 
-export const blogPosts: BlogPost[] = [
+/** Calculate reading time from content paragraphs (~200 WPM average). */
+function calcReadTime(content: string[]): string {
+  const words = content.join(" ").split(/\s+/).length;
+  const minutes = Math.max(1, Math.round(words / 200));
+  return `${minutes} min read`;
+}
+
+/** Get related posts by matching category, excluding the current post. */
+export function getRelatedPosts(currentSlug: string, limit = 2): BlogPost[] {
+  const current = blogPosts.find((p) => p.slug === currentSlug);
+  if (!current) return blogPosts.filter((p) => p.slug !== currentSlug).slice(0, limit);
+
+  const sameCategory = blogPosts.filter(
+    (p) => p.slug !== currentSlug && p.category === current.category
+  );
+  const others = blogPosts.filter(
+    (p) => p.slug !== currentSlug && p.category !== current.category
+  );
+  return [...sameCategory, ...others].slice(0, limit);
+}
+
+const rawPosts: Omit<BlogPost, "readTime">[] = [
   {
     slug: "how-to-sell-your-car-for-cash-brisbane",
     title: "How to Sell Your Car for Cash in Brisbane: A Complete Guide",
@@ -27,7 +48,6 @@ export const blogPosts: BlogPost[] = [
       "To get the best price, have your registration papers ready, be honest about the car's condition, and compare quotes from at least two buyers before committing.",
     ],
     date: "2025-03-15",
-    readTime: "4 min read",
     category: "Guides",
   },
   {
@@ -46,7 +66,6 @@ export const blogPosts: BlogPost[] = [
       "So whether your car runs or not, selling it for cash means it gets a second life — as parts, raw materials, or both. It's a more responsible option than letting it rust in the yard.",
     ],
     date: "2025-02-28",
-    readTime: "3 min read",
     category: "Insights",
   },
   {
@@ -65,7 +84,6 @@ export const blogPosts: BlogPost[] = [
       "5. You just want it gone today. Private sales take time — ads, tyre-kickers, test drives, negotiation. If speed matters, cash buyers pick up same day and pay on the spot.",
     ],
     date: "2025-02-10",
-    readTime: "3 min read",
     category: "Tips",
   },
   {
@@ -85,7 +103,11 @@ export const blogPosts: BlogPost[] = [
       "That's it — five simple steps. The whole pickup usually takes 15 to 30 minutes from arrival to payment.",
     ],
     date: "2025-01-20",
-    readTime: "3 min read",
     category: "Guides",
   },
 ];
+
+export const blogPosts: BlogPost[] = rawPosts.map((p) => ({
+  ...p,
+  readTime: calcReadTime(p.content),
+}));
