@@ -76,8 +76,8 @@ export function QuoteForm() {
             <div className="bg-muted rounded-2xl p-6 sm:p-8 border border-border/50">
               {isSuccess ? (
                 <div role="status" aria-live="polite" aria-atomic="true" className="h-full flex flex-col items-center justify-center text-center py-10 sm:py-12">
-                  <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6">
-                    <CheckCircle2 className="w-10 h-10 text-green-600" aria-hidden />
+                  <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                    <CheckCircle2 className="w-10 h-10 text-accent" aria-hidden />
                   </div>
                   <h3 className="text-2xl font-display font-bold text-primary mb-2">Thanks — we&apos;ve got your details</h3>
                   <p className="text-muted-foreground mb-8 max-w-sm leading-relaxed">

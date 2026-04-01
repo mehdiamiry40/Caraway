@@ -20,7 +20,7 @@ export function Stats() {
         <div className="absolute -left-10 -bottom-10 w-60 h-60 bg-white/[0.03] rounded-full" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-10">
           {stats.map((stat, i) => {
             const Icon = stat.icon;

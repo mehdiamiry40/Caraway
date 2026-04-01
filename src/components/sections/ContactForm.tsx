@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { contactFormSchema, type ContactFormValues } from "@/lib/quote-schema";
 import { submitContact } from "@/actions/contact";
@@ -45,8 +46,8 @@ export function ContactForm() {
     return (
       <div className="bg-white rounded-2xl p-5 sm:p-8 border border-border/60 shadow-sm">
         <div role="status" aria-live="polite" aria-atomic="true" className="flex flex-col items-center justify-center text-center py-6">
-          <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-4">
-            <CheckCircle2 className="w-8 h-8 text-green-600" aria-hidden />
+          <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+            <CheckCircle2 className="w-8 h-8 text-accent" aria-hidden />
           </div>
           <h3 className="text-xl font-display font-bold text-primary mb-2">Message sent</h3>
           <p className="text-muted-foreground text-sm mb-6 max-w-sm">
@@ -131,10 +132,9 @@ export function ContactForm() {
           <label htmlFor={fieldIds.message} className="block text-sm font-medium text-foreground mb-1.5">
             Message
           </label>
-          <textarea
+          <Textarea
             placeholder="Tell us how we can help..."
             rows={5}
-            className="flex w-full rounded-xl border border-border bg-background px-4 py-3 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-transparent disabled:cursor-not-allowed disabled:opacity-50 hover:border-primary/50 resize-y"
             aria-invalid={errors.message ? true : undefined}
             aria-describedby={errors.message ? `${fieldIds.message}-error` : undefined}
             {...register("message")}

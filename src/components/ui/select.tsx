@@ -14,8 +14,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         <select
           className={cn(
             "flex h-12 sm:h-14 w-full min-h-12 appearance-none rounded-xl border border-border bg-card px-4 py-2 text-base ring-offset-background transition-colors",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-transparent",
-            "disabled:cursor-not-allowed disabled:opacity-50 hover:border-primary/50",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:border-transparent",
+            "disabled:cursor-not-allowed disabled:opacity-50 hover:border-primary/50 disabled:hover:border-border",
             className
           )}
           defaultValue=""

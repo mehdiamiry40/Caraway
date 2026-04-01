@@ -45,7 +45,7 @@ export function ServiceAreas() {
 
         {/* Contact + view all — above the full-width browse list */}
         <div className="mb-6 lg:mb-7 flex flex-col gap-4 lg:flex-row lg:items-stretch lg:justify-between lg:gap-6">
-          <div className="rounded-xl border border-border/70 bg-muted/40 p-4 sm:p-5 shadow-sm lg:max-w-md lg:sticky lg:top-28 lg:self-start">
+          <div className="rounded-xl border border-border/70 bg-muted/40 p-4 sm:p-5 shadow-sm lg:max-w-md lg:sticky lg:top-[108px] lg:self-start">
             <div className="flex gap-3">
               <div
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"
@@ -85,7 +85,7 @@ export function ServiceAreas() {
         {/* Browse by area — full width of container */}
         <div className="w-full min-w-0">
           <div className="rounded-2xl border border-border/60 bg-card p-4 sm:p-5 lg:p-6 shadow-sm w-full">
-            <h3 className="font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-primary mb-3">
+            <h3 className="font-display text-xs font-bold uppercase tracking-widest text-primary mb-3">
               Browse by area
             </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1.5 lg:gap-2">

@@ -16,17 +16,17 @@ export default function Privacy() {
 
       <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
         <section className="bg-primary text-white py-16 lg:py-20">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
-            <h1 className="text-3xl sm:text-4xl font-display font-bold mt-4 mb-4">Privacy Policy</h1>
+            <h1 className="text-4xl sm:text-5xl font-display font-bold mt-4 mb-4">Privacy Policy</h1>
             <p className="text-white/80 text-sm">
               Last updated: March 2026. This policy applies to caraway.au and our cash-for-cars services in Queensland.
             </p>
           </div>
         </section>
 
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-          <div className="space-y-8 text-foreground/90 text-[15px] leading-relaxed">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="space-y-8 text-foreground/90 text-sm sm:text-base leading-relaxed">
             <section>
               <h2 className="text-xl font-display font-bold text-primary mb-3">Who we are</h2>
               <p>

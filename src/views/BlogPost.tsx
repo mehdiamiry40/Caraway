@@ -22,7 +22,7 @@ export default function BlogPost({ post }: { post: BlogPostType }) {
         <section className="bg-primary text-white py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
-            <div className="flex items-center gap-3 text-sm text-white/70 mt-4 mb-4">
+            <div className="flex items-center gap-3 text-sm text-white/80 mt-4 mb-4">
               <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 font-medium text-white/90">
                 <Tag className="h-3 w-3" />
                 {post.category}
@@ -45,8 +45,8 @@ export default function BlogPost({ post }: { post: BlogPostType }) {
           </div>
         </section>
 
-        <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-          <div className="prose prose-lg max-w-none">
+        <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="max-w-none">
             {post.content.map((paragraph, i) => (
               <p
                 key={i}
