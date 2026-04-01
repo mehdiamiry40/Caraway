@@ -81,11 +81,6 @@ export function Hero() {
             style={{ left: 0, right: "calc(50% - 50vw)" }}
           />
           <div className="relative z-[1] block h-full min-h-[240px] sm:min-h-[320px]">
-            <picture>
-              <source media="(max-width: 640px)" srcSet="/images/tow-truck-hero-sm.webp" />
-              <source media="(min-width: 641px)" srcSet="/images/tow-truck-hero.webp" />
-              {/* Next/Image handles optimisation; picture element adds responsive source selection */}
-            </picture>
             <Image
               src="/images/tow-truck-hero.webp"
               alt="Flatbed tow truck loaded with a vehicle — Caraway pickup in Brisbane"
@@ -93,6 +88,7 @@ export function Hero() {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 54vw"
               className="object-cover"
               priority
+              fetchPriority="high"
             />
           </div>
           <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/15 to-transparent pointer-events-none" />
