@@ -9,7 +9,7 @@ import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { quoteFormSchema, type QuoteFormValues } from "@/lib/quote-schema";
 import { submitQuote } from "@/actions/quote";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Shield, Clock, Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/site";
 
 const fieldIds = {
@@ -19,6 +19,12 @@ const fieldIds = {
   year: "quote-year",
   condition: "quote-condition",
 } as const;
+
+const benefits = [
+  { icon: Clock, title: "Same-day response", desc: "We usually reply within a few hours during business hours." },
+  { icon: Phone, title: "What happens next", desc: "We confirm details, agree a price before pickup, then pay when we collect." },
+  { icon: Shield, title: "No obligation", desc: "Not happy with the offer? No worries — there's zero pressure to accept." },
+];
 
 export function QuoteForm() {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -55,29 +61,38 @@ export function QuoteForm() {
   };
 
   return (
-    <section id="quote-section" className="section-y bg-muted relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl p-5 sm:p-8 md:p-14 border border-border/60 shadow-sm relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 relative z-10">
-            <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-4 md:mb-6 text-balance">
+    <section id="quote-section" className="section-y bg-muted relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none" aria-hidden />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 border border-border/50 shadow-[0_4px_40px_rgba(0,0,0,0.04)] relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 relative z-10">
+            <div className="flex flex-col justify-center">
+              <p className="section-label mb-3">Free quote</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-4 md:mb-6 text-balance leading-tight">
                 Get Your Cash for Cars Brisbane Quote
               </h2>
-              <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-10 leading-relaxed">
                 Tell us about the car. We&apos;ll call or text back with a price range and next steps — usually within one business day. No obligation.
               </p>
 
-              <div className="space-y-5 hidden lg:block border-l-2 border-border pl-6">
-                <div>
-                  <h3 className="font-display font-bold text-foreground text-sm">What happens next</h3>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    We confirm details, agree a price before pickup, then pay you when we collect the vehicle.
-                  </p>
-                </div>
+              <div className="hidden lg:flex flex-col gap-6">
+                {benefits.map((b) => (
+                  <div key={b.title} className="flex gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/[0.06] flex items-center justify-center shrink-0">
+                      <b.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-display font-bold text-foreground text-sm">{b.title}</h3>
+                      <p className="text-sm text-muted-foreground mt-0.5 leading-relaxed">{b.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="bg-muted rounded-2xl p-6 sm:p-8 border border-border/50">
+            <div className="bg-muted/60 rounded-2xl p-6 sm:p-8 border border-border/40">
               {isSuccess ? (
                 <div role="status" aria-live="polite" aria-atomic="true" className="h-full flex flex-col items-center justify-center text-center py-10 sm:py-12">
                   <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mb-6">
@@ -213,7 +228,7 @@ export function QuoteForm() {
                   </div>
 
                   <Button type="submit" size="lg" className="w-full h-14 text-base sm:text-lg mt-2" isLoading={isSubmitting}>
-                    {isSubmitting ? "Sending…" : "Send details"}
+                    {isSubmitting ? "Sending…" : "Get my free quote"}
                   </Button>
                   {errorMessage && (
                     <p className="text-sm text-destructive text-center" role="alert">

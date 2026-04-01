@@ -10,33 +10,30 @@ const stats = [
 
 export function Stats() {
   return (
-    <section className="relative bg-primary overflow-hidden" aria-label="What to expect">
-      {/* Decorative diagonal accent strip */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-      >
-        <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/[0.03] rounded-full" />
-        <div className="absolute -left-10 -bottom-10 w-60 h-60 bg-white/[0.03] rounded-full" />
+    <section className="relative bg-gradient-to-b from-primary to-[hsl(222,65%,14%)] overflow-hidden" aria-label="What to expect">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute -right-20 -top-20 w-96 h-96 bg-accent/[0.06] rounded-full blur-3xl" />
+        <div className="absolute -left-10 -bottom-10 w-72 h-72 bg-accent/[0.04] rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-10">
-          {stats.map((stat, i) => {
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
+          {stats.map((stat) => {
             const Icon = stat.icon;
             return (
               <div
                 key={stat.label}
-                className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-3 sm:gap-4"
+                className="group flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-4"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/15 ring-1 ring-accent/25">
+                <div className="flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl bg-white/[0.08] ring-1 ring-white/[0.12] group-hover:bg-accent/15 group-hover:ring-accent/25 transition-colors">
                   <Icon className="h-6 w-6 text-accent" strokeWidth={1.75} />
                 </div>
                 <div className="min-w-0">
                   <p className="text-xl sm:text-2xl font-display font-bold text-white leading-tight">
                     {stat.value}
                   </p>
-                  <p className="text-sm text-white/60 font-medium mt-0.5 leading-snug">
+                  <p className="text-sm text-white/50 font-medium mt-1 leading-snug">
                     {stat.label}
                   </p>
                 </div>
@@ -46,8 +43,8 @@ export function Stats() {
         </div>
       </div>
 
-      {/* Bottom accent line */}
-      <div className="h-1 bg-gradient-to-r from-accent via-accent/60 to-transparent" aria-hidden="true" />
+      {/* Accent gradient line */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-accent/80 to-transparent" aria-hidden="true" />
     </section>
   );
 }
