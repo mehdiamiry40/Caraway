@@ -19,7 +19,7 @@ const openSans = Open_Sans({
 });
 
 const montserrat = Montserrat({
-  weight: ["600", "700", "800"],
+  weight: ["600", "700"],
   subsets: ["latin"],
   variable: "--font-display-heading",
   display: "swap",
