@@ -42,19 +42,19 @@ export function Footer() {
               Brisbane cash for cars and pickup. We quote before we load — running, damaged, or unregistered. Call or send the form.
             </p>
             <div className="mt-5 space-y-2.5">
-              <a href={BUSINESS.phoneHref} className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors group text-sm">
+              <a href={BUSINESS.phoneHref} className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors group text-sm">
                 <span className="flex h-8 w-8 rounded-full bg-primary/8 items-center justify-center group-hover:bg-primary/15 transition-colors">
                   <Phone className="h-3.5 w-3.5 text-primary" />
                 </span>
                 {BUSINESS.phone}
               </a>
-              <a href={BUSINESS.emailHref} className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors group text-sm">
+              <a href={BUSINESS.emailHref} className="flex items-center gap-3 text-foreground/80 hover:text-primary transition-colors group text-sm">
                 <span className="flex h-8 w-8 rounded-full bg-primary/8 items-center justify-center group-hover:bg-primary/15 transition-colors">
                   <Mail className="h-3.5 w-3.5 text-primary" />
                 </span>
                 {BUSINESS.email}
               </a>
-              <div className="flex items-center gap-3 text-foreground/70 text-sm">
+              <div className="flex items-center gap-3 text-foreground/80 text-sm">
                 <span className="flex h-8 w-8 rounded-full bg-primary/8 items-center justify-center">
                   <MapPin className="h-3.5 w-3.5 text-primary" />
                 </span>
@@ -68,7 +68,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {serviceLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-foreground/60 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
+                  <Link href={link.href} className="text-foreground/75 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
                     {link.label}
                   </Link>
                 </li>
@@ -81,7 +81,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {locationLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-foreground/60 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
+                  <Link href={link.href} className="text-foreground/75 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
                     {link.label}
                   </Link>
                 </li>
@@ -94,7 +94,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               {companyLinks.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-foreground/60 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
+                  <Link href={link.href} className="text-foreground/75 hover:text-primary transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none">
                     {link.label}
                   </Link>
                 </li>

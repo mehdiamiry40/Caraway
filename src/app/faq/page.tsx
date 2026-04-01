@@ -19,7 +19,9 @@ export const metadata: Metadata = {
     title: "FAQ | Cash for Cars Brisbane Questions Answered — Caraway",
     description:
       "Frequently asked questions about selling your car for cash in Brisbane.",
+    images: [{ url: "/images/tow-truck-hero.webp", width: 1200, height: 800, alt: "Caraway cash for cars Brisbane" }],
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function FaqRoutePage() {

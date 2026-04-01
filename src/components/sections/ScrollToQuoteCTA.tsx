@@ -37,9 +37,8 @@ export function ScrollToQuoteCTA() {
       <a
         href={BUSINESS.phoneHref}
         className="inline-flex items-center justify-center rounded-full h-13 px-8 text-base font-semibold border-2 border-white/30 text-white hover:bg-white/10 transition-colors"
-        style={{ height: "52px" }}
       >
-        <Phone className="mr-2 h-4 w-4" />
+        <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
         {BUSINESS.phoneFriendly}
       </a>
     </div>

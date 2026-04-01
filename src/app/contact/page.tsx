@@ -19,7 +19,9 @@ export const metadata: Metadata = {
     title: "Contact Caraway | Cash for Cars Brisbane | 1800 227 293",
     description:
       "Contact Caraway for a free cash quote on your car. Call 1800 227 293 or fill out our form.",
+    images: [{ url: "/images/tow-truck-hero.webp", width: 1200, height: 800, alt: "Caraway cash for cars Brisbane" }],
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function ContactPage() {

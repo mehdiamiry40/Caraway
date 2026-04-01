@@ -26,7 +26,7 @@ export function Stats() {
             const Icon = stat.icon;
             return (
               <div
-                key={i}
+                key={stat.label}
                 className="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-3 sm:gap-4"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/15 ring-1 ring-accent/25">

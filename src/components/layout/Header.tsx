@@ -145,6 +145,7 @@ export function Header() {
                   {link.hasDropdown && isServicesOpen && (
                     <div
                       role="menu"
+                      aria-label="Services submenu"
                       className="absolute top-full left-0 mt-0 w-64 bg-white rounded-b-lg shadow-lg border border-border/60 py-2 z-50"
                       onKeyDown={(e) => {
                         if (e.key === "Escape") setIsServicesOpen(false);

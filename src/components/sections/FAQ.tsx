@@ -8,7 +8,7 @@ export function FAQ() {
   return (
     <section id="faq" className="section-y bg-white" aria-label="Frequently asked questions">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-10 md:mb-12">
           <p className="section-label mb-3">FAQ</p>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary text-balance">Cash for Cars Brisbane FAQ</h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">

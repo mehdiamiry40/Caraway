@@ -34,7 +34,9 @@ export async function submitQuote(data: QuoteFormValues) {
     
     return { success: true };
   } catch (error) {
-    console.error("Quote Submission Error:", error);
+    if (process.env.NODE_ENV === "development") {
+      console.error("Quote Submission Error:", error);
+    }
     return { 
       success: false, 
       message: `We couldn't send your request right now. Please call ${BUSINESS.phone}.`

@@ -29,7 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: service.title,
       description: service.metaDescription,
       url: `/${service.slug}`,
+      images: [{ url: "/images/tow-truck-hero.webp", width: 1200, height: 800, alt: "Caraway cash for cars Brisbane" }],
     },
+    twitter: { card: "summary_large_image" },
   };
 }
 

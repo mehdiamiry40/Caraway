@@ -69,7 +69,7 @@ export function Testimonials() {
           {testimonials.map((review, index) => (
             <article
               key={`${review.name}-${review.location}-${index}`}
-              className="bg-white rounded-2xl p-5 sm:p-7 border border-border/50 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white rounded-2xl p-5 sm:p-7 border border-border/60 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-start justify-between gap-2 sm:gap-3 mb-4">
                 <div className="flex flex-col gap-1">

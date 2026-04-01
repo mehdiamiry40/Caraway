@@ -21,10 +21,14 @@ export const contactFormSchema = z.object({
   email: z.string().email("Enter a valid email address"),
   phone: z
     .string()
-    .transform((v) => v.replace(/[\s\-()]/g, ""))
-    .pipe(z.string().regex(auPhoneRegex, "Enter a valid Australian phone number"))
     .optional()
-    .or(z.literal("")),
+    .transform((v) => v?.replace(/[\s\-()]/g, "") ?? "")
+    .pipe(
+      z.string().refine(
+        (v) => v === "" || auPhoneRegex.test(v),
+        "Enter a valid Australian phone number"
+      )
+    ),
   message: z.string().min(10, "Please provide more detail (at least 10 characters)"),
 });
 

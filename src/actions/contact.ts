@@ -33,7 +33,9 @@ export async function submitContact(data: ContactFormValues) {
 
     return { success: true };
   } catch (error) {
-    console.error("Contact Submission Error:", error);
+    if (process.env.NODE_ENV === "development") {
+      console.error("Contact Submission Error:", error);
+    }
     return {
       success: false,
       message: `We couldn't send your message right now. Please call ${BUSINESS.phone}.`,
