@@ -20,7 +20,7 @@ export function Hero() {
             style={{ left: "calc(50% - 50vw)", right: 0 }}
           />
           <div className="relative z-10 w-full">
-            <p className="text-white/80 text-sm font-medium mb-2 tracking-wide">Cash for cars · Brisbane &amp; surrounds</p>
+            <p className="text-white/90 text-sm font-medium mb-2 tracking-wide">Cash for cars · Brisbane &amp; surrounds</p>
             <h1
               id="hero-heading"
               className="text-[1.75rem] sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] tracking-tight text-white mb-3"
@@ -34,7 +34,7 @@ export function Hero() {
               We buy unwanted cars for cash — pickup included.
             </p>
 
-            <p className="text-white/75 text-sm sm:text-base leading-relaxed mb-8 sm:mb-10 max-w-md">
+            <p className="text-white/90 text-sm sm:text-base leading-relaxed mb-8 sm:mb-10 max-w-md">
               Running or not, with or without rego. You get a price before we load the car — then payment when we collect it from your place.
             </p>
 
@@ -57,7 +57,7 @@ export function Hero() {
               </a>
             </div>
 
-            <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-white/60 font-medium">
+            <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-white/80 font-medium">
               {["Paid on pickup", "Towing when we buy", "No roadworthy required"].map((text) => (
                 <div key={text} className="flex items-center gap-2 whitespace-nowrap">
                   <Check className="w-4 h-4 text-accent shrink-0" strokeWidth={3} aria-hidden />

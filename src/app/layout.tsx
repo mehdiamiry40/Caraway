@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
@@ -62,6 +62,12 @@ export const metadata: Metadata = {
     "geo.region": "AU-QLD",
     "geo.placename": "Brisbane",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

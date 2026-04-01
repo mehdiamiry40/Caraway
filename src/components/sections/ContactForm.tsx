@@ -43,8 +43,8 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-white rounded-2xl p-5 sm:p-8 border border-border shadow-sm">
-        <div role="status" className="flex flex-col items-center justify-center text-center py-6">
+      <div className="bg-white rounded-2xl p-5 sm:p-8 border border-border/60 shadow-sm">
+        <div role="status" aria-live="polite" aria-atomic="true" className="flex flex-col items-center justify-center text-center py-6">
           <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-4">
             <CheckCircle2 className="w-8 h-8 text-green-600" aria-hidden />
           </div>
@@ -61,7 +61,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl p-5 sm:p-8 border border-border shadow-sm">
+    <div className="bg-white rounded-2xl p-5 sm:p-8 border border-border/60 shadow-sm">
       <h2 className="text-lg sm:text-xl font-display font-bold text-foreground mb-1">Send Us a Message</h2>
       <p className="text-sm text-muted-foreground mb-6">
         Have a question? Fill out the form and we&apos;ll get back to you.

@@ -15,7 +15,7 @@ export function JsonLd({
     <>
       {items.map((item, i) => (
         <script
-          key={i}
+          key={(item["@type"] as string) || i}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(normalizeSchema(item)) }}
         />

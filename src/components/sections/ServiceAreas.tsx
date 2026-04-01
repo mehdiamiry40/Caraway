@@ -54,7 +54,7 @@ export function ServiceAreas() {
                 <MapPin className="h-5 w-5" strokeWidth={2} />
               </div>
               <div className="min-w-0">
-                <p className="font-display font-bold text-foreground text-xs uppercase tracking-wide text-primary">
+                <p className="font-display font-bold text-foreground text-xs uppercase tracking-wide text-primary leading-snug">
                   Same-day coverage
                 </p>
                 <p className="mt-0.5 text-xs sm:text-sm text-muted-foreground leading-snug">
@@ -84,7 +84,7 @@ export function ServiceAreas() {
 
         {/* Browse by area — full width of container */}
         <div className="w-full min-w-0">
-          <div className="rounded-xl border border-border/60 bg-card p-4 sm:p-5 lg:p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)] w-full">
+          <div className="rounded-2xl border border-border/60 bg-card p-4 sm:p-5 lg:p-6 shadow-sm w-full">
             <h3 className="font-display text-[0.65rem] font-bold uppercase tracking-[0.18em] text-primary mb-3">
               Browse by area
             </h3>
@@ -120,7 +120,7 @@ export function ServiceAreas() {
         </div>
 
         <div className="mt-8 lg:mt-9 max-w-3xl mx-auto rounded-xl border border-primary/15 bg-gradient-to-b from-primary/[0.06] to-transparent px-5 py-5 text-center sm:px-8">
-          <p className="text-foreground font-display font-semibold text-base text-primary">
+          <p className="text-foreground font-display font-semibold text-base text-primary leading-snug">
             Not in the list?
           </p>
           <p className="mt-1.5 text-muted-foreground text-xs sm:text-sm leading-snug">

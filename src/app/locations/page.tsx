@@ -19,7 +19,9 @@ export const metadata: Metadata = {
     title: "Cash for Cars Brisbane Locations | All Suburbs Serviced — Caraway",
     description:
       "Caraway services all Brisbane suburbs. Find cash for cars in your area.",
+    images: [{ url: "/images/tow-truck-hero.webp", width: 1200, height: 800, alt: "Caraway cash for cars Brisbane" }],
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function LocationsPage() {

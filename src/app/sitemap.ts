@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
 import { suburbs } from "@/data/suburbs";
-
-const SITE_URL = "https://caraway.au";
+import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString().split('T')[0];
