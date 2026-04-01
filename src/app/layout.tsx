@@ -7,6 +7,7 @@ import {
   organizationSchema,
   websiteSchema,
 } from "@/lib/json-ld-schemas";
+import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -100,6 +101,7 @@ export default function RootLayout({
         <ErrorBoundary>
           <Providers>{children}</Providers>
         </ErrorBoundary>
+        <Analytics />
       </body>
     </html>
   );
