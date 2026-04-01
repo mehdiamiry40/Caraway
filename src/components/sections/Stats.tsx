@@ -11,7 +11,6 @@ const stats = [
 export function Stats() {
   return (
     <section className="relative bg-muted/30 overflow-hidden" aria-label="What to expect">
-    <section className="relative bg-gradient-to-b from-primary to-[hsl(222,65%,14%)] overflow-hidden" aria-label="What to expect">
       {/* Decorative elements */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute -right-20 -top-20 w-96 h-96 bg-accent/[0.06] rounded-full blur-3xl" />
@@ -28,7 +27,6 @@ export function Stats() {
                 className="group flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-4"
               >
                 <div className="flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl bg-primary/[0.08] ring-1 ring-primary/[0.12] group-hover:bg-accent/15 group-hover:ring-accent/25 transition-colors">
-                <div className="flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl bg-white/[0.08] ring-1 ring-white/[0.12] group-hover:bg-accent/15 group-hover:ring-accent/25 transition-colors">
                   <Icon className="h-6 w-6 text-accent" strokeWidth={1.75} />
                 </div>
                 <div className="min-w-0">
@@ -36,7 +34,6 @@ export function Stats() {
                     {stat.value}
                   </p>
                   <p className="text-sm text-muted-foreground font-medium mt-1 leading-snug">
-                  <p className="text-sm text-white/50 font-medium mt-1 leading-snug">
                     {stat.label}
                   </p>
                 </div>
