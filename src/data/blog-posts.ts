@@ -11,7 +11,7 @@ export interface BlogPost {
 
 /** Calculate reading time from content paragraphs (~200 WPM average). */
 function calcReadTime(content: string[]): string {
-  const words = content.join(" ").split(/\s+/).length;
+  const words = content.join(" ").split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.round(words / 200));
   return `${minutes} min read`;
 }
@@ -19,7 +19,7 @@ function calcReadTime(content: string[]): string {
 /** Get related posts by matching category, excluding the current post. */
 export function getRelatedPosts(currentSlug: string, limit = 2): BlogPost[] {
   const current = blogPosts.find((p) => p.slug === currentSlug);
-  if (!current) return blogPosts.filter((p) => p.slug !== currentSlug).slice(0, limit);
+  if (!current) return [];
 
   const sameCategory = blogPosts.filter(
     (p) => p.slug !== currentSlug && p.category === current.category
