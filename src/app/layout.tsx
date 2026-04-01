@@ -8,6 +8,7 @@ import {
   websiteSchema,
 } from "@/lib/json-ld-schemas";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -102,6 +103,7 @@ export default function RootLayout({
           <Providers>{children}</Providers>
         </ErrorBoundary>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
