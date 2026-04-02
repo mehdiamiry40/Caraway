@@ -3,23 +3,23 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-xl font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-xl font-medium ring-offset-background transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:bg-primary/90 shadow-primary-glow hover:shadow-[0_6px_20px_hsl(var(--primary)/0.32)] hover:-translate-y-0.5 active:scale-[0.98]",
+          "bg-primary text-primary-foreground hover:bg-primary/90",
         secondary:
-          "bg-accent text-accent-foreground hover:bg-accent/90 shadow-accent-glow hover:shadow-[0_6px_20px_hsl(var(--accent)/0.35)] hover:-translate-y-0.5 active:scale-[0.98]",
+          "bg-accent text-accent-foreground hover:bg-accent/90",
         outline:
-          "border-2 border-border bg-transparent hover:border-primary hover:bg-primary/5 text-foreground hover:-translate-y-0.5 active:scale-[0.98]",
+          "border-2 border-border bg-transparent hover:border-primary hover:bg-primary/5 text-foreground",
         ghost: "hover:bg-muted text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-12 px-6 py-2",
         sm: "h-10 rounded-md px-4",
-        lg: "h-14 rounded-full px-8 text-lg",
+        lg: "h-14 rounded-xl px-8 text-lg",
         icon: "h-12 w-12",
       },
     },

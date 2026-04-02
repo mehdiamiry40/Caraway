@@ -32,7 +32,7 @@ const linkClasses = "text-foreground/70 hover:text-white transition-colors text-
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-primary via-primary to-primary-deep text-white">
+    <footer className="bg-primary text-white">
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-18">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8">
@@ -67,7 +67,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-xs uppercase tracking-widest text-white/40 mb-5">Services</h4>
+            <h4 className="font-display font-semibold text-sm text-white/50 mb-5">Services</h4>
             <ul className="space-y-3">
               {serviceLinks.map(link => (
                 <li key={link.href}>
@@ -80,7 +80,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-xs uppercase tracking-widest text-white/40 mb-5">Locations</h4>
+            <h4 className="font-display font-semibold text-sm text-white/50 mb-5">Locations</h4>
             <ul className="space-y-3">
               {locationLinks.map(link => (
                 <li key={link.href}>
@@ -93,7 +93,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-xs uppercase tracking-widest text-white/40 mb-5">Company</h4>
+            <h4 className="font-display font-semibold text-sm text-white/50 mb-5">Company</h4>
             <ul className="space-y-3">
               {companyLinks.map(link => (
                 <li key={link.href}>

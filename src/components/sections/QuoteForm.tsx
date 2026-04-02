@@ -42,7 +42,7 @@ export function QuoteForm() {
   const onSubmit = async (data: QuoteFormValues) => {
     setErrorMessage(null);
     if (data.honeypot) {
-      setIsSuccess(true); // Fake success for bots
+      setIsSuccess(true);
       return;
     }
     const result = await submitQuote(data);
@@ -61,27 +61,23 @@ export function QuoteForm() {
   };
 
   return (
-    <section id="quote-section" className="section-y bg-muted relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none" aria-hidden />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-card rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 border border-primary/10 shadow-[0_4px_32px_-4px_hsl(186_100%_17%_/_0.08)] relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 relative z-10">
+    <section id="quote-section" className="section-y bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-muted/40 rounded-2xl p-6 sm:p-8 md:p-12 lg:p-16 border border-border/40">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             <div className="flex flex-col justify-center">
-              <p className="section-label mb-3">Free quote</p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-4 md:mb-6 text-balance leading-tight">
                 Get Your Cash for Cars Brisbane Quote
               </h2>
-              <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-10 leading-relaxed">
+              <p className="text-muted-foreground mb-8 sm:mb-10 leading-relaxed">
                 Tell us about the car. We&apos;ll call or text back with a price range and next steps — usually within one business day. No obligation.
               </p>
 
               <div className="hidden lg:flex flex-col gap-6">
                 {benefits.map((b) => (
                   <div key={b.title} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary/[0.06] flex items-center justify-center shrink-0">
-                      <b.icon className="w-5 h-5 text-primary" />
+                    <div className="w-10 h-10 rounded-xl bg-white border border-border/50 flex items-center justify-center shrink-0">
+                      <b.icon className="w-5 h-5 text-primary/60" />
                     </div>
                     <div>
                       <h3 className="font-display font-bold text-foreground text-sm">{b.title}</h3>
@@ -92,11 +88,11 @@ export function QuoteForm() {
               </div>
             </div>
 
-            <div className="bg-muted/60 rounded-2xl p-6 sm:p-8 border border-border/40">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-border/40">
               {isSuccess ? (
                 <div role="status" aria-live="polite" aria-atomic="true" className="h-full flex flex-col items-center justify-center text-center py-10 sm:py-12">
-                  <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                    <CheckCircle2 className="w-10 h-10 text-accent" aria-hidden />
+                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                    <CheckCircle2 className="w-8 h-8 text-accent" aria-hidden />
                   </div>
                   <h3 className="text-2xl font-display font-bold text-primary mb-2">Thanks — we&apos;ve got your details</h3>
                   <p className="text-muted-foreground mb-8 max-w-sm leading-relaxed">
@@ -112,7 +108,6 @@ export function QuoteForm() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
-                  {/* Honeypot — hidden from real users, traps bots */}
                   <div className="absolute -left-[9999px]" aria-hidden="true">
                     <label htmlFor="quote-website">Website</label>
                     <input
