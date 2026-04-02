@@ -33,9 +33,8 @@ export default function SuburbPageTemplate({ suburb }: { suburb: SuburbPage }) {
       <Header />
 
       <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
-        <section className="bg-gradient-to-br from-primary via-primary to-[hsl(222,65%,14%)] text-white py-16 lg:py-20 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" aria-hidden style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "24px 24px" }} />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <section className="bg-primary text-white py-16 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
             <div className="flex items-center gap-3 mt-4 mb-2">
               <MapPin className="h-6 w-6 text-accent" />

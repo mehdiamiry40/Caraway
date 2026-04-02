@@ -59,10 +59,6 @@
 }
 
 @layer utilities {
-  .glass-panel {
-    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
-  }
-
   .section-y {
     @apply py-12 sm:py-16 md:py-24;
   }
