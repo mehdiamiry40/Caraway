@@ -61,11 +61,15 @@ export function QuoteForm() {
   };
 
   return (
-    <section id="quote-section" className="section-y bg-[hsl(35,30%,96%)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-xl p-6 sm:p-8 md:p-12 lg:p-16 border border-border/50 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+    <section id="quote-section" className="section-y bg-muted relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none" aria-hidden />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 border border-border/50 shadow-[0_4px_40px_rgba(0,0,0,0.04)] relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 relative z-10">
             <div className="flex flex-col justify-center">
+              <p className="section-label mb-3">Free quote</p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-4 md:mb-6 text-balance leading-tight">
                 Get Your Cash for Cars Brisbane Quote
               </h2>
@@ -76,8 +80,8 @@ export function QuoteForm() {
               <div className="hidden lg:flex flex-col gap-6">
                 {benefits.map((b) => (
                   <div key={b.title} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                      <b.icon className="w-5 h-5 text-accent" />
+                    <div className="w-10 h-10 rounded-xl bg-primary/[0.06] flex items-center justify-center shrink-0">
+                      <b.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-display font-bold text-foreground text-sm">{b.title}</h3>
@@ -88,7 +92,7 @@ export function QuoteForm() {
               </div>
             </div>
 
-            <div className="bg-[hsl(35,30%,96%)] rounded-xl p-6 sm:p-8 border border-border/40">
+            <div className="bg-muted/60 rounded-2xl p-6 sm:p-8 border border-border/40">
               {isSuccess ? (
                 <div role="status" aria-live="polite" aria-atomic="true" className="h-full flex flex-col items-center justify-center text-center py-10 sm:py-12">
                   <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mb-6">

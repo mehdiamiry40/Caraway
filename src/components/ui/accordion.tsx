@@ -18,7 +18,7 @@ export function Accordion({ items, className }: AccordionProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <div className={cn("w-full space-y-3", className)}>
+    <div className={cn("w-full space-y-4", className)}>
       {items.map((item, index) => {
         const isActive = activeIndex === index;
         const triggerId = `accordion-trigger-${index}`;
@@ -26,10 +26,7 @@ export function Accordion({ items, className }: AccordionProps) {
         return (
           <div
             key={item.question}
-            className={cn(
-              "border bg-white rounded-xl overflow-hidden transition-all duration-300",
-              isActive ? "border-primary/20 shadow-sm" : "border-border/60 hover:border-primary/15"
-            )}
+            className="border border-border/60 bg-white rounded-xl overflow-hidden transition-all duration-300 hover:border-accent/30 hover:shadow-sm"
           >
             <button
               type="button"
@@ -44,8 +41,8 @@ export function Accordion({ items, className }: AccordionProps) {
               </span>
               <div
                 className={cn(
-                  "flex-shrink-0 ml-4 flex items-center justify-center h-8 w-8 rounded-full transition-all duration-300",
-                  isActive ? "rotate-180 bg-accent/10 text-accent" : "bg-muted/50 text-primary"
+                  "flex-shrink-0 ml-4 flex items-center justify-center h-8 w-8 rounded-full bg-primary/[0.06] text-primary transition-all duration-300",
+                  isActive && "rotate-180 bg-accent/15 text-accent"
                 )}
               >
                 <ChevronDown className="h-5 w-5" aria-hidden="true" />

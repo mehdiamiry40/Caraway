@@ -28,7 +28,7 @@ const companyLinks = [
   { label: "Get a Quote", href: "/#quote-section" },
 ];
 
-const linkClasses = "text-white/60 hover:text-white transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none";
+const linkClasses = "text-foreground/70 hover:text-white transition-colors text-sm rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none";
 
 export function Footer() {
   return (
@@ -45,20 +45,20 @@ export function Footer() {
               Brisbane cash for cars and pickup. We quote before we load — running, damaged, or unregistered. Call or send the form.
             </p>
             <div className="mt-6 space-y-3">
-              <a href={BUSINESS.phoneHref} className="flex items-center gap-3 text-white/60 hover:text-white transition-colors group text-sm">
-                <span className="flex h-9 w-9 rounded-lg bg-white/[0.08] items-center justify-center group-hover:bg-accent/20 transition-colors">
+              <a href={BUSINESS.phoneHref} className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group text-sm">
+                <span className="flex h-9 w-9 rounded-xl bg-white/[0.08] items-center justify-center group-hover:bg-accent/20 transition-colors">
                   <Phone className="h-4 w-4 text-accent" />
                 </span>
                 {BUSINESS.phone}
               </a>
-              <a href={BUSINESS.emailHref} className="flex items-center gap-3 text-white/60 hover:text-white transition-colors group text-sm">
-                <span className="flex h-9 w-9 rounded-lg bg-white/[0.08] items-center justify-center group-hover:bg-accent/20 transition-colors">
+              <a href={BUSINESS.emailHref} className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group text-sm">
+                <span className="flex h-9 w-9 rounded-xl bg-white/[0.08] items-center justify-center group-hover:bg-accent/20 transition-colors">
                   <Mail className="h-4 w-4 text-accent" />
                 </span>
                 {BUSINESS.email}
               </a>
               <div className="flex items-center gap-3 text-white/50 text-sm">
-                <span className="flex h-9 w-9 rounded-lg bg-white/[0.08] items-center justify-center">
+                <span className="flex h-9 w-9 rounded-xl bg-white/[0.08] items-center justify-center">
                   <MapPin className="h-4 w-4 text-white/40" />
                 </span>
                 {BUSINESS.location}
@@ -67,7 +67,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-sm text-white mb-5">Services</h4>
+            <h4 className="font-display font-bold text-xs uppercase tracking-widest text-white/40 mb-5">Services</h4>
             <ul className="space-y-3">
               {serviceLinks.map(link => (
                 <li key={link.href}>
@@ -80,7 +80,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-sm text-white mb-5">Locations</h4>
+            <h4 className="font-display font-bold text-xs uppercase tracking-widest text-white/40 mb-5">Locations</h4>
             <ul className="space-y-3">
               {locationLinks.map(link => (
                 <li key={link.href}>
@@ -93,7 +93,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-bold text-sm text-white mb-5">Company</h4>
+            <h4 className="font-display font-bold text-xs uppercase tracking-widest text-white/40 mb-5">Company</h4>
             <ul className="space-y-3">
               {companyLinks.map(link => (
                 <li key={link.href}>
