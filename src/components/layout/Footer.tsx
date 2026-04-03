@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, ArrowRight, Star } from "lucide-react";
 import { BUSINESS } from "@/lib/site";
 
+
 const serviceLinks = [
   { label: "Cash for Cars Brisbane", href: "/cash-for-cars-brisbane" },
   { label: "Car Removal Brisbane", href: "/car-removal-brisbane" },
@@ -67,13 +68,13 @@ export function Footer() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <a
+              <Link
                 href="/#quote-section"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-7 py-4 text-sm font-bold text-white shadow-lg hover:bg-accent/90 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
               >
                 Get Your Free Quote
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
               <a
                 href={BUSINESS.phoneHref}
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-7 py-4 text-sm font-semibold text-white hover:bg-white/[0.08] hover:border-white/25 transition-all duration-200"
