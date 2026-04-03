@@ -19,21 +19,20 @@ export default function Contact() {
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main id="main-content" className="flex-1">
-        <section className="relative overflow-hidden bg-gradient-to-br from-[hsl(215,50%,18%)] via-[hsl(215,50%,22%)] to-[hsl(215,48%,28%)] text-white pt-32 lg:pt-36 pb-16 lg:pb-20">
-          <div className="absolute inset-0 opacity-[0.03]" aria-hidden style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 0.5px, transparent 0)", backgroundSize: "32px 32px" }} />
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
+        <section className="bg-primary text-white py-16 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
-            <h1 className="text-4xl sm:text-5xl font-display font-bold leading-tight mt-5 mb-6">
+            <h1 className="text-4xl sm:text-5xl font-display font-bold leading-tight mt-4 mb-6">
               Contact Caraway
             </h1>
-            <p className="text-white/60 text-lg leading-relaxed max-w-3xl">
+            <p className="text-white/70 text-lg leading-relaxed max-w-3xl">
               Ready to sell your car for cash? Get in touch for a free, no-obligation quote. We&apos;re available 7 days a week across Greater Brisbane.
             </p>
           </div>
         </section>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             <div className="space-y-8">
               <div>
@@ -43,7 +42,7 @@ export default function Contact() {
                 </p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {[
                   {
                     icon: Phone,
@@ -60,12 +59,12 @@ export default function Contact() {
                     sub: "We respond within 1 hour during business hours",
                   },
                 ].map((item) => (
-                  <a key={item.title} href={item.href} className="flex items-start gap-4 group p-4 rounded-2xl bg-white shadow-card hover:shadow-card-hover transition-all">
-                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-accent/15 transition-colors">
+                  <a key={item.title} href={item.href} className="flex items-start gap-4 group p-4 -mx-4 rounded-xl hover:bg-muted/50 transition-colors">
+                    <div className="w-12 h-12 bg-gradient-to-br from-accent/15 to-accent/5 rounded-xl flex items-center justify-center shrink-0 group-hover:from-accent/20 group-hover:to-accent/10 transition-colors">
                       <item.icon className="h-5 w-5 text-accent" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground text-sm group-hover:text-primary transition-colors">{item.title}</h3>
+                      <h3 className="font-semibold text-foreground text-sm group-hover:text-accent transition-colors">{item.title}</h3>
                       <p className="text-base font-bold text-primary">{item.main}</p>
                       <p className="text-sm text-muted-foreground">{item.sub}</p>
                     </div>
@@ -86,9 +85,9 @@ export default function Contact() {
                     sub: BUSINESS.hoursDetail,
                   },
                 ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-4 p-4">
-                    <div className="w-12 h-12 bg-primary/8 rounded-xl flex items-center justify-center shrink-0">
-                      <item.icon className="h-5 w-5 text-primary" />
+                  <div key={item.title} className="flex items-start gap-4 p-4 -mx-4">
+                    <div className="w-12 h-12 bg-primary/[0.06] rounded-xl flex items-center justify-center shrink-0">
+                      <item.icon className="h-5 w-5 text-primary/60" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground text-sm">{item.title}</h3>
@@ -103,7 +102,7 @@ export default function Contact() {
             <div className="space-y-8">
               <ContactForm />
 
-              <div className="bg-white rounded-2xl p-7 sm:p-8 shadow-card">
+              <div className="bg-muted/40 rounded-2xl p-7 sm:p-8 border border-border/40">
                 <h2 className="text-lg font-display font-bold text-foreground mb-1">Quick Reference</h2>
                 <p className="text-sm text-muted-foreground mb-6">Everything you need to know before calling</p>
                 <div className="space-y-4 text-sm">
