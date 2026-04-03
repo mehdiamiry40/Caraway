@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-sans-body), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display-heading), ui-sans-serif, system-ui, sans-serif;
+  /* Bound in app/layout.tsx via next/font (see --font-sans-body / --font-display-heading) */
+  --font-sans: var(--font-sans-body), sans-serif;
+  --font-display: var(--font-display-heading), sans-serif;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-primary-dark: hsl(var(--primary-dark));
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-muted: hsl(var(--muted));
@@ -21,34 +21,25 @@
   --color-ring: hsl(var(--ring));
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
-
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.04);
-  --shadow-lg: 0 10px 25px -3px rgb(0 0 0 / 0.07), 0 4px 10px -4px rgb(0 0 0 / 0.04);
-  --shadow-xl: 0 20px 50px -12px rgb(0 0 0 / 0.12);
-  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
-  --shadow-card-hover: 0 10px 30px -5px rgb(0 0 0 / 0.08), 0 4px 8px -4px rgb(0 0 0 / 0.03);
-  --shadow-float: 0 20px 60px -15px rgb(0 0 0 / 0.15), 0 8px 20px -8px rgb(0 0 0 / 0.06);
 }
 
 :root {
-  --background: 40 20% 99%;
-  --foreground: 215 35% 18%;
+  --background: 0 0% 100%;
+  --foreground: 213 30% 18%;
   --primary: 213 48% 33%;
   --primary-foreground: 0 0% 100%;
-  --primary-dark: 215 50% 22%;
-  --secondary: 215 18% 96%;
-  --secondary-foreground: 215 35% 18%;
-  --muted: 40 12% 96%;
-  --muted-foreground: 215 14% 48%;
-  --accent: 36 82% 55%;
+  --secondary: 213 20% 96%;
+  --secondary-foreground: 213 30% 18%;
+  --muted: 213 16% 96%;
+  --muted-foreground: 213 12% 46%;
+  --accent: 33 80% 53%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  --border: 215 16% 90%;
+  --border: 213 14% 90%;
   --ring: 213 48% 33%;
   --card: 0 0% 100%;
-  --card-foreground: 215 35% 18%;
+  --card-foreground: 213 30% 18%;
 }
 
 @layer base {
@@ -58,25 +49,18 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-sans overflow-x-hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  ::selection {
-    background: hsl(213 48% 33% / 0.12);
-    color: hsl(215 35% 18%);
+    @apply bg-background text-foreground antialiased font-sans overflow-x-hidden selection:bg-primary/15 selection:text-primary;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    @apply font-bold tracking-tight text-foreground;
+    @apply font-bold tracking-tight;
   }
 }
 
 @layer utilities {
   .section-y {
-    @apply py-20 sm:py-24 md:py-32;
+    @apply py-16 sm:py-20 md:py-28;
   }
 
   .text-balance {
@@ -90,7 +74,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 120px;
 }
 
 @utility pt-safe {

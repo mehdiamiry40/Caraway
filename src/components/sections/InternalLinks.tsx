@@ -11,17 +11,17 @@ export function InternalLinks({ currentSlug }: InternalLinksProps) {
   const topSuburbs = suburbs.filter(s => s.slug !== currentSlug).slice(0, 8);
 
   return (
-    <section className="py-16 sm:py-20 bg-muted/50 border-t border-border/40">
+    <section className="section-y bg-muted/50 border-t border-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-lg font-display font-bold text-foreground mb-5">Our Services</h2>
-            <ul className="space-y-2.5">
+            <h2 className="text-lg font-display font-bold text-foreground mb-4">Our Services</h2>
+            <ul className="space-y-2">
               {topServices.map(s => (
                 <li key={s.slug}>
                   <Link
                     href={`/${s.slug}`}
-                    className="text-sm text-primary hover:text-accent transition-colors hover:underline underline-offset-2"
+                    className="text-sm text-primary hover:text-accent transition-colors hover:underline rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                   >
                     {s.h1}
                   </Link>
@@ -30,13 +30,13 @@ export function InternalLinks({ currentSlug }: InternalLinksProps) {
             </ul>
           </div>
           <div>
-            <h2 className="text-lg font-display font-bold text-foreground mb-5">Areas We Service</h2>
-            <ul className="space-y-2.5">
+            <h2 className="text-lg font-display font-bold text-foreground mb-4">Areas We Service</h2>
+            <ul className="space-y-2">
               {topSuburbs.map(s => (
                 <li key={s.slug}>
                   <Link
                     href={`/locations/${s.slug}`}
-                    className="text-sm text-primary hover:text-accent transition-colors hover:underline underline-offset-2"
+                    className="text-sm text-primary hover:text-accent transition-colors hover:underline rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                   >
                     {s.h1}
                   </Link>
@@ -45,9 +45,9 @@ export function InternalLinks({ currentSlug }: InternalLinksProps) {
               <li>
                 <Link
                   href="/locations"
-                  className="text-sm text-accent font-semibold hover:underline underline-offset-2"
+                  className="text-sm text-accent font-semibold hover:underline rounded-sm focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
                 >
-                  View all locations &rarr;
+                  View all locations →
                 </Link>
               </li>
             </ul>

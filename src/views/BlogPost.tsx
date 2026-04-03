@@ -19,13 +19,12 @@ export default function BlogPost({ post }: { post: BlogPostType }) {
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main id="main-content" className="flex-1">
-        <section className="relative overflow-hidden bg-gradient-to-br from-[hsl(215,50%,18%)] via-[hsl(215,50%,22%)] to-[hsl(215,48%,28%)] text-white pt-32 lg:pt-36 pb-16 lg:pb-20">
-          <div className="absolute inset-0 opacity-[0.03]" aria-hidden style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 0.5px, transparent 0)", backgroundSize: "32px 32px" }} />
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
+        <section className="bg-primary text-white py-16 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
-            <div className="flex flex-wrap items-center gap-3 text-sm text-white/50 mt-5 mb-5">
-              <span className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 backdrop-blur-sm px-3 py-1.5 font-medium text-white/80 text-xs">
+            <div className="flex flex-wrap items-center gap-3 text-sm text-white/60 mt-5 mb-5">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 backdrop-blur-sm px-3 py-1.5 font-medium text-white/90 text-xs">
                 <Tag className="h-3 w-3" />
                 {post.category}
               </span>
@@ -47,7 +46,7 @@ export default function BlogPost({ post }: { post: BlogPostType }) {
           </div>
         </section>
 
-        <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
           <div className="max-w-none">
             {post.content.map((paragraph, i) => (
               <p
@@ -60,8 +59,8 @@ export default function BlogPost({ post }: { post: BlogPostType }) {
           </div>
 
           {/* CTA */}
-          <div className="mt-14 rounded-2xl bg-white shadow-lg ring-1 ring-border/30 p-7 sm:p-10 text-center">
-            <p className="font-display font-bold text-xl sm:text-2xl text-foreground mb-3">
+          <div className="mt-14 rounded-2xl border border-primary/10 bg-gradient-to-b from-primary/[0.04] to-transparent p-7 sm:p-10 text-center">
+            <p className="font-display font-bold text-xl sm:text-2xl text-primary mb-3">
               Ready to sell your car for cash?
             </p>
             <p className="text-muted-foreground text-sm mb-6 max-w-md mx-auto">
@@ -70,14 +69,14 @@ export default function BlogPost({ post }: { post: BlogPostType }) {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
                 href={BUSINESS.phoneHref}
-                className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white shadow-md hover:bg-accent/90 hover:shadow-lg transition-all"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white hover:bg-accent/90 transition-colors"
               >
                 <Phone className="h-4 w-4" />
                 Call {BUSINESS.phone}
               </a>
               <Link
                 href="/#quote-section"
-                className="inline-flex items-center gap-2 rounded-xl border-2 border-border px-6 py-3 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-all"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-primary/20 px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-white hover:border-primary transition-all"
               >
                 Get a Free Quote
               </Link>
@@ -95,9 +94,9 @@ export default function BlogPost({ post }: { post: BlogPostType }) {
                   <Link
                     key={related.slug}
                     href={`/blog/${related.slug}`}
-                    className="group rounded-2xl bg-white shadow-card hover:shadow-card-hover p-6 transition-all"
+                    className="group rounded-2xl border border-border/60 p-6 hover:border-primary/20 hover:shadow-md transition-all"
                   >
-                    <span className="text-xs text-accent font-semibold">{related.category}</span>
+                    <span className="text-xs text-accent font-medium">{related.category}</span>
                     <h3 className="font-display font-bold text-sm text-foreground group-hover:text-primary transition-colors mt-1.5 leading-snug line-clamp-2">
                       {related.title}
                     </h3>
