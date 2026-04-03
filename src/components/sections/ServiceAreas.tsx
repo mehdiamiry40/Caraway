@@ -45,7 +45,7 @@ export function ServiceAreas() {
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <a
               href={BUSINESS.phoneHref}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_4px_14px_0_rgba(16,36,82,0.2)] transition hover:bg-primary/90"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-primary-glow transition hover:bg-primary/90"
             >
               <Phone className="h-4 w-4 shrink-0" />
               {BUSINESS.phoneFriendly}

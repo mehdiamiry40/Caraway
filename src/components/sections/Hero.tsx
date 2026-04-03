@@ -16,7 +16,7 @@ export function Hero() {
         <div className="relative z-10 flex flex-col justify-center w-full lg:w-[46%] shrink-0 px-4 sm:px-6 lg:px-10 py-14 sm:py-18 lg:py-24 lg:pl-16 lg:pr-14">
           <div
             aria-hidden
-            className="absolute inset-y-0 z-0 bg-gradient-to-br from-primary via-primary to-[hsl(222,65%,14%)]"
+            className="absolute inset-y-0 z-0 bg-gradient-to-br from-primary via-primary to-primary-deep"
             style={{ left: "calc(50% - 50vw)", right: 0 }}
           />
           {/* Subtle pattern overlay */}
@@ -57,7 +57,7 @@ export function Hero() {
                 href="#quote-section"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "bg-accent hover:bg-accent/90 text-white rounded-full h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base font-semibold shadow-[0_4px_20px_rgba(232,119,34,0.4)] hover:shadow-[0_6px_28px_rgba(232,119,34,0.5)] group border-0"
+                  "bg-accent hover:bg-accent/90 text-white rounded-full h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base font-semibold shadow-accent-glow-lg group border-0"
                 )}
               >
                 Get a free quote
@@ -111,7 +111,7 @@ export function Hero() {
           <div className="absolute inset-0 z-[2] bg-gradient-to-t from-primary/20 to-transparent pointer-events-none" />
 
           <div className="absolute bottom-5 left-4 right-4 sm:bottom-7 sm:left-auto sm:right-7 sm:max-w-sm z-[3] glass-panel rounded-2xl px-5 py-4 flex items-center gap-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent/80 rounded-xl flex items-center justify-center text-white font-bold text-lg shrink-0 shadow-[0_4px_12px_rgba(232,119,34,0.3)]" aria-hidden>
+            <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent/80 rounded-xl flex items-center justify-center text-white font-bold text-lg shrink-0 shadow-accent-glow" aria-hidden>
               $
             </div>
             <div>

@@ -29,7 +29,7 @@ export default function Locations() {
       <Header />
 
       <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
-        <section className="bg-gradient-to-br from-primary via-primary to-[hsl(222,65%,14%)] text-white py-16 lg:py-20 relative overflow-hidden">
+        <section className="bg-gradient-to-br from-primary via-primary to-primary-deep text-white py-16 lg:py-20 relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" aria-hidden style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "24px 24px" }} />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <Breadcrumbs items={breadcrumbs} light />
@@ -98,7 +98,7 @@ export default function Locations() {
             </p>
             <a
               href={BUSINESS.phoneHref}
-              className="inline-flex items-center justify-center gap-2 bg-accent text-white rounded-full py-3 px-6 font-semibold hover:bg-accent/90 transition-colors shadow-[0_4px_14px_rgba(232,119,34,0.25)]"
+              className="inline-flex items-center justify-center gap-2 bg-accent text-white rounded-full py-3 px-6 font-semibold hover:bg-accent/90 transition-colors shadow-accent-glow"
             >
               <Phone className="h-4 w-4" />
               Call {BUSINESS.phone}
