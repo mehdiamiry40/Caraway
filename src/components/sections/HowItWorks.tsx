@@ -42,7 +42,7 @@ export function HowItWorks() {
             <div key={step.title} className="relative z-10 flex flex-col items-center text-center group">
               <div className="relative mb-6">
                 {/* Step number ring */}
-                <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center shadow-accent-glow-sm z-10">
+                <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center shadow-[0_2px_8px_rgba(232,119,34,0.3)] z-10">
                   {index + 1}
                 </div>
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/[0.08] to-primary/[0.03] border border-primary/10 flex items-center justify-center text-accent group-hover:border-accent/30 group-hover:from-accent/10 group-hover:to-accent/5 transition-all">

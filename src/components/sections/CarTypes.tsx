@@ -20,7 +20,7 @@ const plainTypes = [
 
 export function CarTypes() {
   return (
-    <section className="section-y bg-gradient-to-br from-primary via-primary to-primary-deep text-primary-foreground overflow-hidden relative" aria-label="Types of cars we buy in Brisbane">
+    <section className="section-y bg-gradient-to-br from-primary via-primary to-[hsl(222,65%,14%)] text-primary-foreground overflow-hidden relative" aria-label="Types of cars we buy in Brisbane">
       {/* Decorative background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/[0.04] rounded-full blur-3xl" />
