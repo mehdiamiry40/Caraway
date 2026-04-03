@@ -3,12 +3,6 @@ import { MapPin, ArrowRight, Phone } from "lucide-react";
 import { suburbs } from "@/data/suburbs";
 import { BUSINESS } from "@/lib/site";
 
-const areaRowClassName =
-  "group flex min-h-[2.75rem] items-center gap-2.5 rounded-xl border border-border/50 bg-white px-3.5 py-2.5 text-left text-xs sm:text-sm font-medium text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground";
-
-const areaIconWrapClassName =
-  "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-muted text-primary/50 group-hover:bg-white/15 group-hover:text-primary-foreground transition-colors";
-
 const additionalAreas = [
   "Brisbane CBD", "Fortitude Valley", "West End", "Paddington",
   "Kelvin Grove", "Newstead", "New Farm", "Kangaroo Point",
@@ -24,32 +18,31 @@ const additionalAreas = [
 
 export function ServiceAreas() {
   return (
-    <section
-      className="section-y bg-muted/40"
-      aria-label="Cash for cars service areas Brisbane"
-    >
+    <section className="section-y bg-muted/50" aria-label="Cash for cars service areas Brisbane">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 lg:mb-12">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 lg:mb-16">
           <div className="max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary leading-tight text-balance">
-              Cash for Cars Brisbane Service Areas
+            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-accent mb-4">Service areas</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground leading-tight text-balance">
+              We Cover All of Greater Brisbane
             </h2>
-            <p className="mt-3 text-muted-foreground leading-relaxed">
-              We collect from Brisbane, Ipswich, Logan, Redland Bay, Moreton Bay, and nearby areas. Remote or unusual access? Say so when you call — we&apos;ll be honest about trucks.
+            <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+              Brisbane, Ipswich, Logan, Redlands, Moreton Bay, and nearby areas. Remote or tricky access? Mention it when you call.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <a
               href={BUSINESS.phoneHref}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-primary/90 hover:shadow-lg transition-all"
             >
               <Phone className="h-4 w-4 shrink-0" />
               {BUSINESS.phoneFriendly}
             </a>
             <Link
               href="/locations"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-white px-5 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground hover:border-primary"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border bg-white px-6 py-3.5 text-sm font-semibold text-foreground hover:border-primary hover:text-primary transition-all"
             >
               All locations
               <ArrowRight className="h-4 w-4" />
@@ -57,20 +50,18 @@ export function ServiceAreas() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-border/40 bg-white p-5 sm:p-6 lg:p-8">
-          <h3 className="font-display text-sm font-bold text-primary mb-4">
-            Browse by area
-          </h3>
+        {/* Areas grid */}
+        <div className="bg-white rounded-2xl shadow-card p-6 sm:p-8">
+          <h3 className="font-display text-sm font-bold text-foreground mb-5">Browse by area</h3>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
             {suburbs.map((suburb) => (
               <li key={suburb.slug} className="min-w-0">
-                <Link href={`/locations/${suburb.slug}`} className={areaRowClassName}>
-                  <span className={areaIconWrapClassName} aria-hidden>
-                    <MapPin className="h-3 w-3" strokeWidth={2.5} />
-                  </span>
-                  <span className="leading-snug break-words">
-                    {suburb.h1.replace("Cash for Cars ", "")}
-                  </span>
+                <Link
+                  href={`/locations/${suburb.slug}`}
+                  className="group flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-primary hover:text-white"
+                >
+                  <MapPin className="h-3.5 w-3.5 text-muted-foreground group-hover:text-white/70 shrink-0 transition-colors" strokeWidth={2} />
+                  <span className="leading-snug">{suburb.h1.replace("Cash for Cars ", "")}</span>
                 </Link>
               </li>
             ))}
@@ -78,33 +69,26 @@ export function ServiceAreas() {
               <li key={`area-${area}`} className="min-w-0">
                 <Link
                   href="/locations"
-                  className={areaRowClassName}
+                  className="group flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm font-medium text-foreground transition-all hover:bg-primary hover:text-white"
                   title={`${area} — view all locations`}
                 >
-                  <span className={areaIconWrapClassName} aria-hidden>
-                    <MapPin className="h-3 w-3" strokeWidth={2.5} />
-                  </span>
-                  <span className="leading-snug break-words">{area}</span>
+                  <MapPin className="h-3.5 w-3.5 text-muted-foreground group-hover:text-white/70 shrink-0 transition-colors" strokeWidth={2} />
+                  <span className="leading-snug">{area}</span>
                 </Link>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="mt-10 max-w-3xl mx-auto rounded-2xl border border-border/40 bg-white px-6 py-6 text-center sm:px-10">
-          <p className="font-display font-bold text-primary leading-snug">
-            Not in the list?
-          </p>
-          <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
-            <strong className="text-foreground font-semibold">We likely still service your area.</strong>{" "}
-            Call{" "}
-            <a
-              href={BUSINESS.phoneHref}
-              className="font-semibold text-primary underline-offset-2 hover:underline"
-            >
-              {BUSINESS.phoneFriendly} ({BUSINESS.phone})
+        {/* Bottom CTA */}
+        <div className="mt-10 bg-white rounded-2xl shadow-card px-6 py-6 sm:px-10 sm:py-8 text-center max-w-2xl mx-auto">
+          <p className="font-display font-bold text-foreground text-lg">Not in the list?</p>
+          <p className="mt-2 text-muted-foreground leading-relaxed">
+            We likely still service your area. Call{" "}
+            <a href={BUSINESS.phoneHref} className="font-semibold text-primary hover:underline underline-offset-2">
+              {BUSINESS.phoneFriendly}
             </a>{" "}
-            to confirm same-day availability at your location.
+            to confirm availability at your location.
           </p>
         </div>
       </div>
