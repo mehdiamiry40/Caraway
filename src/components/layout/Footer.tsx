@@ -32,7 +32,7 @@ const linkClasses = "text-foreground/70 hover:text-white transition-colors text-
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-gradient-to-br from-primary via-primary to-primary-deep text-white">
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-18">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-8">

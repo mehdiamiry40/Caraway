@@ -5,10 +5,12 @@
   --font-sans: var(--font-sans-body), sans-serif;
   --font-display: var(--font-display-heading), sans-serif;
 
+  /* I-MED (i-med.com.au)–inspired: deep teal brand, bright teal CTAs, clinical neutrals */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-deep: hsl(var(--primary-deep));
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-muted: hsl(var(--muted));
@@ -24,22 +26,25 @@
 }
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 220 25% 16%;
-  --primary: 222 65% 18%;
+  --background: 195 35% 99%;
+  --foreground: 200 24% 17%;
+  /* Deep teal — header, footer, hero panels */
+  --primary: 186 100% 17%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 220 20% 96%;
-  --secondary-foreground: 220 25% 16%;
-  --muted: 220 16% 96%;
-  --muted-foreground: 220 10% 46%;
-  --accent: 28 85% 52%;
+  --primary-deep: 188 100% 11%;
+  --secondary: 195 28% 96%;
+  --secondary-foreground: 200 24% 17%;
+  --muted: 195 22% 95%;
+  --muted-foreground: 200 12% 42%;
+  /* Bright teal — primary actions (I-MED style) */
+  --accent: 172 82% 42%;
   --accent-foreground: 0 0% 100%;
-  --destructive: 0 84% 60%;
+  --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
-  --border: 220 14% 90%;
-  --ring: 222 65% 18%;
+  --border: 195 16% 88%;
+  --ring: 186 100% 17%;
   --card: 0 0% 100%;
-  --card-foreground: 220 25% 16%;
+  --card-foreground: 200 24% 17%;
 }
 
 @layer base {
@@ -49,7 +54,7 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-sans overflow-x-hidden selection:bg-primary/15 selection:text-primary;
+    @apply bg-background text-foreground antialiased font-sans overflow-x-hidden selection:bg-accent/15 selection:text-primary;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -59,8 +64,25 @@
 }
 
 @layer utilities {
+  /* Theme-tied glows (replaces hardcoded navy/orange rgba) */
+  .shadow-accent-glow {
+    box-shadow: 0 4px 14px 0 hsl(var(--accent) / 0.28);
+  }
+  .shadow-accent-glow-lg {
+    box-shadow: 0 4px 20px 0 hsl(var(--accent) / 0.35), 0 6px 28px 0 hsl(var(--accent) / 0.2);
+  }
+  .shadow-accent-glow-sm {
+    box-shadow: 0 2px 8px 0 hsl(var(--accent) / 0.28);
+  }
+  .shadow-accent-ring {
+    box-shadow: 0 0 12px 0 hsl(var(--accent) / 0.35), 0 0 18px 0 hsl(var(--accent) / 0.18);
+  }
+  .shadow-primary-glow {
+    box-shadow: 0 4px 14px 0 hsl(var(--primary) / 0.28);
+  }
+
   .glass-panel {
-    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+    @apply bg-white/85 backdrop-blur-xl border border-white/30 shadow-[0_8px_32px_rgb(0,55,58,0.08)];
   }
 
   .section-y {
@@ -68,7 +90,12 @@
   }
 
   .section-label {
-    @apply text-xs font-semibold uppercase tracking-[0.2em] text-accent;
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-accent;
+  }
+
+  /* Full-width page hero band (inner pages) — I-MED style gradient */
+  .page-hero-band {
+    @apply bg-gradient-to-br from-primary via-primary to-primary-deep text-white;
   }
 
   .text-balance {

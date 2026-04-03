@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Open_Sans, Montserrat } from "next/font/google";
+import { Open_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import {
@@ -19,7 +19,7 @@ const openSans = Open_Sans({
   display: "swap",
 });
 
-const montserrat = Montserrat({
+const plusJakarta = Plus_Jakarta_Sans({
   weight: ["600", "700"],
   subsets: ["latin"],
   variable: "--font-display-heading",
@@ -87,7 +87,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${openSans.variable} ${montserrat.variable}`}
+      className={`${openSans.variable} ${plusJakarta.variable}`}
     >
       <body className="min-h-screen">
         <a

@@ -66,7 +66,7 @@ export function QuoteForm() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none" aria-hidden />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 border border-border/50 shadow-[0_4px_40px_rgba(0,0,0,0.04)] relative overflow-hidden">
+        <div className="bg-card rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 border border-primary/10 shadow-[0_4px_32px_-4px_hsl(186_100%_17%_/_0.08)] relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 relative z-10">
             <div className="flex flex-col justify-center">
               <p className="section-label mb-3">Free quote</p>

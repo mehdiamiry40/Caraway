@@ -97,8 +97,8 @@ export function Header() {
         "fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 pt-safe",
         isScrolled ? "shadow-md" : ""
       )}>
-        {/* Top bar — navy brand strip */}
-        <div className="bg-primary">
+        {/* Top bar — brand strip (I-MED–style deep teal) */}
+        <div className="bg-primary border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between min-h-14 h-14">
             <Link href="/" className="flex items-center gap-2 group">
               <span className="font-display font-bold text-2xl tracking-tight text-white lowercase">
@@ -117,7 +117,7 @@ export function Header() {
               <Button
                 onClick={scrollToQuote}
                 size="sm"
-                className="rounded-full px-6 bg-accent hover:bg-accent/90 text-white border-0 font-semibold shadow-[0_0_12px_rgba(232,119,34,0.3)] hover:shadow-[0_0_18px_rgba(232,119,34,0.45)]"
+                className="rounded-full px-6 bg-accent hover:bg-accent/90 text-white border-0 font-semibold shadow-accent-ring"
               >
                 Get a Quote
               </Button>
@@ -134,8 +134,8 @@ export function Header() {
           </div>
         </div>
 
-        {/* Navigation bar — white */}
-        <div className="bg-white border-b border-border hidden lg:block">
+        {/* Navigation bar — light clinical surface */}
+        <div className="bg-background/95 backdrop-blur-sm border-b border-border hidden lg:block">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav aria-label="Primary navigation" className="flex items-center gap-8 h-12">
               {navLinks.map((link) => (
