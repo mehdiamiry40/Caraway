@@ -16,29 +16,30 @@ export default function Blog() {
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
-        <section className="bg-primary text-white py-16 lg:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main id="main-content" className="flex-1">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[hsl(215,50%,18%)] via-[hsl(215,50%,22%)] to-[hsl(215,48%,28%)] text-white pt-32 lg:pt-36 pb-16 lg:pb-20">
+          <div className="absolute inset-0 opacity-[0.03]" aria-hidden style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 0.5px, transparent 0)", backgroundSize: "32px 32px" }} />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
-            <h1 className="text-4xl sm:text-5xl font-display font-bold leading-tight mt-4 mb-6">
+            <h1 className="text-4xl sm:text-5xl font-display font-bold leading-tight mt-5 mb-6">
               Blog
             </h1>
-            <p className="text-white/70 text-lg leading-relaxed max-w-3xl">
+            <p className="text-white/60 text-lg leading-relaxed max-w-3xl">
               Tips, guides, and insights about selling your car for cash in Brisbane.
             </p>
           </div>
         </section>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {blogPosts.map((post) => (
               <article
                 key={post.slug}
-                className="group rounded-2xl border border-border/60 bg-white hover:border-primary/20 hover:shadow-md transition-all overflow-hidden"
+                className="group rounded-2xl bg-white shadow-card hover:shadow-card-hover transition-all overflow-hidden"
               >
                 <div className="p-6 sm:p-8 flex flex-col h-full">
                   <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 font-semibold text-accent">
+                    <span className="inline-flex items-center gap-1.5 rounded-lg bg-accent/10 px-3 py-1 font-semibold text-accent">
                       <Tag className="h-3 w-3" />
                       {post.category}
                     </span>

@@ -27,28 +27,32 @@ export function Accordion({ items, className }: AccordionProps) {
           <div
             key={item.question}
             className={cn(
-              "border bg-white rounded-xl overflow-hidden transition-colors",
-              isActive ? "border-border" : "border-border/50 hover:border-border"
+              "rounded-2xl bg-white transition-all duration-300",
+              isActive
+                ? "shadow-lg ring-1 ring-primary/10"
+                : "shadow-card hover:shadow-md ring-1 ring-border/60"
             )}
           >
             <button
               type="button"
               id={triggerId}
               onClick={() => setActiveIndex(isActive ? null : index)}
-              className="flex w-full min-h-[3.25rem] items-center justify-between gap-3 p-4 sm:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 touch-manipulation"
+              className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-2xl touch-manipulation"
               aria-expanded={isActive}
               aria-controls={panelId}
             >
-              <span className="font-display text-base sm:text-lg font-medium text-foreground">
+              <span className="font-display text-base sm:text-lg font-semibold text-foreground leading-snug pr-2">
                 {item.question}
               </span>
               <div
                 className={cn(
-                  "flex-shrink-0 ml-4 flex items-center justify-center h-8 w-8 rounded-full bg-muted text-primary/60 transition-all duration-300",
-                  isActive && "rotate-180"
+                  "flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full transition-all duration-300",
+                  isActive
+                    ? "bg-primary text-white rotate-180"
+                    : "bg-muted text-muted-foreground"
                 )}
               >
-                <ChevronDown className="h-5 w-5" aria-hidden="true" />
+                <ChevronDown className="h-4 w-4" aria-hidden="true" />
               </div>
             </button>
             <div
@@ -61,7 +65,7 @@ export function Accordion({ items, className }: AccordionProps) {
               )}
             >
               <div className="overflow-hidden">
-                <div className="px-4 pb-4 pt-0 sm:px-6 sm:pb-6 text-muted-foreground text-sm sm:text-base leading-relaxed">
+                <div className="px-5 pb-5 pt-0 sm:px-6 sm:pb-6 text-muted-foreground text-[15px] leading-relaxed">
                   {item.answer}
                 </div>
               </div>

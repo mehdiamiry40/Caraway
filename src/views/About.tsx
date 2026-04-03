@@ -23,21 +23,22 @@ export default function About() {
     <div className="flex flex-col min-h-screen">
       <Header />
 
-      <main id="main-content" className="flex-1 mt-14 lg:mt-[104px]">
-        <section className="bg-primary text-white py-16 lg:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main id="main-content" className="flex-1">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[hsl(215,50%,18%)] via-[hsl(215,50%,22%)] to-[hsl(215,48%,28%)] text-white pt-32 lg:pt-36 pb-16 lg:pb-20">
+          <div className="absolute inset-0 opacity-[0.03]" aria-hidden style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 0.5px, transparent 0)", backgroundSize: "32px 32px" }} />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Breadcrumbs items={breadcrumbs} light />
-            <h1 className="text-4xl sm:text-5xl font-display font-bold leading-tight mt-4 mb-6">
+            <h1 className="text-4xl sm:text-5xl font-display font-bold leading-tight mt-5 mb-6">
               About Caraway
             </h1>
-            <p className="text-white/70 text-lg leading-relaxed max-w-3xl">
+            <p className="text-white/60 text-lg leading-relaxed max-w-3xl">
               We&apos;re a locally owned Brisbane business that makes selling your car simple. No auctions, no advertising, no time-wasters — just fair cash offers and same-day service.
             </p>
           </div>
         </section>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18">
-          <div className="max-w-3xl space-y-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+          <div className="max-w-3xl space-y-14">
             <div>
               <h2 className="text-2xl font-display font-bold text-foreground mb-4">Who We Are</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
@@ -57,12 +58,12 @@ export default function About() {
 
             <div>
               <h2 className="text-2xl font-display font-bold text-foreground mb-6">What Sets Us Apart</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {features.map(item => (
-                  <div key={item.title} className="flex gap-3 p-4 rounded-xl bg-muted/50 border border-border/40">
+                  <div key={item.title} className="flex gap-4 p-5 rounded-2xl bg-white shadow-card">
                     <CheckCircle2 className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-foreground text-sm">{item.title}</strong>
+                      <strong className="text-foreground text-sm font-semibold">{item.title}</strong>
                       <p className="text-muted-foreground text-sm mt-1 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
